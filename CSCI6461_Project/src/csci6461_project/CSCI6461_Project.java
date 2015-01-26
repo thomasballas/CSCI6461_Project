@@ -20,7 +20,13 @@ public class CSCI6461_Project {
         // TODO code application logic here
         DisplayController myDisplay = new DisplayController();
         sleep(3000);
-        myDisplay.updateGPR(0, 26);
+        myDisplay.updateGPR(0, 1);
+        sleep(3000);
+        myDisplay.updateGPR(1, 2);
+        sleep(3000);
+        myDisplay.updateGPR(2, 4);
+        sleep(3000);
+        myDisplay.updateGPR(3, 8);
         System.out.println("Got to the end of this thing.");
     }
     

@@ -17,41 +17,110 @@ public class FrontPanel extends JFrame {
     /**
      * Creates new form FrontPanel
      */
+    public static JTextField GPR0[];
+    static JTextField GPR1[];
+    static JTextField GPR2[];
+    static JTextField GPR3[];
+    
+
     public FrontPanel() {
         initComponents();
         setVisible(true);
-    }
-    
-    public void updateGPRegister(int rNum, int value)
-    {
-        JTextField GPR0[] = {
-            jTextField1, 
-            jTextField2, 
+        GPR0 = new JTextField[] { 
+            jTextField1,
+            jTextField2,
             jTextField3,
-            jTextField4, 
-            jTextField5, 
+            jTextField4,
+            jTextField5,
             jTextField6,
-            jTextField7, 
-            jTextField8, 
+            jTextField7,
+            jTextField8,
             jTextField9,
-            jTextField10, 
-            jTextField11, 
-            jTextField12, 
-            jTextField13, 
-            jTextField14, 
-            jTextField15, 
-            jTextField16 
+            jTextField10,
+            jTextField11,
+            jTextField12,
+            jTextField13,
+            jTextField14,
+            jTextField15,
+            jTextField16
         };
-        if (rNum == 0) {
-            int mask = 1 << 15;
-            for (int i = 0; i < 16; i++) {
-                if ((mask & value) != 0) {
-                    GPR0[i].setText("1");
-                } else {
-                    GPR0[i].setText("0");
-                }
-                mask = mask >> 1;
+        GPR1 = new JTextField[] {
+            jTextField26,
+            jTextField27,
+            jTextField28,
+            jTextField29,
+            jTextField30,
+            jTextField31,
+            jTextField32,
+            jTextField17,
+            jTextField24,
+            jTextField23,
+            jTextField22,
+            jTextField21,
+            jTextField20,
+            jTextField19,
+            jTextField18,
+            jTextField25
+        };
+        GPR2 = new JTextField[] {
+            jTextField47,
+            jTextField46,
+            jTextField45,
+            jTextField44,
+            jTextField43,
+            jTextField42,
+            jTextField41,
+            jTextField40,
+            jTextField33,
+            jTextField34,
+            jTextField35,
+            jTextField36,
+            jTextField37,
+            jTextField38,
+            jTextField39,
+            jTextField48
+        };
+        GPR3 = new JTextField[] {
+            jTextField63,
+            jTextField61,
+            jTextField54,
+            jTextField64,
+            jTextField58,
+            jTextField57,
+            jTextField52,
+            jTextField60,
+            jTextField49,
+            jTextField50,
+            jTextField55,
+            jTextField56,
+            jTextField53,
+            jTextField51,
+            jTextField59,
+            jTextField62
+        };
+    
+    }
+
+    public void updateGPRegister(int rNum, int value) {
+        
+
+        int mask = 1 << 15;
+        for (int i = 0; i < 16; i++) {
+//               
+            String valueString = Integer.toString(((value & mask) >> (15 - i)));
+            if (rNum == 0) {
+                GPR0[i].setText(valueString);
             }
+            if (rNum == 1) {
+                GPR1[i].setText(valueString);
+            }
+            if (rNum == 2) {
+                GPR2[i].setText(valueString);
+            }
+            if (rNum == 3) {
+                GPR3[i].setText(valueString);
+            }
+            mask = mask >> 1;
         }
     }
 
