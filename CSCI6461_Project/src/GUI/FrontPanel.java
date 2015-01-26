@@ -6,6 +6,7 @@
 package GUI;
 
 import javax.swing.JTextField;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 
 /**
@@ -21,6 +22,10 @@ public class FrontPanel extends JFrame {
     static JTextField GPR1[];
     static JTextField GPR2[];
     static JTextField GPR3[];
+    static JCheckBox GPRSwitch0[];
+    static JCheckBox GPRSwitch1[];
+    static JCheckBox GPRSwitch2[];
+    static JCheckBox GPRSwitch3[];
     
 
     public FrontPanel() {
@@ -98,7 +103,78 @@ public class FrontPanel extends JFrame {
             jTextField59,
             jTextField62
         };
-    
+        GPRSwitch0 = new JCheckBox[] { 
+            jCheckBox1,
+            jCheckBox2,
+            jCheckBox3,
+            jCheckBox4,
+            jCheckBox5,
+            jCheckBox6,
+            jCheckBox7,
+            jCheckBox8,
+            jCheckBox9,
+            jCheckBox10,
+            jCheckBox11,
+            jCheckBox12,
+            jCheckBox13,
+            jCheckBox14,
+            jCheckBox15,
+            jCheckBox16
+        };
+        GPRSwitch1 = new JCheckBox[] {
+            jCheckBox17,
+            jCheckBox18,
+            jCheckBox19,
+            jCheckBox20,
+            jCheckBox21,
+            jCheckBox22,
+            jCheckBox23,
+            jCheckBox29,
+            jCheckBox28,
+            jCheckBox27,
+            jCheckBox26,
+            jCheckBox25,
+            jCheckBox24,
+            jCheckBox32,
+            jCheckBox31,
+            jCheckBox30
+        };
+        GPRSwitch2 = new JCheckBox[] {
+            jCheckBox43,
+            jCheckBox42,
+            jCheckBox41,
+            jCheckBox40,
+            jCheckBox39,
+            jCheckBox38,
+            jCheckBox37,
+            jCheckBox45,
+            jCheckBox46,
+            jCheckBox33,
+            jCheckBox34,
+            jCheckBox35,
+            jCheckBox36,
+            jCheckBox47,
+            jCheckBox48,
+            jCheckBox44
+        };
+        GPRSwitch3 = new JCheckBox[] {
+            jCheckBox51,
+            jCheckBox59,
+            jCheckBox63,
+            jCheckBox56,
+            jCheckBox60,
+            jCheckBox62,
+            jCheckBox58,
+            jCheckBox61,
+            jCheckBox52,
+            jCheckBox57,
+            jCheckBox64,
+            jCheckBox53,
+            jCheckBox54,
+            jCheckBox55,
+            jCheckBox50,
+            jCheckBox49
+        };
     }
 
     public void updateGPRegister(int rNum, int value) {
@@ -107,18 +183,24 @@ public class FrontPanel extends JFrame {
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
 //               
-            String valueString = Integer.toString(((value & mask) >> (15 - i)));
+            int intVal = ((value & mask) >> (15 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
             if (rNum == 0) {
                 GPR0[i].setText(valueString);
+                GPRSwitch0[i].setSelected(boolVal);
             }
             if (rNum == 1) {
                 GPR1[i].setText(valueString);
+                GPRSwitch1[i].setSelected(boolVal);
             }
             if (rNum == 2) {
                 GPR2[i].setText(valueString);
+                GPRSwitch2[i].setSelected(boolVal);
             }
             if (rNum == 3) {
                 GPR3[i].setText(valueString);
+                GPRSwitch3[i].setSelected(boolVal);
             }
             mask = mask >> 1;
         }
