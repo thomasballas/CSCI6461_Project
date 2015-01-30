@@ -503,14 +503,14 @@ public class FrontPanel extends JFrame {
             jCheckBox180
         };
         
-        MFR = new JTextField[] {
+        CC = new JTextField[] {
             jTextField181,
             jTextField182,
             jTextField183,
             jTextField184
         };
 
-        MFRSwitch = new JCheckBox[] {
+        CCSwitch = new JCheckBox[] {
             jCheckBox181,
             jCheckBox182,
             jCheckBox183,
@@ -5489,6 +5489,8 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
+        if (jCheckBox1.isSelected()) jTextField1.setText("1");
+        else jTextField1.setText("0");
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed

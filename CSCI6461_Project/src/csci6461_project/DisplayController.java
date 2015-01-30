@@ -39,4 +39,42 @@ public class DisplayController {
         display.updateXRegister(xNum, value);
     }
     
+    public void updateIR(int value)
+    {
+        display.updateIRRegister(value);
+    }
+    
+    public void updateMAR(int value)
+    {
+        display.updateMARRegister(value);
+    }
+    
+    public void updateMBR(int value)
+    {
+        display.updateMBRRegister(value);
+    }
+    
+    public void updateMSR(int value)
+    {
+        display.updateMSRRegister(value);
+    }
+    
+    public void updateMFR(int value)
+    {
+        display.updateMFRRegister(value);
+    }
+    
+    public void updateCC(int value)
+    {
+        display.updateCCRegister(value);
+    }
+    
+    public void updatePC(int value)
+    {
+        display.updatePCRegister(value);
+    }
+    
+    
+    
+    
 }
