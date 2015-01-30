@@ -19,8 +19,24 @@ public class DisplayController {
         display = new FrontPanel();
     }
     
+    public String getConsoleInput()
+    {
+        return display.getConsoleInput();
+    }
+        
+    public void updatePrinter(String output)
+    {
+        display.updatePrinter(output);
+    }
+    
     public void updateGPR(int rNum, int value)
     {
         display.updateGPRegister(rNum, value);
     }
+    
+    public void updateXR(int xNum, int value)
+    {
+        display.updateXRegister(xNum, value);
+    }
+    
 }

@@ -8,7 +8,7 @@ package GUI;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-
+import javax.swing.JTextArea;
 /**
  *
  * @author Aether
@@ -18,7 +18,7 @@ public class FrontPanel extends JFrame {
     /**
      * Creates new form FrontPanel
      */
-    public static JTextField GPR0[];
+    static JTextField GPR0[];
     static JTextField GPR1[];
     static JTextField GPR2[];
     static JTextField GPR3[];
@@ -26,11 +26,35 @@ public class FrontPanel extends JFrame {
     static JCheckBox GPRSwitch1[];
     static JCheckBox GPRSwitch2[];
     static JCheckBox GPRSwitch3[];
+    static JTextField X1[];
+    static JTextField X2[];
+    static JTextField X3[];
+    static JCheckBox XSwitch1[];
+    static JCheckBox XSwitch2[];
+    static JCheckBox XSwitch3[];
+    static JTextField PC[];
+    static JCheckBox PCSwitch[];
+    static JTextField IR[];
+    static JCheckBox IRSwitch[];
+    static JTextField MAR[];
+    static JCheckBox MARSwitch[];
+    static JTextField MBR[];
+    static JCheckBox MBRSwitch[];
+    static JTextField MSR[];
+    static JCheckBox MSRSwitch[];
+    static JTextField MFR[];
+    static JCheckBox MFRSwitch[];
+    static JTextField CC[];
+    static JCheckBox CCSwitch[];
+    static JTextArea Printer;
+    static JTextField ConsoleInput;
     
 
     public FrontPanel() {
         initComponents();
         setVisible(true);
+        Printer = jTextArea1;
+        ConsoleInput = jTextField185;
         GPR0 = new JTextField[] { 
             jTextField1,
             jTextField2,
@@ -175,10 +199,334 @@ public class FrontPanel extends JFrame {
             jCheckBox50,
             jCheckBox49
         };
+        
+        X1 = new JTextField[] {
+            jTextField65,
+            jTextField66,
+            jTextField67,
+            jTextField68,
+            jTextField69,
+            jTextField70,
+            jTextField71,
+            jTextField72,
+            jTextField73,
+            jTextField74,
+            jTextField75,
+            jTextField76,
+            jTextField186,
+            jTextField187,
+            jTextField188,
+            jTextField189
+        };
+        X2 = new JTextField[] {
+            jTextField77,
+            jTextField78,
+            jTextField79,
+            jTextField80,
+            jTextField81,
+            jTextField82,
+            jTextField83,
+            jTextField84,
+            jTextField85,
+            jTextField86,
+            jTextField87,
+            jTextField88,
+            jTextField190,
+            jTextField191,
+            jTextField192,
+            jTextField193
+        };
+        X3 = new JTextField[] {
+            jTextField89,
+            jTextField90,
+            jTextField91,
+            jTextField92,
+            jTextField93,
+            jTextField94,
+            jTextField95,
+            jTextField96,
+            jTextField97,
+            jTextField98,
+            jTextField99,
+            jTextField100,
+            jTextField194,
+            jTextField195,
+            jTextField196,
+            jTextField197
+        };
+        XSwitch1 = new JCheckBox[] { 
+            jCheckBox65,
+            jCheckBox66,
+            jCheckBox67,
+            jCheckBox68,
+            jCheckBox69,
+            jCheckBox70,
+            jCheckBox71,
+            jCheckBox72,
+            jCheckBox73,
+            jCheckBox74,
+            jCheckBox75,
+            jCheckBox76,
+            jCheckBox186,
+            jCheckBox187,
+            jCheckBox188,
+            jCheckBox189
+        };
+        XSwitch2 = new JCheckBox[] {
+            jCheckBox77,
+            jCheckBox78,
+            jCheckBox79,
+            jCheckBox80,
+            jCheckBox81,
+            jCheckBox82,
+            jCheckBox83,
+            jCheckBox84,
+            jCheckBox85,
+            jCheckBox86,
+            jCheckBox87,
+            jCheckBox88,
+            jCheckBox190,
+            jCheckBox191,
+            jCheckBox192,
+            jCheckBox193
+        };
+        XSwitch3 = new JCheckBox[] {
+            jCheckBox89,
+            jCheckBox90,
+            jCheckBox91,
+            jCheckBox92,
+            jCheckBox93,
+            jCheckBox94,
+            jCheckBox95,
+            jCheckBox96,
+            jCheckBox97,
+            jCheckBox98,
+            jCheckBox99,
+            jCheckBox100,
+            jCheckBox194,
+            jCheckBox195,
+            jCheckBox196,
+            jCheckBox197
+        };
+
+      
+        PC = new JTextField[] {
+            jTextField101,
+            jTextField102,
+            jTextField103,
+            jTextField104,
+            jTextField105,
+            jTextField106,
+            jTextField107,
+            jTextField108,
+            jTextField109,
+            jTextField110,
+            jTextField111,
+            jTextField112
+        };
+
+        PCSwitch = new JCheckBox[] {
+            jCheckBox101,
+            jCheckBox102,
+            jCheckBox103,
+            jCheckBox104,
+            jCheckBox105,
+            jCheckBox106,
+            jCheckBox107,
+            jCheckBox108,
+            jCheckBox109,
+            jCheckBox110,
+            jCheckBox111,
+            jCheckBox112
+        };
+
+        IR = new JTextField[] {
+            jTextField113,
+            jTextField114,
+            jTextField115,
+            jTextField116,
+            jTextField117,
+            jTextField118,
+            jTextField119,
+            jTextField120,
+            jTextField121,
+            jTextField122,
+            jTextField123,
+            jTextField124,
+            jTextField125,
+            jTextField126,
+            jTextField127,
+            jTextField128
+        };
+
+        IRSwitch = new JCheckBox[] {
+            jCheckBox113,
+            jCheckBox114,
+            jCheckBox115,
+            jCheckBox116,
+            jCheckBox117,
+            jCheckBox118,
+            jCheckBox119,
+            jCheckBox120,
+            jCheckBox121,
+            jCheckBox122,
+            jCheckBox123,
+            jCheckBox124,
+            jCheckBox125,
+            jCheckBox126,
+            jCheckBox127,
+            jCheckBox128
+        };          
+        
+        MAR = new JTextField[] {
+            jTextField129,
+            jTextField130,
+            jTextField131,
+            jTextField132,
+            jTextField133,
+            jTextField134,
+            jTextField135,
+            jTextField136,
+            jTextField137,
+            jTextField138,
+            jTextField139,
+            jTextField140,
+            jTextField141,
+            jTextField142,
+            jTextField143,
+            jTextField144
+        };
+
+        MARSwitch = new JCheckBox[] {
+            jCheckBox129,
+            jCheckBox130,
+            jCheckBox131,
+            jCheckBox132,
+            jCheckBox133,
+            jCheckBox134,
+            jCheckBox135,
+            jCheckBox136,
+            jCheckBox137,
+            jCheckBox138,
+            jCheckBox139,
+            jCheckBox140,
+            jCheckBox141,
+            jCheckBox142,
+            jCheckBox143,
+            jCheckBox144
+        };        
+        MBR = new JTextField[] {
+            jTextField145,
+            jTextField146,
+            jTextField147,
+            jTextField148,
+            jTextField149,
+            jTextField150,
+            jTextField151,
+            jTextField152,
+            jTextField153,
+            jTextField154,
+            jTextField155,
+            jTextField156,
+            jTextField157,
+            jTextField158,
+            jTextField159,
+            jTextField160,
+        };
+
+        MBRSwitch = new JCheckBox[] {
+            jCheckBox145,
+            jCheckBox146,
+            jCheckBox147,
+            jCheckBox148,
+            jCheckBox149,
+            jCheckBox150,
+            jCheckBox151,
+            jCheckBox152,
+            jCheckBox153,
+            jCheckBox154,
+            jCheckBox155,
+            jCheckBox156,
+            jCheckBox157,
+            jCheckBox158,
+            jCheckBox159,
+            jCheckBox160,
+        };
+        MSR = new JTextField[] {
+            jTextField161,
+            jTextField162,
+            jTextField163,
+            jTextField164,
+            jTextField165,
+            jTextField166,
+            jTextField167,
+            jTextField168,
+            jTextField169,
+            jTextField170,
+            jTextField171,
+            jTextField172,
+            jTextField173,
+            jTextField174,
+            jTextField175,
+            jTextField176
+        };
+
+        MSRSwitch = new JCheckBox[] {
+            jCheckBox161,
+            jCheckBox162,
+            jCheckBox163,
+            jCheckBox164,
+            jCheckBox165,
+            jCheckBox166,
+            jCheckBox167,
+            jCheckBox168,
+            jCheckBox169,
+            jCheckBox170,
+            jCheckBox171,
+            jCheckBox172,
+            jCheckBox173,
+            jCheckBox174,
+            jCheckBox175,
+            jCheckBox176
+        };
+        MFR = new JTextField[] {
+            jTextField177,
+            jTextField178,
+            jTextField179,
+            jTextField180
+        };
+
+        MFRSwitch = new JCheckBox[] {
+            jCheckBox177,
+            jCheckBox178,
+            jCheckBox179,
+            jCheckBox180
+        };
+        
+        MFR = new JTextField[] {
+            jTextField181,
+            jTextField182,
+            jTextField183,
+            jTextField184
+        };
+
+        MFRSwitch = new JCheckBox[] {
+            jCheckBox181,
+            jCheckBox182,
+            jCheckBox183,
+            jCheckBox184
+        };
+    }
+    
+    public void updatePrinter(String printout) {
+        Printer.setText(printout);
+    }
+    
+    public String getConsoleInput() {
+        return ConsoleInput.getText();
     }
 
     public void updateGPRegister(int rNum, int value) {
-        
 
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
@@ -202,6 +550,122 @@ public class FrontPanel extends JFrame {
                 GPR3[i].setText(valueString);
                 GPRSwitch3[i].setSelected(boolVal);
             }
+            mask = mask >> 1;
+        }
+    }
+    
+    public void updateXRegister(int xNum, int value) {
+        
+        int mask = 1 << 15;
+        for (int i = 0; i < 16; i++) {
+//               
+            int intVal = ((value & mask) >> (15 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            if (xNum == 1) {
+                X1[i].setText(valueString);
+                XSwitch1[i].setSelected(boolVal);
+            }
+            if (xNum == 2) {
+                X2[i].setText(valueString);
+                XSwitch2[i].setSelected(boolVal);
+            }
+            if (xNum == 3) {
+                X3[i].setText(valueString);
+                XSwitch3[i].setSelected(boolVal);
+            }
+            mask = mask >> 1;
+        }
+    }
+
+    public void updateIRRegister(int value) {
+        
+        int mask = 1 << 15;
+        for (int i = 0; i < 16; i++) {
+//               
+            int intVal = ((value & mask) >> (15 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            IR[i].setText(valueString);
+            IRSwitch[i].setSelected(boolVal);
+            mask = mask >> 1;
+        }
+    }
+    public void updateMARRegister(int value) {
+        
+        int mask = 1 << 15;
+        for (int i = 0; i < 16; i++) {
+//               
+            int intVal = ((value & mask) >> (15 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            MAR[i].setText(valueString);
+            MARSwitch[i].setSelected(boolVal);
+            mask = mask >> 1;
+        }
+    }
+    public void updateMBRRegister(int value) {
+        
+        int mask = 1 << 15;
+        for (int i = 0; i < 16; i++) {
+//               
+            int intVal = ((value & mask) >> (15 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            MBR[i].setText(valueString);
+            MBRSwitch[i].setSelected(boolVal);
+            mask = mask >> 1;
+        }
+    }
+    public void updateMSRRegister(int value) {
+        
+        int mask = 1 << 15;
+        for (int i = 0; i < 16; i++) {
+//               
+            int intVal = ((value & mask) >> (15 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            MSR[i].setText(valueString);
+            MSRSwitch[i].setSelected(boolVal);
+            mask = mask >> 1;
+        }
+    }
+    public void updatePCRegister(int value) {
+        
+        int mask = 1 << 11;
+        for (int i = 0; i < 12; i++) {
+//               
+            int intVal = ((value & mask) >> (11 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            PC[i].setText(valueString);
+            PCSwitch[i].setSelected(boolVal);
+            mask = mask >> 1;
+        }
+    }
+    public void updateMFRRegister(int value) {
+        
+        int mask = 1 << 3;
+        for (int i = 0; i < 4; i++) {
+//               
+            int intVal = ((value & mask) >> (3 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            MFR[i].setText(valueString);
+            MFRSwitch[i].setSelected(boolVal);
+            mask = mask >> 1;
+        }
+    }
+    public void updateCCRegister(int value) {
+        
+        int mask = 1 << 3;
+        for (int i = 0; i < 4; i++) {
+//               
+            int intVal = ((value & mask) >> (3 - i));
+            boolean boolVal = (intVal != 0);            
+            String valueString = Integer.toString(intVal);
+            CC[i].setText(valueString);
+            CCSwitch[i].setSelected(boolVal);
             mask = mask >> 1;
         }
     }
@@ -599,9 +1063,33 @@ public class FrontPanel extends JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jTextField185 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jTextField186 = new javax.swing.JTextField();
+        jCheckBox186 = new javax.swing.JCheckBox();
+        jTextField187 = new javax.swing.JTextField();
+        jCheckBox187 = new javax.swing.JCheckBox();
+        jTextField188 = new javax.swing.JTextField();
+        jCheckBox188 = new javax.swing.JCheckBox();
+        jTextField189 = new javax.swing.JTextField();
+        jCheckBox189 = new javax.swing.JCheckBox();
+        jTextField190 = new javax.swing.JTextField();
+        jCheckBox190 = new javax.swing.JCheckBox();
+        jTextField191 = new javax.swing.JTextField();
+        jCheckBox191 = new javax.swing.JCheckBox();
+        jTextField192 = new javax.swing.JTextField();
+        jCheckBox192 = new javax.swing.JCheckBox();
+        jTextField193 = new javax.swing.JTextField();
+        jCheckBox193 = new javax.swing.JCheckBox();
+        jTextField194 = new javax.swing.JTextField();
+        jCheckBox194 = new javax.swing.JCheckBox();
+        jTextField195 = new javax.swing.JTextField();
+        jCheckBox195 = new javax.swing.JCheckBox();
+        jTextField196 = new javax.swing.JTextField();
+        jCheckBox196 = new javax.swing.JCheckBox();
+        jTextField197 = new javax.swing.JTextField();
+        jCheckBox197 = new javax.swing.JCheckBox();
+        jTextField185 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -3213,16 +3701,183 @@ public class FrontPanel extends JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jTextField185.setText("jTextField185");
+        jLabel15.setText("CONSOLE PRINTER");
+
+        jLabel16.setText("CONSOLE INPUT");
+
+        jTextField186.setColumns(1);
+        jTextField186.setText("0");
+        jTextField186.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField186ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox186.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox186ActionPerformed(evt);
+            }
+        });
+
+        jTextField187.setColumns(1);
+        jTextField187.setText("0");
+        jTextField187.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField187ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox187.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox187ActionPerformed(evt);
+            }
+        });
+
+        jTextField188.setColumns(1);
+        jTextField188.setText("0");
+        jTextField188.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField188ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox188.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox188ActionPerformed(evt);
+            }
+        });
+
+        jTextField189.setColumns(1);
+        jTextField189.setText("0");
+        jTextField189.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField189ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox189.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox189ActionPerformed(evt);
+            }
+        });
+
+        jTextField190.setColumns(1);
+        jTextField190.setText("0");
+        jTextField190.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField190ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox190.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox190ActionPerformed(evt);
+            }
+        });
+
+        jTextField191.setColumns(1);
+        jTextField191.setText("0");
+        jTextField191.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField191ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox191.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox191ActionPerformed(evt);
+            }
+        });
+
+        jTextField192.setColumns(1);
+        jTextField192.setText("0");
+        jTextField192.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField192ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox192.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox192ActionPerformed(evt);
+            }
+        });
+
+        jTextField193.setColumns(1);
+        jTextField193.setText("0");
+        jTextField193.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField193ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox193.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox193ActionPerformed(evt);
+            }
+        });
+
+        jTextField194.setColumns(1);
+        jTextField194.setText("0");
+        jTextField194.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField194ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox194.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox194ActionPerformed(evt);
+            }
+        });
+
+        jTextField195.setColumns(1);
+        jTextField195.setText("0");
+        jTextField195.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField195ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox195.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox195ActionPerformed(evt);
+            }
+        });
+
+        jTextField196.setColumns(1);
+        jTextField196.setText("0");
+        jTextField196.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField196ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox196.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox196ActionPerformed(evt);
+            }
+        });
+
+        jTextField197.setColumns(1);
+        jTextField197.setText("0");
+        jTextField197.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField197ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox197.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox197ActionPerformed(evt);
+            }
+        });
+
         jTextField185.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField185ActionPerformed(evt);
             }
         });
-
-        jLabel15.setText("CONSOLE PRINTER");
-
-        jLabel16.setText("CONSOLE INPUT");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -3568,45 +4223,48 @@ public class FrontPanel extends JFrame {
                                 .addComponent(jCheckBox127)
                                 .addGap(0, 0, 0)
                                 .addComponent(jCheckBox128))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel1)
-                                .addGap(26, 26, 26)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(7, 7, 7)
-                                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(23, 23, 23)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jTextField185))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(54, 54, 54)
+                                    .addComponent(jTextField185, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(12, 12, 12)
+                                    .addComponent(jLabel1)
+                                    .addGap(26, 26, 26)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jScrollPane1)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(7, 7, 7)
+                                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(23, 23, 23)
+                                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(10, 10, 10)
+                                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(6, 6, 6)
+                                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -3649,69 +4307,79 @@ public class FrontPanel extends JFrame {
                                                 .addGap(2, 2, 2)
                                                 .addComponent(jTextField106, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jCheckBox106))
-                                        .addGap(18, 18, 18)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(jTextField107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jCheckBox107))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(jTextField108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jCheckBox108))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(jTextField109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jCheckBox109))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(jTextField110, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jCheckBox110))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(jTextField111, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jCheckBox111))
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(jTextField112, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jCheckBox112)))
+                                                .addComponent(jTextField95, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(27, 27, 27)
+                                                .addComponent(jTextField97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jTextField98, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jTextField100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(2, 2, 2)
+                                                .addComponent(jCheckBox95)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jCheckBox96)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jCheckBox97)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jTextField95, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jTextField96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(jTextField97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(6, 6, 6)
-                                                        .addComponent(jTextField98, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jTextField100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGap(40, 40, 40)
+                                                        .addComponent(jCheckBox100))
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jCheckBox95)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jCheckBox96)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jCheckBox97)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addGap(40, 40, 40)
-                                                                .addComponent(jCheckBox100))
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addGap(20, 20, 20)
-                                                                .addComponent(jCheckBox99))
-                                                            .addComponent(jCheckBox98)))))))
+                                                        .addGap(20, 20, 20)
+                                                        .addComponent(jCheckBox99))
+                                                    .addComponent(jCheckBox98)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(5, 5, 5)
+                                                    .addComponent(jTextField107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(2, 2, 2)
+                                                    .addComponent(jTextField108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(7, 7, 7)
+                                                    .addComponent(jTextField109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(7, 7, 7)
+                                                    .addComponent(jTextField110, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(7, 7, 7)
+                                                    .addComponent(jTextField111, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(7, 7, 7)
+                                                    .addComponent(jTextField112, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jCheckBox107)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(jCheckBox108)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(jCheckBox109)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(jCheckBox110)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(jCheckBox111)
+                                                    .addGap(0, 0, 0)
+                                                    .addComponent(jCheckBox112))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jTextField194, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(7, 7, 7)
+                                                .addComponent(jTextField195, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(7, 7, 7)
+                                                .addComponent(jTextField196, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(7, 7, 7)
+                                                .addComponent(jTextField197, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jCheckBox194)
+                                                .addGap(0, 0, 0)
+                                                .addComponent(jCheckBox195)
+                                                .addGap(0, 0, 0)
+                                                .addComponent(jCheckBox196)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jCheckBox197))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jCheckBox77)
                                         .addGap(0, 0, 0)
@@ -3724,18 +4392,10 @@ public class FrontPanel extends JFrame {
                                         .addComponent(jCheckBox81)
                                         .addGap(0, 0, 0)
                                         .addComponent(jCheckBox82)
-                                        .addGap(20, 20, 20)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jCheckBox83)
                                         .addGap(0, 0, 0)
-                                        .addComponent(jCheckBox84)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckBox85)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckBox86)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckBox87)
-                                        .addGap(0, 0, 0)
-                                        .addComponent(jCheckBox88))
+                                        .addComponent(jCheckBox84))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3780,21 +4440,49 @@ public class FrontPanel extends JFrame {
                                                 .addComponent(jTextField81, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(7, 7, 7)
                                                 .addComponent(jTextField82, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(27, 27, 27)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jTextField83, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(7, 7, 7)
                                                         .addComponent(jTextField84, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(7, 7, 7)
-                                                        .addComponent(jTextField85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(7, 7, 7)
-                                                        .addComponent(jTextField86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(7, 7, 7)
-                                                        .addComponent(jTextField87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(7, 7, 7)
-                                                        .addComponent(jTextField88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGap(24, 24, 24)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jTextField85, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(jTextField86, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(jTextField87, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(jTextField88, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jCheckBox85)
+                                                                .addGap(0, 0, 0)
+                                                                .addComponent(jCheckBox86)
+                                                                .addGap(0, 0, 0)
+                                                                .addComponent(jCheckBox87)
+                                                                .addGap(0, 0, 0)
+                                                                .addComponent(jCheckBox88)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jTextField190, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(jTextField191, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(jTextField192, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(7, 7, 7)
+                                                                .addComponent(jTextField193, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jCheckBox190)
+                                                                .addGap(0, 0, 0)
+                                                                .addComponent(jCheckBox191)
+                                                                .addGap(0, 0, 0)
+                                                                .addComponent(jCheckBox192)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jCheckBox193)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jLabel11)
@@ -3866,11 +4554,10 @@ public class FrontPanel extends JFrame {
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(layout.createSequentialGroup()
-                                                                .addGap(4, 4, 4)
                                                                 .addComponent(jTextField71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jTextField72, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGap(24, 24, 24)
                                                                 .addComponent(jTextField73, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jTextField74, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3879,22 +4566,36 @@ public class FrontPanel extends JFrame {
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jTextField76, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(layout.createSequentialGroup()
+                                                                .addGap(59, 59, 59)
                                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                     .addGroup(layout.createSequentialGroup()
-                                                                        .addGap(60, 60, 60)
-                                                                        .addComponent(jCheckBox74))
-                                                                    .addGroup(layout.createSequentialGroup()
-                                                                        .addGap(40, 40, 40)
-                                                                        .addComponent(jCheckBox73))
-                                                                    .addGroup(layout.createSequentialGroup()
                                                                         .addGap(20, 20, 20)
-                                                                        .addComponent(jCheckBox72))
-                                                                    .addComponent(jCheckBox71))
+                                                                        .addComponent(jCheckBox74))
+                                                                    .addComponent(jCheckBox73))
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jCheckBox75)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jCheckBox76)))
-                                                        .addGap(36, 36, 36)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addGap(3, 3, 3)
+                                                                .addComponent(jTextField186, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jTextField187, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jTextField188, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jTextField189, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jCheckBox186)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jCheckBox187)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jCheckBox188)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jCheckBox189)))
+                                                        .addGap(35, 35, 35)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jLabel10)
@@ -4056,25 +4757,25 @@ public class FrontPanel extends JFrame {
                                                                     .addComponent(jCheckBox176))
                                                                 .addGroup(layout.createSequentialGroup()
                                                                     .addGap(31, 31, 31)
-                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                            .addComponent(jLabel14)
-                                                                            .addGap(18, 18, 18)
-                                                                            .addComponent(jTextField181, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addGap(9, 9, 9)
-                                                                            .addComponent(jTextField182, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addGap(7, 7, 7)
-                                                                            .addComponent(jTextField183, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addGap(7, 7, 7)
-                                                                            .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                    .addComponent(jLabel14)
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                                         .addGroup(layout.createSequentialGroup()
                                                                             .addComponent(jCheckBox181)
-                                                                            .addGap(2, 2, 2)
+                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                                             .addComponent(jCheckBox182)
                                                                             .addGap(0, 0, 0)
                                                                             .addComponent(jCheckBox183)
                                                                             .addGap(0, 0, 0)
-                                                                            .addComponent(jCheckBox184)))))))))))
+                                                                            .addComponent(jCheckBox184))
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                            .addComponent(jTextField181, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                            .addComponent(jTextField182, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addGap(7, 7, 7)
+                                                                            .addComponent(jTextField183, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addGap(7, 7, 7)
+                                                                            .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4104,7 +4805,13 @@ public class FrontPanel extends JFrame {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(20, 20, 20)
                                                 .addComponent(jCheckBox67))
-                                            .addComponent(jCheckBox66)))))
+                                            .addComponent(jCheckBox66))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(20, 20, 20)
+                                                .addComponent(jCheckBox72))
+                                            .addComponent(jCheckBox71)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(1, 1, 1)
                                 .addComponent(jLabel6))))
@@ -4114,55 +4821,53 @@ public class FrontPanel extends JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(jLabel16)))
-                .addGap(148, 148, 148))
+                .addGap(139, 139, 139))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(370, 370, 370)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
                                 .addComponent(jLabel15)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(26, 26, 26)
                                 .addComponent(jLabel16)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField185, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4)
+                                .addComponent(jTextField185, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
+                                        .addGap(21, 21, 21)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                             .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel5)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
+                                        .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4204,11 +4909,14 @@ public class FrontPanel extends JFrame {
                                         .addComponent(jTextField71, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jCheckBox74)
-                                        .addComponent(jCheckBox73)
-                                        .addComponent(jCheckBox72)
-                                        .addComponent(jCheckBox71)
+                                        .addComponent(jCheckBox73, javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jCheckBox75)
-                                        .addComponent(jCheckBox76)))
+                                        .addComponent(jCheckBox76)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jCheckBox72)
+                                                .addComponent(jCheckBox71)))))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4223,7 +4931,18 @@ public class FrontPanel extends JFrame {
                                         .addComponent(jCheckBox69)
                                         .addComponent(jCheckBox68)
                                         .addComponent(jCheckBox67)
-                                        .addComponent(jCheckBox66))))
+                                        .addComponent(jCheckBox66)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextField186, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField187, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField188, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextField189, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jCheckBox186)
+                                        .addComponent(jCheckBox187)
+                                        .addComponent(jCheckBox188)
+                                        .addComponent(jCheckBox189))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -4372,7 +5091,19 @@ public class FrontPanel extends JFrame {
                                     .addComponent(jCheckBox157)
                                     .addComponent(jCheckBox158)
                                     .addComponent(jCheckBox159)
-                                    .addComponent(jCheckBox160))))
+                                    .addComponent(jCheckBox160)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField190, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField191, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField192, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField193, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jCheckBox190)
+                                    .addComponent(jCheckBox191)
+                                    .addComponent(jCheckBox192)
+                                    .addComponent(jCheckBox193))))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -4532,23 +5263,6 @@ public class FrontPanel extends JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(jTextField96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField95, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jTextField97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField98, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(10, 10, 10)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jCheckBox96)
-                                            .addComponent(jCheckBox100)
-                                            .addComponent(jCheckBox97)
-                                            .addComponent(jCheckBox99)
-                                            .addComponent(jCheckBox98)
-                                            .addComponent(jCheckBox95)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(jTextField89, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(jLabel7))
                                             .addComponent(jTextField90, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4602,60 +5316,58 @@ public class FrontPanel extends JFrame {
                                             .addComponent(jCheckBox173)
                                             .addComponent(jCheckBox174)
                                             .addComponent(jCheckBox175)
-                                            .addComponent(jCheckBox176))))
+                                            .addComponent(jCheckBox176)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jTextField96, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jTextField95, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextField97, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField98, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField99, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField194, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField195, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField196, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField197, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jCheckBox194)
+                                            .addComponent(jCheckBox195)
+                                            .addComponent(jCheckBox196)
+                                            .addComponent(jCheckBox197)
+                                            .addComponent(jCheckBox96)
+                                            .addComponent(jCheckBox100)
+                                            .addComponent(jCheckBox97)
+                                            .addComponent(jCheckBox99)
+                                            .addComponent(jCheckBox98)
+                                            .addComponent(jCheckBox95))))
                                 .addGap(13, 13, 13)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox101))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField102, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox102))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField103, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox103))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField104, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox104))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField105, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox105))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField106, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox106))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox107))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox108))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox109))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField110, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox110))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField111, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox111))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jTextField112, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(5, 5, 5)
-                                            .addComponent(jCheckBox112)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField101, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jCheckBox101))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField102, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jCheckBox102))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField103, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jCheckBox103))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField104, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jCheckBox104))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField105, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jCheckBox105))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextField106, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(jCheckBox106))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
@@ -4680,12 +5392,38 @@ public class FrontPanel extends JFrame {
                                             .addComponent(jTextField182, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField183, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(5, 5, 5)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jCheckBox181)
                                             .addComponent(jCheckBox182)
                                             .addComponent(jCheckBox183)
-                                            .addComponent(jCheckBox184)))))))
+                                            .addComponent(jCheckBox184)))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jTextField62, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel8))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jTextField109, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jTextField107, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField108, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField110, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField111, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jTextField112, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jCheckBox110)
+                                            .addComponent(jCheckBox111)
+                                            .addComponent(jCheckBox112)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(0, 0, 0)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jCheckBox107)
+                                                    .addComponent(jCheckBox108)
+                                                    .addComponent(jCheckBox109, javax.swing.GroupLayout.Alignment.TRAILING)))))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -6193,6 +6931,102 @@ public class FrontPanel extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField184ActionPerformed
 
+    private void jTextField186ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField186ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField186ActionPerformed
+
+    private void jCheckBox186ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox186ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox186ActionPerformed
+
+    private void jTextField187ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField187ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField187ActionPerformed
+
+    private void jCheckBox187ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox187ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox187ActionPerformed
+
+    private void jTextField188ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField188ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField188ActionPerformed
+
+    private void jCheckBox188ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox188ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox188ActionPerformed
+
+    private void jTextField189ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField189ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField189ActionPerformed
+
+    private void jCheckBox189ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox189ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox189ActionPerformed
+
+    private void jTextField190ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField190ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField190ActionPerformed
+
+    private void jCheckBox190ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox190ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox190ActionPerformed
+
+    private void jTextField191ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField191ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField191ActionPerformed
+
+    private void jCheckBox191ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox191ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox191ActionPerformed
+
+    private void jTextField192ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField192ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField192ActionPerformed
+
+    private void jCheckBox192ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox192ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox192ActionPerformed
+
+    private void jTextField193ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField193ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField193ActionPerformed
+
+    private void jCheckBox193ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox193ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox193ActionPerformed
+
+    private void jTextField194ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField194ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField194ActionPerformed
+
+    private void jCheckBox194ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox194ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox194ActionPerformed
+
+    private void jTextField195ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField195ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField195ActionPerformed
+
+    private void jCheckBox195ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox195ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox195ActionPerformed
+
+    private void jTextField196ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField196ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField196ActionPerformed
+
+    private void jCheckBox196ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox196ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox196ActionPerformed
+
+    private void jTextField197ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField197ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField197ActionPerformed
+
+    private void jCheckBox197ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox197ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox197ActionPerformed
+
     private void jTextField185ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField185ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField185ActionPerformed
@@ -6328,7 +7162,19 @@ public class FrontPanel extends JFrame {
     private javax.swing.JCheckBox jCheckBox182;
     private javax.swing.JCheckBox jCheckBox183;
     private javax.swing.JCheckBox jCheckBox184;
+    private javax.swing.JCheckBox jCheckBox186;
+    private javax.swing.JCheckBox jCheckBox187;
+    private javax.swing.JCheckBox jCheckBox188;
+    private javax.swing.JCheckBox jCheckBox189;
     private javax.swing.JCheckBox jCheckBox19;
+    private javax.swing.JCheckBox jCheckBox190;
+    private javax.swing.JCheckBox jCheckBox191;
+    private javax.swing.JCheckBox jCheckBox192;
+    private javax.swing.JCheckBox jCheckBox193;
+    private javax.swing.JCheckBox jCheckBox194;
+    private javax.swing.JCheckBox jCheckBox195;
+    private javax.swing.JCheckBox jCheckBox196;
+    private javax.swing.JCheckBox jCheckBox197;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox20;
     private javax.swing.JCheckBox jCheckBox21;
@@ -6531,7 +7377,19 @@ public class FrontPanel extends JFrame {
     private javax.swing.JTextField jTextField183;
     private javax.swing.JTextField jTextField184;
     private javax.swing.JTextField jTextField185;
+    private javax.swing.JTextField jTextField186;
+    private javax.swing.JTextField jTextField187;
+    private javax.swing.JTextField jTextField188;
+    private javax.swing.JTextField jTextField189;
     private javax.swing.JTextField jTextField19;
+    private javax.swing.JTextField jTextField190;
+    private javax.swing.JTextField jTextField191;
+    private javax.swing.JTextField jTextField192;
+    private javax.swing.JTextField jTextField193;
+    private javax.swing.JTextField jTextField194;
+    private javax.swing.JTextField jTextField195;
+    private javax.swing.JTextField jTextField196;
+    private javax.swing.JTextField jTextField197;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;

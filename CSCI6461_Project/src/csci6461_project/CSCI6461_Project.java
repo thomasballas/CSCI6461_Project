@@ -34,9 +34,22 @@ public class CSCI6461_Project {
         sleep(1500);
         registers.setGPR(3, 8);
         display.updateGPR(3, 8);
+        sleep(1500);
+        registers.setXR(1, 2);
+        display.updateXR(1, 2);
+        sleep(1500);
+        registers.setXR(2, 4);
+        display.updateXR(2, 4);
+        sleep(1500);
+        registers.setXR(3, 8);
+        display.updateXR(3, 8);
         System.out.println("Got to the end of this thing.");
         for (int i = 0; i < 4; i++){
             int value = registers.getGPR(i);
+            System.out.println("Value of GPR" + i + " is " + value);
+        }
+        for (int i = 0; i < 3; i++){
+            int value = registers.getXR(i);
             System.out.println("Value of GPR" + i + " is " + value);
         }
     }
