@@ -71,6 +71,10 @@ public class Instructions {
         int Address = DataTypeConvertor.stringToInt(insBinary.substring(11, 16));
         int EA = 0;
 
+        /** NOTE: Project description opcodes are written in OCTAL (base 8)
+         * 000 000 = 0 (octal) =  0 (decimal)
+         * 011 011 = 33 (octal) = 27 (decimal)
+         */
         switch (Opcode) {
 
             //Load and Store instruction block
@@ -106,7 +110,7 @@ public class Instructions {
 
                 break;
 
-            case 42: //instruction for LDX
+            case 65: //instruction for LDX
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -117,7 +121,7 @@ public class Instructions {
 
                 break;
 
-            case 43: //instruction for STX
+            case 66: //instruction for STX
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -174,7 +178,7 @@ public class Instructions {
                 break;
 
             //Transfer instruction block
-            case 10: //instruction for JZ
+            case 8: //instruction for JZ
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -189,7 +193,7 @@ public class Instructions {
 
                 break;
 
-            case 11: //instruction for JNE
+            case 9: //instruction for JNE
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -204,7 +208,7 @@ public class Instructions {
 
                 break;
 
-            case 12: //instruction for JCC
+            case 10: //instruction for JCC
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -219,7 +223,7 @@ public class Instructions {
 
                 break;
 
-            case 13: //instruction for JMA
+            case 11: //instruction for JMA
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -230,16 +234,6 @@ public class Instructions {
 
                 break;
 
-            /**
-             * Little confused here and wait for professpr's response case
-             * "001110": //instruction for JSR
-             *
-             * EA = computeEA(I, IX, Address); if(EA!=-1&&EA<=2048){
-             * reg.setGPR(3, reg.getPC()+1); reg.setPC(EA); } else
-             * System.out.println("error");
-             *
-             * break;
-             */
             default:
                 break;
         }
