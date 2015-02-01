@@ -20,9 +20,11 @@ public class CSCI6461_Project {
      */
     public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
-        DisplayController display = new DisplayController();
         Memory memory = new Memory(memLength);
         Registers registers = new Registers();
+        Executor system = new Executor(registers, memory);
+        DisplayController display = new DisplayController(system);
+
         sleep(500);
         registers.setGPR(0, 1);
         display.updateGPR(0, 1);

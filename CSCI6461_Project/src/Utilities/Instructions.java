@@ -59,16 +59,33 @@ public class Instructions {
      * decode it and map it to specific instruction
      * 
      * @param instruction 
+     * @return  
      */
-    public void executeInstruction(int instruction) {
+    public static int[] isolateLoadStoreBits(int instruction) {
+        
+        int isolatedValues[];
 
         String insBinary = DataTypeConvertor.intToString(instruction);
-
         int Opcode = DataTypeConvertor.stringToInt(insBinary.substring(0, 6));
         int R = DataTypeConvertor.stringToInt(insBinary.substring(6, 8));
         int IX = DataTypeConvertor.stringToInt(insBinary.substring(8, 10));
         int I = DataTypeConvertor.stringToInt(insBinary.substring(10));
         int Address = DataTypeConvertor.stringToInt(insBinary.substring(11, 16));
+        
+        isolatedValues= new int[]{Opcode, R, IX, I, Address};
+        
+        return isolatedValues;
+    }
+    
+    public void executeInstruction(int instruction) {
+
+        int isolatedValues[] = isolateLoadStoreBits(instruction);
+        int Opcode = isolatedValues[0];
+        int R = isolatedValues[1];
+        int IX = isolatedValues[2];
+        int I = isolatedValues[3];
+        int Address = isolatedValues[4];        
+        
         int EA = 0;
 
         /** NOTE: Project description opcodes are written in OCTAL (base 8)

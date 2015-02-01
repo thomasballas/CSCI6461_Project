@@ -30,7 +30,7 @@ public class Memory {
             
     public void zeroize() {
         for (int i = 0; i < 2048; i++) {
-            memory.set(i, 0);
+            memory.add(i, 0);
         }
     }
 
