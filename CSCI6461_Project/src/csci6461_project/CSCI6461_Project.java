@@ -14,13 +14,14 @@ import Storage.*;
  */
 public class CSCI6461_Project {
 
+    static int memLength = 2048;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         DisplayController display = new DisplayController();
-        Memory memory = new Memory();
+        Memory memory = new Memory(memLength);
         Registers registers = new Registers();
         sleep(500);
         registers.setGPR(0, 1);

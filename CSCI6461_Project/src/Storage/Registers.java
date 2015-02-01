@@ -20,13 +20,11 @@ public class Registers {
     static int MBR;
     static int MSR;
     static int MFR;
+    
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
-    ;
     static int twelveBitMax = Integer.parseInt("FFF", 16);
-    ;
     static int fourBitMax = Integer.parseInt("F", 16);
 
-    ;
     
     
     public Registers() {

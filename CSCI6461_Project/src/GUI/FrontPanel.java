@@ -526,11 +526,30 @@ public class FrontPanel extends JFrame {
         return ConsoleInput.getText();
     }
 
+    public int getGPRegister(int rNum) {
+        int value = 0;
+        int shift = 0;
+        for (int i = 15; i >= 0; i--) {
+            if (rNum == 0) {
+                value += Integer.parseInt(GPR0[i].getText()) * (1 << shift);
+            }
+            if (rNum == 1) {
+                value += Integer.parseInt(GPR1[i].getText()) * (1 << shift);
+            }
+            if (rNum == 2) {
+                value += Integer.parseInt(GPR2[i].getText()) * (1 << shift);
+            }
+            if (rNum == 3) {
+                value += Integer.parseInt(GPR3[i].getText()) * (1 << shift);
+            }
+            shift += 1;
+        }
+        return value;
+    }
     public void updateGPRegister(int rNum, int value) {
 
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-//               
             int intVal = ((value & mask) >> (15 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -553,12 +572,29 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+
+    public int getXRegister(int xNum) {
+        int value = 0;
+        int shift = 0;
+        for (int i = 15; i >= 0; i--) {
+            if (xNum == 1) {
+                value += Integer.parseInt(X1[i].getText()) * (1 << shift);
+            }
+            if (xNum == 2) {
+                value += Integer.parseInt(X2[i].getText()) * (1 << shift);
+            }
+            if (xNum == 3) {
+                value += Integer.parseInt(X3[i].getText()) * (1 << shift);
+            }
+            shift += 1;
+        }
+        return value;
+    }    
     
     public void updateXRegister(int xNum, int value) {
         
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-//               
             int intVal = ((value & mask) >> (15 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -578,11 +614,20 @@ public class FrontPanel extends JFrame {
         }
     }
 
+    public int getIRRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 15; i >= 0; i--) {
+            value += Integer.parseInt(IR[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+        
     public void updateIRRegister(int value) {
         
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-//               
             int intVal = ((value & mask) >> (15 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -591,11 +636,21 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+    
+    public int getMARRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 15; i >= 0; i--) {
+            value += Integer.parseInt(MAR[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+    
     public void updateMARRegister(int value) {
         
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-//               
             int intVal = ((value & mask) >> (15 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -604,11 +659,22 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+    
+       
+    public int getMBRRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 15; i >= 0; i--) {
+            value += Integer.parseInt(MBR[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+    
     public void updateMBRRegister(int value) {
         
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-//               
             int intVal = ((value & mask) >> (15 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -617,11 +683,22 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+    
+       
+    public int getMSRRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 15; i >= 0; i--) {
+            value += Integer.parseInt(MSR[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+    
     public void updateMSRRegister(int value) {
         
         int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-//               
             int intVal = ((value & mask) >> (15 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -630,11 +707,22 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+    
+       
+    public int getPCRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 11; i >= 0; i--) {
+            value += Integer.parseInt(PC[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+    
     public void updatePCRegister(int value) {
         
         int mask = 1 << 11;
         for (int i = 0; i < 12; i++) {
-//               
             int intVal = ((value & mask) >> (11 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -643,11 +731,21 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+    
+    public int getMFRRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 3; i >= 0; i--) {
+            value += Integer.parseInt(MFR[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+        
     public void updateMFRRegister(int value) {
         
         int mask = 1 << 3;
         for (int i = 0; i < 4; i++) {
-//               
             int intVal = ((value & mask) >> (3 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);
@@ -656,11 +754,22 @@ public class FrontPanel extends JFrame {
             mask = mask >> 1;
         }
     }
+
+    public int getCCRegister() {
+        int value = 0;
+        int shift = 0;
+        for (int i = 3; i >= 0; i--) {
+            value += Integer.parseInt(CC[i].getText()) * (1 << shift);
+            shift += 1;
+        }
+        return value;
+    }    
+    
+    
     public void updateCCRegister(int value) {
         
         int mask = 1 << 3;
         for (int i = 0; i < 4; i++) {
-//               
             int intVal = ((value & mask) >> (3 - i));
             boolean boolVal = (intVal != 0);            
             String valueString = Integer.toString(intVal);

@@ -5,32 +5,38 @@
  */
 package Storage;
 
+import java.util.Vector;
+
 /**
  *
  * @author Aether
  */
 public class Memory {
 
-    static int memory[];
+    Vector<Integer> memory;
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
 
     ;
 
     
-    public Memory() {
-        memory = new int[2048];
+    public Memory(int memLength) {
+        memory = new Vector<>(memLength);
         zeroize();
     }
 
+    public int getMemoryLength() {
+        return memory.capacity();
+    }
+            
     public void zeroize() {
         for (int i = 0; i < 2048; i++) {
-            memory[i] = 0;
+            memory.set(i, 0);
         }
     }
 
     public int getMem(int location) {
-        if (location < memory.length) {
-            return memory[location];
+        if (location < getMemoryLength()) {
+            return memory.get(location);
         } // return value exceeding 16-bit word to denote bad addressing
         else {
             return sixteenBitMax + 1;
@@ -43,10 +49,10 @@ public class Memory {
         // status of 2 is overflow
         int status = 0;
         int max = sixteenBitMax;
-        if ((location < memory.length) && (value <= max)) {
-            memory[location] = value;
+        if ((location < getMemoryLength()) && (value <= max)) {
+            memory.set(location, value);    
         }
-        if (location >= memory.length) {
+        if (location >= getMemoryLength()) {
             status += 1;
         }
         if (value > max) {
