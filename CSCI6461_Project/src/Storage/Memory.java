@@ -15,9 +15,6 @@ public class Memory {
 
     Vector<Integer> memory;
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
-
-    ;
-
     
     public Memory(int memLength) {
         memory = new Vector<>(memLength);
@@ -32,6 +29,7 @@ public class Memory {
         for (int i = 0; i < 2048; i++) {
             memory.add(i, 0);
         }
+        // set values at reserved memory spaces [0..5] if required
     }
 
     public int getMem(int location) {
@@ -46,10 +44,12 @@ public class Memory {
     public int setMem(int location, int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
-        // status of 2 is overflow
+        // status of 2 is a value overflow
+        // status of 4 is attempt to overwrite reserved memory
         int status = 0;
         int max = sixteenBitMax;
-        if ((location < getMemoryLength()) && (value <= max)) {
+        int reserved = 5;
+        if ((location > reserved) && (location < getMemoryLength()) && (value <= max)) {
             memory.set(location, value);    
         }
         if (location >= getMemoryLength()) {
@@ -57,6 +57,9 @@ public class Memory {
         }
         if (value > max) {
             status += 2;
+        }
+        if (location <= reserved) {
+            status += 4;
         }
         return status;
     }
