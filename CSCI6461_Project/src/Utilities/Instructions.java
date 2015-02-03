@@ -46,10 +46,14 @@ public class Instructions {
             }
         } else if (I == 1) {
             if (IX == 00) {
-                return mem.getMem(Address);
+            	reg.setMAR(Address);
+            	reg.setMBR(reg.getMAR());
+                return mem.getMem(reg.getMBR());
             }
             else {
-                return mem.getMem(reg.getXR(IX) + Address);
+            	reg.setMAR(reg.getXR(IX) + Address);
+            	reg.setMBR(reg.getMAR());
+                return mem.getMem(reg.getMBR());
             }
         }
         return -1;
@@ -78,7 +82,18 @@ public class Instructions {
     }
     
     public void executeInstruction(int instruction) {
-
+    	
+		//MAR<-PC
+		reg.setMAR(reg.getPC());
+		
+		//MDR<-M(MAR)
+		reg.setMBR(mem.getMem(reg.getMAR()));
+		
+		//IR<-MDR
+		reg.setIR(reg.getMBR());
+		
+		
+    	//extract each part
         int isolatedValues[] = isolateLoadStoreBits(instruction);
         int Opcode = isolatedValues[0];
         int R = isolatedValues[1];
@@ -97,9 +112,22 @@ public class Instructions {
             //Load and Store instruction block
             case 1: //instruction for LDR
                 EA = computeEA(I, IX, Address);
+                             
                 if (EA != -1 && EA <= 2048) {
-                    reg.setGPR(R, mem.getMem(EA));
+                	
+                	//reg.setGPR(R, mem.getMem(EA));
+                	
+                    //MAR<-EA
+                    reg.setMAR(EA);
+                    
+                    //MDR<-M(MAR)
+                    reg.setMBR(mem.getMem(reg.getMAR()));
+                    
+                    //RF[FRI]<-MDR
+                    reg.setGPR(R, reg.getMBR());
+                    
                 } else {
+                	//or if we can check machine fault register we can set for error
                     System.out.println("error");
                 }
 
@@ -109,7 +137,18 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    mem.setMem(EA, reg.getGPR(R));
+                    
+                	//mem.setMem(EA, reg.getGPR(R));
+                    
+                    //MAR<-EA
+                    reg.setMAR(EA);
+                    
+                    //MDR<-RF[FRI]
+                    reg.setMBR(reg.getGPR(R));
+                    
+                    //EA<-MDR
+                    mem.setMem(reg.getMAR(), reg.getMBR());
+                    
                 } else {
                     System.out.println("error");
                 }
@@ -120,7 +159,10 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    reg.setGPR(R, EA);
+                    //R<-EA;
+                	reg.setGPR(R, EA);
+                	                	    	
+                	
                 } else {
                     System.out.println("error");
                 }
@@ -131,7 +173,19 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    reg.setXR(R, mem.getMem(EA));
+                    //reg.setXR(R, mem.getMem(EA));
+                    
+                	//MAR<-EA
+                	reg.setMAR(EA);
+                	
+                	//MDR<-M(MAR)
+                	reg.setMBR(mem.getMem(reg.getMAR()));
+                	
+                	//XR(R)<-MDR
+                	reg.setXR(R, reg.getMBR());
+                	
+                	
+                	
                 } else {
                     System.out.println("error");
                 }
@@ -142,7 +196,17 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    mem.setMem(EA, reg.getXR(R));
+                    //mem.setMem(EA, reg.getXR(R));
+                    
+                	//MAR<-EA
+                	reg.setMAR(EA);
+                	
+                	//MDR<-XR(R)
+                	reg.setMBR(reg.getXR(R));
+                	
+                	//M(MAR)<-MDR
+                	mem.setMem(reg.getMAR(), reg.getMBR());
+                    
                 } else {
                     System.out.println("error");
                 }
@@ -165,7 +229,15 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    reg.setGPR(R, reg.getGPR(R) - mem.getMem(EA));
+                    //reg.setGPR(R, reg.getGPR(R) - mem.getMem(EA));
+                	
+                	//MAR<-EA
+                	reg.setMAR(EA);
+                	//MDR<-M(MAR)
+                	reg.setMBR(reg.getMAR());
+                	
+                    reg.setGPR(R, reg.getGPR(R) - mem.getMem(reg.getMBR()));
+
                 } else {
                     System.out.println("error");
                 }
@@ -202,7 +274,7 @@ public class Instructions {
                     if (reg.getGPR(R) == 1) {
                         reg.setPC(EA);
                     } else {
-                        reg.setPC(reg.getPC() + 1);
+                        break;
                     }
                 } else {
                     System.out.println("error");
@@ -217,7 +289,7 @@ public class Instructions {
                     if (reg.getGPR(R) != 0) {
                         reg.setPC(EA);
                     } else {
-                        reg.setPC(reg.getPC() + 1);
+                        break;
                     }
                 } else {
                     System.out.println("error");
@@ -232,7 +304,7 @@ public class Instructions {
                     if (reg.getCC() == 1) {
                         reg.setPC(EA);
                     } else {
-                        reg.setPC(reg.getPC() + 1);
+                        break;
                     }
                 } else {
                     System.out.println("error");
