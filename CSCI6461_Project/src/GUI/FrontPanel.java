@@ -5,10 +5,12 @@
  */
 package GUI;
 
+import Utilities.DataTypeConvertor;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+
 /**
  *
  * @author Aether
@@ -51,10 +53,9 @@ public class FrontPanel extends JFrame {
     static JCheckBox CCSwitch[];
     static JTextArea Printer;
     static JTextField ConsoleInput;
-    
 
     public FrontPanel() {
-        
+
         initComponents();
         setVisible(true);
         changed = false;
@@ -62,7 +63,7 @@ public class FrontPanel extends JFrame {
         singleStep = false;
         Printer = jTextArea1;
         ConsoleInput = jTextField185;
-        GPR0 = new JTextField[] { 
+        GPR0 = new JTextField[]{
             jTextField1,
             jTextField2,
             jTextField3,
@@ -80,7 +81,7 @@ public class FrontPanel extends JFrame {
             jTextField15,
             jTextField16
         };
-        GPR1 = new JTextField[] {
+        GPR1 = new JTextField[]{
             R1T1,
             R1T2,
             R1T3,
@@ -98,7 +99,7 @@ public class FrontPanel extends JFrame {
             R1T15,
             R1T16
         };
-        GPR2 = new JTextField[] {
+        GPR2 = new JTextField[]{
             R2T1,
             R2T2,
             R2T3,
@@ -116,7 +117,7 @@ public class FrontPanel extends JFrame {
             R2T15,
             R2T16
         };
-        GPR3 = new JTextField[] {
+        GPR3 = new JTextField[]{
             R3T1,
             R3T2,
             R3T3,
@@ -134,7 +135,7 @@ public class FrontPanel extends JFrame {
             R3T15,
             R3T16
         };
-        GPRSwitch0 = new JCheckBox[] { 
+        GPRSwitch0 = new JCheckBox[]{
             jCheckBox1,
             jCheckBox2,
             jCheckBox3,
@@ -152,7 +153,7 @@ public class FrontPanel extends JFrame {
             jCheckBox15,
             jCheckBox16
         };
-        GPRSwitch1 = new JCheckBox[] {
+        GPRSwitch1 = new JCheckBox[]{
             R1C1,
             R1C2,
             R1C3,
@@ -170,7 +171,7 @@ public class FrontPanel extends JFrame {
             R1C15,
             R1C16
         };
-        GPRSwitch2 = new JCheckBox[] {
+        GPRSwitch2 = new JCheckBox[]{
             R2C1,
             R2C2,
             R2C3,
@@ -188,7 +189,7 @@ public class FrontPanel extends JFrame {
             R2C15,
             R2C16
         };
-        GPRSwitch3 = new JCheckBox[] {
+        GPRSwitch3 = new JCheckBox[]{
             R3C1,
             R3C2,
             R3C3,
@@ -206,8 +207,8 @@ public class FrontPanel extends JFrame {
             R3C15,
             R3C16
         };
-        
-        X1 = new JTextField[] {
+
+        X1 = new JTextField[]{
             jTextField65,
             jTextField66,
             jTextField67,
@@ -225,7 +226,7 @@ public class FrontPanel extends JFrame {
             jTextField188,
             jTextField189
         };
-        X2 = new JTextField[] {
+        X2 = new JTextField[]{
             jTextField77,
             jTextField78,
             jTextField79,
@@ -243,7 +244,7 @@ public class FrontPanel extends JFrame {
             jTextField192,
             jTextField193
         };
-        X3 = new JTextField[] {
+        X3 = new JTextField[]{
             jTextField89,
             jTextField90,
             jTextField91,
@@ -261,7 +262,7 @@ public class FrontPanel extends JFrame {
             jTextField196,
             jTextField197
         };
-        XSwitch1 = new JCheckBox[] { 
+        XSwitch1 = new JCheckBox[]{
             jCheckBox65,
             jCheckBox66,
             jCheckBox67,
@@ -279,7 +280,7 @@ public class FrontPanel extends JFrame {
             jCheckBox188,
             jCheckBox189
         };
-        XSwitch2 = new JCheckBox[] {
+        XSwitch2 = new JCheckBox[]{
             jCheckBox77,
             jCheckBox78,
             jCheckBox79,
@@ -297,7 +298,7 @@ public class FrontPanel extends JFrame {
             jCheckBox192,
             jCheckBox193
         };
-        XSwitch3 = new JCheckBox[] {
+        XSwitch3 = new JCheckBox[]{
             jCheckBox89,
             jCheckBox90,
             jCheckBox91,
@@ -316,8 +317,7 @@ public class FrontPanel extends JFrame {
             jCheckBox197
         };
 
-      
-        PC = new JTextField[] {
+        PC = new JTextField[]{
             jTextField101,
             jTextField102,
             jTextField103,
@@ -332,7 +332,7 @@ public class FrontPanel extends JFrame {
             jTextField112
         };
 
-        PCSwitch = new JCheckBox[] {
+        PCSwitch = new JCheckBox[]{
             jCheckBox101,
             jCheckBox102,
             jCheckBox103,
@@ -347,7 +347,7 @@ public class FrontPanel extends JFrame {
             jCheckBox112
         };
 
-        IR = new JTextField[] {
+        IR = new JTextField[]{
             jTextField113,
             jTextField114,
             jTextField115,
@@ -366,7 +366,7 @@ public class FrontPanel extends JFrame {
             jTextField128
         };
 
-        IRSwitch = new JCheckBox[] {
+        IRSwitch = new JCheckBox[]{
             jCheckBox113,
             jCheckBox114,
             jCheckBox115,
@@ -383,9 +383,9 @@ public class FrontPanel extends JFrame {
             jCheckBox126,
             jCheckBox127,
             jCheckBox128
-        };          
-        
-        MAR = new JTextField[] {
+        };
+
+        MAR = new JTextField[]{
             jTextField129,
             jTextField130,
             jTextField131,
@@ -404,7 +404,7 @@ public class FrontPanel extends JFrame {
             jTextField144
         };
 
-        MARSwitch = new JCheckBox[] {
+        MARSwitch = new JCheckBox[]{
             jCheckBox129,
             jCheckBox130,
             jCheckBox131,
@@ -421,8 +421,8 @@ public class FrontPanel extends JFrame {
             jCheckBox142,
             jCheckBox143,
             jCheckBox144
-        };        
-        MBR = new JTextField[] {
+        };
+        MBR = new JTextField[]{
             jTextField145,
             jTextField146,
             jTextField147,
@@ -438,10 +438,9 @@ public class FrontPanel extends JFrame {
             jTextField157,
             jTextField158,
             jTextField159,
-            jTextField160,
-        };
+            jTextField160,};
 
-        MBRSwitch = new JCheckBox[] {
+        MBRSwitch = new JCheckBox[]{
             jCheckBox145,
             jCheckBox146,
             jCheckBox147,
@@ -457,9 +456,8 @@ public class FrontPanel extends JFrame {
             jCheckBox157,
             jCheckBox158,
             jCheckBox159,
-            jCheckBox160,
-        };
-        MSR = new JTextField[] {
+            jCheckBox160,};
+        MSR = new JTextField[]{
             jTextField161,
             jTextField162,
             jTextField163,
@@ -478,7 +476,7 @@ public class FrontPanel extends JFrame {
             jTextField176
         };
 
-        MSRSwitch = new JCheckBox[] {
+        MSRSwitch = new JCheckBox[]{
             jCheckBox161,
             jCheckBox162,
             jCheckBox163,
@@ -496,293 +494,263 @@ public class FrontPanel extends JFrame {
             jCheckBox175,
             jCheckBox176
         };
-        MFR = new JTextField[] {
+        MFR = new JTextField[]{
             jTextField177,
             jTextField178,
             jTextField179,
             jTextField180
         };
 
-        MFRSwitch = new JCheckBox[] {
+        MFRSwitch = new JCheckBox[]{
             jCheckBox177,
             jCheckBox178,
             jCheckBox179,
             jCheckBox180
         };
-        
-        CC = new JTextField[] {
+
+        CC = new JTextField[]{
             jTextField181,
             jTextField182,
             jTextField183,
             jTextField184
         };
 
-        CCSwitch = new JCheckBox[] {
+        CCSwitch = new JCheckBox[]{
             jCheckBox181,
             jCheckBox182,
             jCheckBox183,
             jCheckBox184
         };
     }
-    
+
     public void updatePrinter(String printout) {
         Printer.setText(printout);
     }
-    
+
     public String getConsoleInput() {
         return ConsoleInput.getText();
     }
 
     public int getGPRegister(int rNum) {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 15; i >= 0; i--) {
+        for (int i = 0; i < 16; i++) {
             if (rNum == 0) {
-                value += Integer.parseInt(GPR0[i].getText()) * (1 << shift);
+                stringVal += GPR0[i].getText();
             }
             if (rNum == 1) {
-                value += Integer.parseInt(GPR1[i].getText()) * (1 << shift);
+                stringVal += GPR1[i].getText();
             }
             if (rNum == 2) {
-                value += Integer.parseInt(GPR2[i].getText()) * (1 << shift);
+                stringVal += GPR2[i].getText();
             }
             if (rNum == 3) {
-                value += Integer.parseInt(GPR3[i].getText()) * (1 << shift);
+                stringVal += GPR3[i].getText();
             }
-            shift += 1;
         }
+        value = DataTypeConvertor.stringToInt(stringVal);
         return value;
     }
+
     public void updateGPRegister(int rNum, int value) {
 
-        int mask = 1 << 15;
+        String valueString = DataTypeConvertor.intToString(value, 16);
         for (int i = 0; i < 16; i++) {
-            int intVal = ((value & mask) >> (15 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
+
             if (rNum == 0) {
-                GPR0[i].setText(valueString);
-                GPRSwitch0[i].setSelected(boolVal);
+                if (!GPR0[i].getText().equals(valueString.substring(i, i + 1))) {
+                    GPRSwitch0[i].doClick();
+                }
             }
             if (rNum == 1) {
-                GPR1[i].setText(valueString);
-                GPRSwitch1[i].setSelected(boolVal);
+                if (!GPR1[i].getText().equals(valueString.substring(i, i + 1))) {
+                    GPRSwitch1[i].doClick();
+                }
             }
             if (rNum == 2) {
-                GPR2[i].setText(valueString);
-                GPRSwitch2[i].setSelected(boolVal);
+                if (!GPR2[i].getText().equals(valueString.substring(i, i + 1))) {
+                    GPRSwitch2[i].doClick();
+                }
             }
             if (rNum == 3) {
-                GPR3[i].setText(valueString);
-                GPRSwitch3[i].setSelected(boolVal);
+                if (!GPR3[i].getText().equals(valueString.substring(i, i + 1))) {
+                    GPRSwitch3[i].doClick();
+                }
             }
-            mask = mask >> 1;
         }
     }
 
     public int getXRegister(int xNum) {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 15; i >= 0; i--) {
-            if (xNum == 1) {
-                value += Integer.parseInt(X1[i].getText()) * (1 << shift);
-            }
-            if (xNum == 2) {
-                value += Integer.parseInt(X2[i].getText()) * (1 << shift);
-            }
-            if (xNum == 3) {
-                value += Integer.parseInt(X3[i].getText()) * (1 << shift);
-            }
-            shift += 1;
-        }
-        return value;
-    }    
-    
-    public void updateXRegister(int xNum, int value) {
-        
-        int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-            int intVal = ((value & mask) >> (15 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
+            if (xNum == 0) {
+                stringVal += X1[i].getText();
+            }
             if (xNum == 1) {
-                X1[i].setText(valueString);
-                XSwitch1[i].setSelected(boolVal);
+                stringVal += X2[i].getText();
             }
             if (xNum == 2) {
-                X2[i].setText(valueString);
-                XSwitch2[i].setSelected(boolVal);
+                stringVal += X3[i].getText();
+            }
+        }
+        value = DataTypeConvertor.stringToInt(stringVal);
+        return value;
+    }
+
+    public void updateXRegister(int xNum, int value) {
+
+        String valueString = DataTypeConvertor.intToString(value, 16);
+        for (int i = 0; i < 16; i++) {
+            if (xNum == 1) {
+                if (!X1[i].getText().equals(valueString.substring(i, i + 1))) {
+                    XSwitch1[i].doClick();
+                }
+            }
+            if (xNum == 2) {
+                if (!X2[i].getText().equals(valueString.substring(i, i + 1))) {
+                    XSwitch2[i].doClick();
+                }
             }
             if (xNum == 3) {
-                X3[i].setText(valueString);
-                XSwitch3[i].setSelected(boolVal);
+                if (!X3[i].getText().equals(valueString.substring(i, i + 1))) {
+                    XSwitch3[i].doClick();
+                }
             }
-            mask = mask >> 1;
         }
     }
 
     public int getIRRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 15; i >= 0; i--) {
-            value += Integer.parseInt(IR[i].getText()) * (1 << shift);
-            shift += 1;
+        for (int i = 0; i < 16; i++) {
+            stringVal += IR[i].getText();
         }
+        value = DataTypeConvertor.stringToInt(stringVal);
         return value;
-    }    
-        
+    }
+
     public void updateIRRegister(int value) {
-        
-        int mask = 1 << 15;
+        String valueString = DataTypeConvertor.intToString(value, 16);
         for (int i = 0; i < 16; i++) {
-            int intVal = ((value & mask) >> (15 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            IR[i].setText(valueString);
-            IRSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            if (!IR[i].getText().equals(valueString.substring(i, i + 1))) {
+                IRSwitch[i].doClick();
+            }
         }
     }
-    
+
     public int getMARRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 15; i >= 0; i--) {
-            value += Integer.parseInt(MAR[i].getText()) * (1 << shift);
-            shift += 1;
+        for (int i = 0; i < 16; i++) {
+            stringVal += MAR[i].getText();
         }
+        value = DataTypeConvertor.stringToInt(stringVal);
         return value;
-    }    
-    
+    }
+
     public void updateMARRegister(int value) {
-        
-        int mask = 1 << 15;
+        String valueString = DataTypeConvertor.intToString(value, 16);
         for (int i = 0; i < 16; i++) {
-            int intVal = ((value & mask) >> (15 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            MAR[i].setText(valueString);
-            MARSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            if (!MAR[i].getText().equals(valueString.substring(i, i + 1))) {
+                MARSwitch[i].doClick();
+            }
         }
     }
-    
-       
+
     public int getMBRRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 15; i >= 0; i--) {
-            value += Integer.parseInt(MBR[i].getText()) * (1 << shift);
-            shift += 1;
+        for (int i = 0; i < 16; i++) {
+            stringVal += MBR[i].getText();
         }
+        value = DataTypeConvertor.stringToInt(stringVal);
         return value;
-    }    
-    
+    }
+
     public void updateMBRRegister(int value) {
-        
-        int mask = 1 << 15;
+
+        String valueString = DataTypeConvertor.intToString(value, 16);
         for (int i = 0; i < 16; i++) {
-            int intVal = ((value & mask) >> (15 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            MBR[i].setText(valueString);
-            MBRSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            if (!MBR[i].getText().equals(valueString.substring(i, i + 1))) {
+                MBRSwitch[i].doClick();
+            }
         }
     }
-    
-       
+
     public int getMSRRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 15; i >= 0; i--) {
-            value += Integer.parseInt(MSR[i].getText()) * (1 << shift);
-            shift += 1;
-        }
-        return value;
-    }    
-    
-    public void updateMSRRegister(int value) {
-        
-        int mask = 1 << 15;
         for (int i = 0; i < 16; i++) {
-            int intVal = ((value & mask) >> (15 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            MSR[i].setText(valueString);
-            MSRSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            stringVal += MSR[i].getText();
+        }
+        value = DataTypeConvertor.stringToInt(stringVal);
+        return value;
+    }
+
+    public void updateMSRRegister(int value) {
+        String valueString = DataTypeConvertor.intToString(value, 16);
+        for (int i = 0; i < 16; i++) {
+            if (!MSR[i].getText().equals(valueString.substring(i, i + 1))) {
+                MSRSwitch[i].doClick();
+            }
         }
     }
-    
-       
+
     public int getPCRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 11; i >= 0; i--) {
-            value += Integer.parseInt(PC[i].getText()) * (1 << shift);
-            shift += 1;
-        }
-        return value;
-    }    
-    
-    public void updatePCRegister(int value) {
-        
-        int mask = 1 << 11;
         for (int i = 0; i < 12; i++) {
-            int intVal = ((value & mask) >> (11 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            PC[i].setText(valueString);
-            PCSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            stringVal += PC[i].getText();
+        }
+        value = DataTypeConvertor.stringToInt(stringVal);
+        return value;
+    }
+
+    public void updatePCRegister(int value) {
+        String valueString = DataTypeConvertor.intToString(value, 12);
+        for (int i = 0; i < 12; i++) {
+            if (!PC[i].getText().equals(valueString.substring(i, i + 1))) {
+                PCSwitch[i].doClick();
+            }
         }
     }
-    
+
     public int getMFRRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 3; i >= 0; i--) {
-            value += Integer.parseInt(MFR[i].getText()) * (1 << shift);
-            shift += 1;
-        }
-        return value;
-    }    
-        
-    public void updateMFRRegister(int value) {
-        
-        int mask = 1 << 3;
         for (int i = 0; i < 4; i++) {
-            int intVal = ((value & mask) >> (3 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            MFR[i].setText(valueString);
-            MFRSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            stringVal += MFR[i].getText();
+        }
+        value = DataTypeConvertor.stringToInt(stringVal);
+        return value;
+    }
+
+    public void updateMFRRegister(int value) {
+        String valueString = DataTypeConvertor.intToString(value, 4);
+        for (int i = 0; i < 4; i++) {
+            if (!MFR[i].getText().equals(valueString.substring(i, i + 1))) {
+                MFRSwitch[i].doClick();
+            }
         }
     }
 
     public int getCCRegister() {
+        String stringVal = "";
         int value = 0;
-        int shift = 0;
-        for (int i = 3; i >= 0; i--) {
-            value += Integer.parseInt(CC[i].getText()) * (1 << shift);
-            shift += 1;
-        }
-        return value;
-    }    
-    
-    
-    public void updateCCRegister(int value) {
-        
-        int mask = 1 << 3;
         for (int i = 0; i < 4; i++) {
-            int intVal = ((value & mask) >> (3 - i));
-            boolean boolVal = (intVal != 0);            
-            String valueString = Integer.toString(intVal);
-            CC[i].setText(valueString);
-            CCSwitch[i].setSelected(boolVal);
-            mask = mask >> 1;
+            stringVal += CC[i].getText();
+        }
+        value = DataTypeConvertor.stringToInt(stringVal);
+        return value;
+    }
+
+    public void updateCCRegister(int value) {
+        String valueString = DataTypeConvertor.intToString(value, 4);
+        for (int i = 0; i < 4; i++) {
+            if (!CC[i].getText().equals(valueString.substring(i, i + 1))) {
+                CCSwitch[i].doClick();
+            }
         }
     }
 
@@ -5660,110 +5628,155 @@ public class FrontPanel extends JFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
         changed = true;
-        if (jCheckBox1.isSelected()) jTextField1.setText("1");
-        else jTextField1.setText("0");
+        if (jCheckBox1.isSelected()) {
+            jTextField1.setText("1");
+        } else {
+            jTextField1.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
         // TODO add your handling code here:
         changed = true;
-        if (jCheckBox2.isSelected()) jTextField2.setText("1");
-        else jTextField2.setText("0");
+        if (jCheckBox2.isSelected()) {
+            jTextField2.setText("1");
+        } else {
+            jTextField2.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox3.isSelected()) jTextField3.setText("1");
-        else jTextField3.setText("0");
+        if (jCheckBox3.isSelected()) {
+            jTextField3.setText("1");
+        } else {
+            jTextField3.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox3ActionPerformed
 
     private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox4.isSelected()) jTextField4.setText("1");
-        else jTextField4.setText("0");
+        if (jCheckBox4.isSelected()) {
+            jTextField4.setText("1");
+        } else {
+            jTextField4.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox4ActionPerformed
 
     private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox5.isSelected()) jTextField5.setText("1");
-        else jTextField5.setText("0");
+        if (jCheckBox5.isSelected()) {
+            jTextField5.setText("1");
+        } else {
+            jTextField5.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox5ActionPerformed
 
     private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox6.isSelected()) jTextField6.setText("1");
-        else jTextField6.setText("0");
+        if (jCheckBox6.isSelected()) {
+            jTextField6.setText("1");
+        } else {
+            jTextField6.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox6ActionPerformed
 
     private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox7.isSelected()) jTextField7.setText("1");
-        else jTextField7.setText("0");
+        if (jCheckBox7.isSelected()) {
+            jTextField7.setText("1");
+        } else {
+            jTextField7.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox7ActionPerformed
 
     private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox8.isSelected()) jTextField8.setText("1");
-        else jTextField8.setText("0");
+        if (jCheckBox8.isSelected()) {
+            jTextField8.setText("1");
+        } else {
+            jTextField8.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox8ActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox9.isSelected()) jTextField9.setText("1");
-        else jTextField9.setText("0");
+        if (jCheckBox9.isSelected()) {
+            jTextField9.setText("1");
+        } else {
+            jTextField9.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox9ActionPerformed
 
     private void jCheckBox10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox10ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox10.isSelected()) jTextField10.setText("1");
-        else jTextField10.setText("0");
+        if (jCheckBox10.isSelected()) {
+            jTextField10.setText("1");
+        } else {
+            jTextField10.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox10ActionPerformed
 
     private void jCheckBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox11ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox11.isSelected()) jTextField11.setText("1");
-        else jTextField11.setText("0");
+        if (jCheckBox11.isSelected()) {
+            jTextField11.setText("1");
+        } else {
+            jTextField11.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox11ActionPerformed
 
     private void jCheckBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox12ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox12.isSelected()) jTextField12.setText("1");
-        else jTextField12.setText("0");
+        if (jCheckBox12.isSelected()) {
+            jTextField12.setText("1");
+        } else {
+            jTextField12.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox12ActionPerformed
 
     private void jCheckBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox13ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox13.isSelected()) jTextField13.setText("1");
-        else jTextField13.setText("0");
+        if (jCheckBox13.isSelected()) {
+            jTextField13.setText("1");
+        } else {
+            jTextField13.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox13ActionPerformed
 
     private void jCheckBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox14ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox14.isSelected()) jTextField14.setText("1");
-        else jTextField14.setText("0");
+        if (jCheckBox14.isSelected()) {
+            jTextField14.setText("1");
+        } else {
+            jTextField14.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox14ActionPerformed
 
     private void jCheckBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox15ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox15.isSelected()) jTextField15.setText("1");
-        else jTextField15.setText("0");
+        if (jCheckBox15.isSelected()) {
+            jTextField15.setText("1");
+        } else {
+            jTextField15.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox15ActionPerformed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
@@ -5771,10 +5784,13 @@ public class FrontPanel extends JFrame {
     }//GEN-LAST:event_jTextField9ActionPerformed
 
     private void jCheckBox16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox16ActionPerformed
- // TODO add your handling code here:
+        // TODO add your handling code here:
         changed = true;
-        if (jCheckBox16.isSelected()) jTextField16.setText("1");
-        else jTextField16.setText("0");
+        if (jCheckBox16.isSelected()) {
+            jTextField16.setText("1");
+        } else {
+            jTextField16.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox16ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
@@ -5807,76 +5823,112 @@ public class FrontPanel extends JFrame {
 
     private void R1C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C1ActionPerformed
         changed = true;
-        if (R1C1.isSelected()) R1T1.setText("1");
-        else R1T1.setText("0");     
+        if (R1C1.isSelected()) {
+            R1T1.setText("1");
+        } else {
+            R1T1.setText("0");
+        }
     }//GEN-LAST:event_R1C1ActionPerformed
 
     private void R1C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C2ActionPerformed
         changed = true;
-        if (R1C2.isSelected()) R1T2.setText("1");
-        else R1T2.setText("0");     
+        if (R1C2.isSelected()) {
+            R1T2.setText("1");
+        } else {
+            R1T2.setText("0");
+        }
     }//GEN-LAST:event_R1C2ActionPerformed
 
     private void R1C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C3ActionPerformed
         changed = true;
-        if (R1C3.isSelected()) R1T3.setText("1");
-        else R1T3.setText("0");     
+        if (R1C3.isSelected()) {
+            R1T3.setText("1");
+        } else {
+            R1T3.setText("0");
+        }
     }//GEN-LAST:event_R1C3ActionPerformed
 
     private void R1C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C4ActionPerformed
         changed = true;
-        if (R1C4.isSelected()) R1T4.setText("1");
-        else R1T4.setText("0");     
+        if (R1C4.isSelected()) {
+            R1T4.setText("1");
+        } else {
+            R1T4.setText("0");
+        }
     }//GEN-LAST:event_R1C4ActionPerformed
 
     private void R1C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C5ActionPerformed
         changed = true;
-        if (R1C5.isSelected()) R1T5.setText("1");
-        else R1T5.setText("0");     
+        if (R1C5.isSelected()) {
+            R1T5.setText("1");
+        } else {
+            R1T5.setText("0");
+        }
     }//GEN-LAST:event_R1C5ActionPerformed
 
     private void R1C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C6ActionPerformed
         changed = true;
-        if (R1C6.isSelected()) R1T6.setText("1");
-        else R1T6.setText("0");     
+        if (R1C6.isSelected()) {
+            R1T6.setText("1");
+        } else {
+            R1T6.setText("0");
+        }
     }//GEN-LAST:event_R1C6ActionPerformed
 
     private void R1C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C7ActionPerformed
         changed = true;
-        if (R1C7.isSelected()) R1T7.setText("1");
-        else R1T7.setText("0");     
+        if (R1C7.isSelected()) {
+            R1T7.setText("1");
+        } else {
+            R1T7.setText("0");
+        }
     }//GEN-LAST:event_R1C7ActionPerformed
 
     private void R1C13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C13ActionPerformed
         changed = true;
-        if (R1C13.isSelected()) R1T13.setText("1");
-        else R1T13.setText("0");     
+        if (R1C13.isSelected()) {
+            R1T13.setText("1");
+        } else {
+            R1T13.setText("0");
+        }
     }//GEN-LAST:event_R1C13ActionPerformed
 
     private void R1C12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C12ActionPerformed
         changed = true;
-        if (R1C12.isSelected()) R1T12.setText("1");
-        else R1T12.setText("0");     
+        if (R1C12.isSelected()) {
+            R1T12.setText("1");
+        } else {
+            R1T12.setText("0");
+        }
     }//GEN-LAST:event_R1C12ActionPerformed
 
     private void R1C11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C11ActionPerformed
         changed = true;
-        if (R1C11.isSelected()) R1T11.setText("1");
-        else R1T11.setText("0");     
+        if (R1C11.isSelected()) {
+            R1T11.setText("1");
+        } else {
+            R1T11.setText("0");
+        }
     }//GEN-LAST:event_R1C11ActionPerformed
 
     private void R1C10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C10ActionPerformed
         // TODO add your handling code here:
         changed = true;
-        if(R1C10.isSelected()) R1T10.setText("1");
-        else R1T10.setText("0");
+        if (R1C10.isSelected()) {
+            R1T10.setText("1");
+        } else {
+            R1T10.setText("0");
+        }
     }//GEN-LAST:event_R1C10ActionPerformed
 
     private void R1C9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C9ActionPerformed
         // TODO add your handling code here:
         changed = true;
-        if(R1C9.isSelected()) R1T9.setText("1");
-        else R1T9.setText("0");        
+        if (R1C9.isSelected()) {
+            R1T9.setText("1");
+        } else {
+            R1T9.setText("0");
+        }
     }//GEN-LAST:event_R1C9ActionPerformed
 
     private void R1T8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1T8ActionPerformed
@@ -5885,8 +5937,11 @@ public class FrontPanel extends JFrame {
 
     private void R1C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C8ActionPerformed
         changed = true;
-        if (R1C8.isSelected()) R1T8.setText("1");
-        else R1T8.setText("0");     
+        if (R1C8.isSelected()) {
+            R1T8.setText("1");
+        } else {
+            R1T8.setText("0");
+        }
     }//GEN-LAST:event_R1C8ActionPerformed
 
     private void R1T15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1T15ActionPerformed
@@ -5919,8 +5974,11 @@ public class FrontPanel extends JFrame {
 
     private void R1C16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C16ActionPerformed
         changed = true;
-        if (R1C16.isSelected()) R1T16.setText("1");
-        else R1T16.setText("0");     
+        if (R1C16.isSelected()) {
+            R1T16.setText("1");
+        } else {
+            R1T16.setText("0");
+        }
     }//GEN-LAST:event_R1C16ActionPerformed
 
     private void R1T16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1T16ActionPerformed
@@ -5929,14 +5987,20 @@ public class FrontPanel extends JFrame {
 
     private void R1C15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C15ActionPerformed
         changed = true;
-        if (R1C15.isSelected()) R1T15.setText("1");
-        else R1T15.setText("0");     
+        if (R1C15.isSelected()) {
+            R1T15.setText("1");
+        } else {
+            R1T15.setText("0");
+        }
     }//GEN-LAST:event_R1C15ActionPerformed
 
     private void R1C14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1C14ActionPerformed
         changed = true;
-        if (R1C14.isSelected()) R1T14.setText("1");
-        else R1T14.setText("0");     
+        if (R1C14.isSelected()) {
+            R1T14.setText("1");
+        } else {
+            R1T14.setText("0");
+        }
     }//GEN-LAST:event_R1C14ActionPerformed
 
     private void R1T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1T1ActionPerformed
@@ -5969,74 +6033,110 @@ public class FrontPanel extends JFrame {
 
     private void R2C10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C10ActionPerformed
         changed = true;
-        if (R2C10.isSelected()) R2T10.setText("1");
-        else R2T10.setText("0");    
+        if (R2C10.isSelected()) {
+            R2T10.setText("1");
+        } else {
+            R2T10.setText("0");
+        }
     }//GEN-LAST:event_R2C10ActionPerformed
 
     private void R2C11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C11ActionPerformed
         changed = true;
-        if (R2C11.isSelected()) R2T11.setText("1");
-        else R2T11.setText("0");    
+        if (R2C11.isSelected()) {
+            R2T11.setText("1");
+        } else {
+            R2T11.setText("0");
+        }
     }//GEN-LAST:event_R2C11ActionPerformed
 
     private void R2C12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C12ActionPerformed
         changed = true;
-        if (R2C12.isSelected()) R2T12.setText("1");
-        else R2T12.setText("0");    
+        if (R2C12.isSelected()) {
+            R2T12.setText("1");
+        } else {
+            R2T12.setText("0");
+        }
     }//GEN-LAST:event_R2C12ActionPerformed
 
     private void R2C13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C13ActionPerformed
         changed = true;
-        if (R2C13.isSelected()) R2T13.setText("1");
-        else R2T13.setText("0");    
+        if (R2C13.isSelected()) {
+            R2T13.setText("1");
+        } else {
+            R2T13.setText("0");
+        }
     }//GEN-LAST:event_R2C13ActionPerformed
 
     private void R2C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C7ActionPerformed
         changed = true;
-        if (R2C7.isSelected()) R2T7.setText("1");
-        else R2T7.setText("0");    
+        if (R2C7.isSelected()) {
+            R2T7.setText("1");
+        } else {
+            R2T7.setText("0");
+        }
     }//GEN-LAST:event_R2C7ActionPerformed
 
     private void R2C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C6ActionPerformed
         changed = true;
-        if (R2C6.isSelected()) R2T6.setText("1");
-        else R2T6.setText("0");    
+        if (R2C6.isSelected()) {
+            R2T6.setText("1");
+        } else {
+            R2T6.setText("0");
+        }
     }//GEN-LAST:event_R2C6ActionPerformed
 
     private void R2C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C5ActionPerformed
         changed = true;
-        if (R2C5.isSelected()) R2T5.setText("1");
-        else R2T5.setText("0");    
+        if (R2C5.isSelected()) {
+            R2T5.setText("1");
+        } else {
+            R2T5.setText("0");
+        }
     }//GEN-LAST:event_R2C5ActionPerformed
 
     private void R2C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C4ActionPerformed
         changed = true;
-        if (R2C4.isSelected()) R2T4.setText("1");
-        else R2T4.setText("0");    
+        if (R2C4.isSelected()) {
+            R2T4.setText("1");
+        } else {
+            R2T4.setText("0");
+        }
     }//GEN-LAST:event_R2C4ActionPerformed
 
     private void R2C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C3ActionPerformed
         changed = true;
-        if (R2C3.isSelected()) R2T3.setText("1");
-        else R2T3.setText("0");    
+        if (R2C3.isSelected()) {
+            R2T3.setText("1");
+        } else {
+            R2T3.setText("0");
+        }
     }//GEN-LAST:event_R2C3ActionPerformed
 
     private void R2C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C2ActionPerformed
         changed = true;
-        if (R2C2.isSelected()) R2T2.setText("1");
-        else R2T2.setText("0");    
+        if (R2C2.isSelected()) {
+            R2T2.setText("1");
+        } else {
+            R2T2.setText("0");
+        }
     }//GEN-LAST:event_R2C2ActionPerformed
 
     private void R2C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C1ActionPerformed
         changed = true;
-        if (R2C1.isSelected()) R2T1.setText("1");
-        else R2T1.setText("0");    
+        if (R2C1.isSelected()) {
+            R2T1.setText("1");
+        } else {
+            R2T1.setText("0");
+        }
     }//GEN-LAST:event_R2C1ActionPerformed
 
     private void R2C16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C16ActionPerformed
         changed = true;
-        if (R2C16.isSelected()) R2T16.setText("1");
-        else R2T16.setText("0");    
+        if (R2C16.isSelected()) {
+            R2T16.setText("1");
+        } else {
+            R2T16.setText("0");
+        }
     }//GEN-LAST:event_R2C16ActionPerformed
 
     private void R2T9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2T9ActionPerformed
@@ -6069,8 +6169,11 @@ public class FrontPanel extends JFrame {
 
     private void R2C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C8ActionPerformed
         changed = true;
-        if (R2C8.isSelected()) R2T8.setText("1");
-        else R2T8.setText("0");    
+        if (R2C8.isSelected()) {
+            R2T8.setText("1");
+        } else {
+            R2T8.setText("0");
+        }
     }//GEN-LAST:event_R2C8ActionPerformed
 
     private void R2T8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2T8ActionPerformed
@@ -6079,14 +6182,20 @@ public class FrontPanel extends JFrame {
 
     private void R2C9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C9ActionPerformed
         changed = true;
-        if (R2C9.isSelected()) R2T9.setText("1");
-        else R2T9.setText("0");    
+        if (R2C9.isSelected()) {
+            R2T9.setText("1");
+        } else {
+            R2T9.setText("0");
+        }
     }//GEN-LAST:event_R2C9ActionPerformed
 
     private void R2C14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C14ActionPerformed
         changed = true;
-        if (R2C14.isSelected()) R2T14.setText("1");
-        else R2T14.setText("0");    
+        if (R2C14.isSelected()) {
+            R2T14.setText("1");
+        } else {
+            R2T14.setText("0");
+        }
     }//GEN-LAST:event_R2C14ActionPerformed
 
     private void R2T7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2T7ActionPerformed
@@ -6119,8 +6228,11 @@ public class FrontPanel extends JFrame {
 
     private void R2C15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2C15ActionPerformed
         changed = true;
-        if (R2C15.isSelected()) R2T15.setText("1");
-        else R2T15.setText("0");    
+        if (R2C15.isSelected()) {
+            R2T15.setText("1");
+        } else {
+            R2T15.setText("0");
+        }
     }//GEN-LAST:event_R2C15ActionPerformed
 
     private void R2T16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2T16ActionPerformed
@@ -6145,8 +6257,11 @@ public class FrontPanel extends JFrame {
 
     private void R3C16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C16ActionPerformed
         changed = true;
-        if (R3C16.isSelected()) R3T16.setText("1");
-        else R3T16.setText("0");    
+        if (R3C16.isSelected()) {
+            R3T16.setText("1");
+        } else {
+            R3T16.setText("0");
+        }
     }//GEN-LAST:event_R3C16ActionPerformed
 
     private void R3T13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T13ActionPerformed
@@ -6155,8 +6270,11 @@ public class FrontPanel extends JFrame {
 
     private void R3C15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C15ActionPerformed
         changed = true;
-        if (R3C15.isSelected()) R3T15.setText("1");
-        else R3T15.setText("0");    
+        if (R3C15.isSelected()) {
+            R3T15.setText("1");
+        } else {
+            R3T15.setText("0");
+        }
     }//GEN-LAST:event_R3C15ActionPerformed
 
     private void R3T3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T3ActionPerformed
@@ -6169,32 +6287,47 @@ public class FrontPanel extends JFrame {
 
     private void R3C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C1ActionPerformed
         changed = true;
-        if (R3C1.isSelected()) R3T1.setText("1");
-        else R3T1.setText("0");    
+        if (R3C1.isSelected()) {
+            R3T1.setText("1");
+        } else {
+            R3T1.setText("0");
+        }
     }//GEN-LAST:event_R3C1ActionPerformed
 
     private void R3C9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C9ActionPerformed
         changed = true;
-        if (R3C9.isSelected()) R3T9.setText("1");
-        else R3T9.setText("0");    
+        if (R3C9.isSelected()) {
+            R3T9.setText("1");
+        } else {
+            R3T9.setText("0");
+        }
     }//GEN-LAST:event_R3C9ActionPerformed
 
     private void R3C12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C12ActionPerformed
         changed = true;
-        if (R3C12.isSelected()) R3T12.setText("1");
-        else R3T12.setText("0");    
+        if (R3C12.isSelected()) {
+            R3T12.setText("1");
+        } else {
+            R3T12.setText("0");
+        }
     }//GEN-LAST:event_R3C12ActionPerformed
 
     private void R3C13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C13ActionPerformed
         changed = true;
-        if (R3C13.isSelected()) R3T13.setText("1");
-        else R3T13.setText("0");    
+        if (R3C13.isSelected()) {
+            R3T13.setText("1");
+        } else {
+            R3T13.setText("0");
+        }
     }//GEN-LAST:event_R3C13ActionPerformed
 
     private void R3C14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C14ActionPerformed
         changed = true;
-        if (R3C14.isSelected()) R3T14.setText("1");
-        else R3T14.setText("0");    
+        if (R3C14.isSelected()) {
+            R3T14.setText("1");
+        } else {
+            R3T14.setText("0");
+        }
     }//GEN-LAST:event_R3C14ActionPerformed
 
     private void R3T12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T12ActionPerformed
@@ -6211,26 +6344,38 @@ public class FrontPanel extends JFrame {
 
     private void R3C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C4ActionPerformed
         changed = true;
-        if (R3C4.isSelected()) R3T4.setText("1");
-        else R3T4.setText("0");    
+        if (R3C4.isSelected()) {
+            R3T4.setText("1");
+        } else {
+            R3T4.setText("0");
+        }
     }//GEN-LAST:event_R3C4ActionPerformed
 
     private void R3C10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C10ActionPerformed
         changed = true;
-        if (R3C10.isSelected()) R3T10.setText("1");
-        else R3T10.setText("0");    
+        if (R3C10.isSelected()) {
+            R3T10.setText("1");
+        } else {
+            R3T10.setText("0");
+        }
     }//GEN-LAST:event_R3C10ActionPerformed
 
     private void R3C7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C7ActionPerformed
         changed = true;
-        if (R3C7.isSelected()) R3T7.setText("1");
-        else R3T7.setText("0");    
+        if (R3C7.isSelected()) {
+            R3T7.setText("1");
+        } else {
+            R3T7.setText("0");
+        }
     }//GEN-LAST:event_R3C7ActionPerformed
 
     private void R3C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C2ActionPerformed
         changed = true;
-        if (R3C2.isSelected()) R3T2.setText("1");
-        else R3T2.setText("0");    
+        if (R3C2.isSelected()) {
+            R3T2.setText("1");
+        } else {
+            R3T2.setText("0");
+        }
     }//GEN-LAST:event_R3C2ActionPerformed
 
     private void R3T15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T15ActionPerformed
@@ -6239,14 +6384,20 @@ public class FrontPanel extends JFrame {
 
     private void R3C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C5ActionPerformed
         changed = true;
-        if (R3C5.isSelected()) R3T5.setText("1");
-        else R3T5.setText("0");    
+        if (R3C5.isSelected()) {
+            R3T5.setText("1");
+        } else {
+            R3T5.setText("0");
+        }
     }//GEN-LAST:event_R3C5ActionPerformed
 
     private void R3C8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C8ActionPerformed
         changed = true;
-        if (R3C8.isSelected()) R3T8.setText("1");
-        else R3T8.setText("0");    
+        if (R3C8.isSelected()) {
+            R3T8.setText("1");
+        } else {
+            R3T8.setText("0");
+        }
     }//GEN-LAST:event_R3C8ActionPerformed
 
     private void R3T8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T8ActionPerformed
@@ -6259,8 +6410,11 @@ public class FrontPanel extends JFrame {
 
     private void R3C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C6ActionPerformed
         changed = true;
-        if (R3C6.isSelected()) R3T6.setText("1");
-        else R3T6.setText("0");    
+        if (R3C6.isSelected()) {
+            R3T6.setText("1");
+        } else {
+            R3T6.setText("0");
+        }
     }//GEN-LAST:event_R3C6ActionPerformed
 
     private void R3T16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T16ActionPerformed
@@ -6269,8 +6423,11 @@ public class FrontPanel extends JFrame {
 
     private void R3C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C3ActionPerformed
         changed = true;
-        if (R3C3.isSelected()) R3T3.setText("1");
-        else R3T3.setText("0");    
+        if (R3C3.isSelected()) {
+            R3T3.setText("1");
+        } else {
+            R3T3.setText("0");
+        }
     }//GEN-LAST:event_R3C3ActionPerformed
 
     private void R3T1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3T1ActionPerformed
@@ -6283,14 +6440,20 @@ public class FrontPanel extends JFrame {
 
     private void R3C11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3C11ActionPerformed
         changed = true;
-        if (R3C11.isSelected()) R3T11.setText("1");
-        else R3T11.setText("0");    
+        if (R3C11.isSelected()) {
+            R3T11.setText("1");
+        } else {
+            R3T11.setText("0");
+        }
     }//GEN-LAST:event_R3C11ActionPerformed
 
     private void jCheckBox65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox65ActionPerformed
         changed = true;
-        if (jCheckBox65.isSelected()) jTextField65.setText("1");
-        else jTextField65.setText("0");    
+        if (jCheckBox65.isSelected()) {
+            jTextField65.setText("1");
+        } else {
+            jTextField65.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox65ActionPerformed
 
     private void jTextField65ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField65ActionPerformed
@@ -6299,8 +6462,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox66ActionPerformed
         changed = true;
-        if (jCheckBox66.isSelected()) jTextField66.setText("1");
-        else jTextField66.setText("0");    
+        if (jCheckBox66.isSelected()) {
+            jTextField66.setText("1");
+        } else {
+            jTextField66.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox66ActionPerformed
 
     private void jTextField66ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField66ActionPerformed
@@ -6309,8 +6475,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox67ActionPerformed
         changed = true;
-        if (jCheckBox67.isSelected()) jTextField67.setText("1");
-        else jTextField67.setText("0");    
+        if (jCheckBox67.isSelected()) {
+            jTextField67.setText("1");
+        } else {
+            jTextField67.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox67ActionPerformed
 
     private void jTextField67ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField67ActionPerformed
@@ -6319,8 +6488,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox68ActionPerformed
         changed = true;
-        if (jCheckBox68.isSelected()) jTextField68.setText("1");
-        else jTextField68.setText("0");    
+        if (jCheckBox68.isSelected()) {
+            jTextField68.setText("1");
+        } else {
+            jTextField68.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox68ActionPerformed
 
     private void jTextField68ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField68ActionPerformed
@@ -6329,8 +6501,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox69ActionPerformed
         changed = true;
-        if (jCheckBox69.isSelected()) jTextField69.setText("1");
-        else jTextField69.setText("0");    
+        if (jCheckBox69.isSelected()) {
+            jTextField69.setText("1");
+        } else {
+            jTextField69.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox69ActionPerformed
 
     private void jTextField69ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField69ActionPerformed
@@ -6339,8 +6514,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox70ActionPerformed
         changed = true;
-        if (jCheckBox70.isSelected()) jTextField70.setText("1");
-        else jTextField70.setText("0");    
+        if (jCheckBox70.isSelected()) {
+            jTextField70.setText("1");
+        } else {
+            jTextField70.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox70ActionPerformed
 
     private void jTextField70ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField70ActionPerformed
@@ -6349,8 +6527,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox71ActionPerformed
         changed = true;
-        if (jCheckBox71.isSelected()) jTextField71.setText("1");
-        else jTextField71.setText("0");    
+        if (jCheckBox71.isSelected()) {
+            jTextField71.setText("1");
+        } else {
+            jTextField71.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox71ActionPerformed
 
     private void jTextField71ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField71ActionPerformed
@@ -6359,8 +6540,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox72ActionPerformed
         changed = true;
-        if (jCheckBox72.isSelected()) jTextField72.setText("1");
-        else jTextField72.setText("0");    
+        if (jCheckBox72.isSelected()) {
+            jTextField72.setText("1");
+        } else {
+            jTextField72.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox72ActionPerformed
 
     private void jTextField72ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField72ActionPerformed
@@ -6369,8 +6553,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox73ActionPerformed
         changed = true;
-        if (jCheckBox73.isSelected()) jTextField73.setText("1");
-        else jTextField73.setText("0");    
+        if (jCheckBox73.isSelected()) {
+            jTextField73.setText("1");
+        } else {
+            jTextField73.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox73ActionPerformed
 
     private void jTextField73ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField73ActionPerformed
@@ -6379,8 +6566,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox74ActionPerformed
         changed = true;
-        if (jCheckBox74.isSelected()) jTextField74.setText("1");
-        else jTextField74.setText("0");    
+        if (jCheckBox74.isSelected()) {
+            jTextField74.setText("1");
+        } else {
+            jTextField74.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox74ActionPerformed
 
     private void jTextField74ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField74ActionPerformed
@@ -6389,8 +6579,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox75ActionPerformed
         changed = true;
-        if (jCheckBox75.isSelected()) jTextField75.setText("1");
-        else jTextField75.setText("0");    
+        if (jCheckBox75.isSelected()) {
+            jTextField75.setText("1");
+        } else {
+            jTextField75.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox75ActionPerformed
 
     private void jTextField75ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField75ActionPerformed
@@ -6399,8 +6592,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox76ActionPerformed
         changed = true;
-        if (jCheckBox76.isSelected()) jTextField76.setText("1");
-        else jTextField76.setText("0");    
+        if (jCheckBox76.isSelected()) {
+            jTextField76.setText("1");
+        } else {
+            jTextField76.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox76ActionPerformed
 
     private void jTextField76ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField76ActionPerformed
@@ -6409,8 +6605,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox77ActionPerformed
         changed = true;
-        if (jCheckBox77.isSelected()) jTextField77.setText("1");
-        else jTextField77.setText("0");    
+        if (jCheckBox77.isSelected()) {
+            jTextField77.setText("1");
+        } else {
+            jTextField77.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox77ActionPerformed
 
     private void jTextField77ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField77ActionPerformed
@@ -6419,8 +6618,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox78ActionPerformed
         changed = true;
-        if (jCheckBox78.isSelected()) jTextField78.setText("1");
-        else jTextField78.setText("0");    
+        if (jCheckBox78.isSelected()) {
+            jTextField78.setText("1");
+        } else {
+            jTextField78.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox78ActionPerformed
 
     private void jTextField78ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField78ActionPerformed
@@ -6429,8 +6631,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox79ActionPerformed
         changed = true;
-        if (jCheckBox79.isSelected()) jTextField79.setText("1");
-        else jTextField79.setText("0");    
+        if (jCheckBox79.isSelected()) {
+            jTextField79.setText("1");
+        } else {
+            jTextField79.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox79ActionPerformed
 
     private void jTextField79ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField79ActionPerformed
@@ -6439,8 +6644,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox80ActionPerformed
         changed = true;
-        if (jCheckBox80.isSelected()) jTextField80.setText("1");
-        else jTextField80.setText("0");    
+        if (jCheckBox80.isSelected()) {
+            jTextField80.setText("1");
+        } else {
+            jTextField80.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox80ActionPerformed
 
     private void jTextField80ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField80ActionPerformed
@@ -6449,8 +6657,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox81ActionPerformed
         changed = true;
-        if (jCheckBox81.isSelected()) jTextField81.setText("1");
-        else jTextField81.setText("0");    
+        if (jCheckBox81.isSelected()) {
+            jTextField81.setText("1");
+        } else {
+            jTextField81.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox81ActionPerformed
 
     private void jTextField81ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField81ActionPerformed
@@ -6459,8 +6670,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox82ActionPerformed
         changed = true;
-        if (jCheckBox82.isSelected()) jTextField82.setText("1");
-        else jTextField82.setText("0");    
+        if (jCheckBox82.isSelected()) {
+            jTextField82.setText("1");
+        } else {
+            jTextField82.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox82ActionPerformed
 
     private void jTextField82ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField82ActionPerformed
@@ -6469,8 +6683,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox83ActionPerformed
         changed = true;
-        if (jCheckBox83.isSelected()) jTextField83.setText("1");
-        else jTextField83.setText("0");    
+        if (jCheckBox83.isSelected()) {
+            jTextField83.setText("1");
+        } else {
+            jTextField83.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox83ActionPerformed
 
     private void jTextField83ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField83ActionPerformed
@@ -6479,8 +6696,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox84ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox84ActionPerformed
         changed = true;
-        if (jCheckBox84.isSelected()) jTextField84.setText("1");
-        else jTextField84.setText("0");    
+        if (jCheckBox84.isSelected()) {
+            jTextField84.setText("1");
+        } else {
+            jTextField84.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox84ActionPerformed
 
     private void jTextField84ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField84ActionPerformed
@@ -6489,8 +6709,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox85ActionPerformed
         changed = true;
-        if (jCheckBox85.isSelected()) jTextField85.setText("1");
-        else jTextField85.setText("0");    
+        if (jCheckBox85.isSelected()) {
+            jTextField85.setText("1");
+        } else {
+            jTextField85.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox85ActionPerformed
 
     private void jTextField85ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField85ActionPerformed
@@ -6499,8 +6722,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox86ActionPerformed
         changed = true;
-        if (jCheckBox86.isSelected()) jTextField86.setText("1");
-        else jTextField86.setText("0");    
+        if (jCheckBox86.isSelected()) {
+            jTextField86.setText("1");
+        } else {
+            jTextField86.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox86ActionPerformed
 
     private void jTextField86ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField86ActionPerformed
@@ -6509,8 +6735,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox87ActionPerformed
         changed = true;
-        if (jCheckBox87.isSelected()) jTextField87.setText("1");
-        else jTextField87.setText("0");    
+        if (jCheckBox87.isSelected()) {
+            jTextField87.setText("1");
+        } else {
+            jTextField87.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox87ActionPerformed
 
     private void jTextField87ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField87ActionPerformed
@@ -6519,8 +6748,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox88ActionPerformed
         changed = true;
-        if (jCheckBox88.isSelected()) jTextField88.setText("1");
-        else jTextField88.setText("0");    
+        if (jCheckBox88.isSelected()) {
+            jTextField88.setText("1");
+        } else {
+            jTextField88.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox88ActionPerformed
 
     private void jTextField88ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField88ActionPerformed
@@ -6529,8 +6761,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox89ActionPerformed
         changed = true;
-        if (jCheckBox89.isSelected()) jTextField89.setText("1");
-        else jTextField89.setText("0");    
+        if (jCheckBox89.isSelected()) {
+            jTextField89.setText("1");
+        } else {
+            jTextField89.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox89ActionPerformed
 
     private void jTextField89ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField89ActionPerformed
@@ -6539,8 +6774,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox90ActionPerformed
         changed = true;
-        if (jCheckBox90.isSelected()) jTextField90.setText("1");
-        else jTextField90.setText("0");    
+        if (jCheckBox90.isSelected()) {
+            jTextField90.setText("1");
+        } else {
+            jTextField90.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox90ActionPerformed
 
     private void jTextField90ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField90ActionPerformed
@@ -6549,8 +6787,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox91ActionPerformed
         changed = true;
-        if (jCheckBox91.isSelected()) jTextField91.setText("1");
-        else jTextField91.setText("0");    
+        if (jCheckBox91.isSelected()) {
+            jTextField91.setText("1");
+        } else {
+            jTextField91.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox91ActionPerformed
 
     private void jTextField91ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField91ActionPerformed
@@ -6559,8 +6800,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox92ActionPerformed
         changed = true;
-        if (jCheckBox92.isSelected()) jTextField92.setText("1");
-        else jTextField92.setText("0");    
+        if (jCheckBox92.isSelected()) {
+            jTextField92.setText("1");
+        } else {
+            jTextField92.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox92ActionPerformed
 
     private void jTextField92ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField92ActionPerformed
@@ -6569,8 +6813,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox93ActionPerformed
         changed = true;
-        if (jCheckBox93.isSelected()) jTextField93.setText("1");
-        else jTextField93.setText("0");    
+        if (jCheckBox93.isSelected()) {
+            jTextField93.setText("1");
+        } else {
+            jTextField93.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox93ActionPerformed
 
     private void jTextField93ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField93ActionPerformed
@@ -6579,8 +6826,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox94ActionPerformed
         changed = true;
-        if (jCheckBox94.isSelected()) jTextField94.setText("1");
-        else jTextField94.setText("0");    
+        if (jCheckBox94.isSelected()) {
+            jTextField94.setText("1");
+        } else {
+            jTextField94.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox94ActionPerformed
 
     private void jTextField94ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField94ActionPerformed
@@ -6589,8 +6839,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox95ActionPerformed
         changed = true;
-        if (jCheckBox95.isSelected()) jTextField95.setText("1");
-        else jTextField95.setText("0");    
+        if (jCheckBox95.isSelected()) {
+            jTextField95.setText("1");
+        } else {
+            jTextField95.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox95ActionPerformed
 
     private void jTextField95ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField95ActionPerformed
@@ -6599,8 +6852,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox96ActionPerformed
         changed = true;
-        if (jCheckBox96.isSelected()) jTextField96.setText("1");
-        else jTextField96.setText("0");    
+        if (jCheckBox96.isSelected()) {
+            jTextField96.setText("1");
+        } else {
+            jTextField96.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox96ActionPerformed
 
     private void jTextField96ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField96ActionPerformed
@@ -6609,8 +6865,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox97ActionPerformed
         changed = true;
-        if (jCheckBox97.isSelected()) jTextField97.setText("1");
-        else jTextField97.setText("0");    
+        if (jCheckBox97.isSelected()) {
+            jTextField97.setText("1");
+        } else {
+            jTextField97.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox97ActionPerformed
 
     private void jTextField97ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField97ActionPerformed
@@ -6619,8 +6878,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox98ActionPerformed
         changed = true;
-        if (jCheckBox98.isSelected()) jTextField98.setText("1");
-        else jTextField98.setText("0");    
+        if (jCheckBox98.isSelected()) {
+            jTextField98.setText("1");
+        } else {
+            jTextField98.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox98ActionPerformed
 
     private void jTextField98ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField98ActionPerformed
@@ -6629,8 +6891,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox99ActionPerformed
         changed = true;
-        if (jCheckBox99.isSelected()) jTextField99.setText("1");
-        else jTextField99.setText("0");    
+        if (jCheckBox99.isSelected()) {
+            jTextField99.setText("1");
+        } else {
+            jTextField99.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox99ActionPerformed
 
     private void jTextField99ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField99ActionPerformed
@@ -6639,8 +6904,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox100ActionPerformed
         changed = true;
-        if (jCheckBox100.isSelected()) jTextField100.setText("1");
-        else jTextField100.setText("0");    
+        if (jCheckBox100.isSelected()) {
+            jTextField100.setText("1");
+        } else {
+            jTextField100.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox100ActionPerformed
 
     private void jTextField100ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField100ActionPerformed
@@ -6649,8 +6917,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox101ActionPerformed
         changed = true;
-        if (jCheckBox101.isSelected()) jTextField101.setText("1");
-        else jTextField101.setText("0");    
+        if (jCheckBox101.isSelected()) {
+            jTextField101.setText("1");
+        } else {
+            jTextField101.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox101ActionPerformed
 
     private void jTextField101ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField101ActionPerformed
@@ -6659,8 +6930,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox102ActionPerformed
         changed = true;
-        if (jCheckBox102.isSelected()) jTextField102.setText("1");
-        else jTextField102.setText("0");    
+        if (jCheckBox102.isSelected()) {
+            jTextField102.setText("1");
+        } else {
+            jTextField102.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox102ActionPerformed
 
     private void jTextField102ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField102ActionPerformed
@@ -6669,8 +6943,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox103ActionPerformed
         changed = true;
-        if (jCheckBox103.isSelected()) jTextField103.setText("1");
-        else jTextField103.setText("0");    
+        if (jCheckBox103.isSelected()) {
+            jTextField103.setText("1");
+        } else {
+            jTextField103.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox103ActionPerformed
 
     private void jTextField103ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField103ActionPerformed
@@ -6679,8 +6956,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox104ActionPerformed
         changed = true;
-        if (jCheckBox104.isSelected()) jTextField104.setText("1");
-        else jTextField104.setText("0");    
+        if (jCheckBox104.isSelected()) {
+            jTextField104.setText("1");
+        } else {
+            jTextField104.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox104ActionPerformed
 
     private void jTextField104ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField104ActionPerformed
@@ -6689,8 +6969,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox105ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox105ActionPerformed
         changed = true;
-        if (jCheckBox105.isSelected()) jTextField105.setText("1");
-        else jTextField105.setText("0");    
+        if (jCheckBox105.isSelected()) {
+            jTextField105.setText("1");
+        } else {
+            jTextField105.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox105ActionPerformed
 
     private void jTextField105ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField105ActionPerformed
@@ -6699,8 +6982,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox106ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox106ActionPerformed
         changed = true;
-        if (jCheckBox106.isSelected()) jTextField106.setText("1");
-        else jTextField106.setText("0");    
+        if (jCheckBox106.isSelected()) {
+            jTextField106.setText("1");
+        } else {
+            jTextField106.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox106ActionPerformed
 
     private void jTextField106ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField106ActionPerformed
@@ -6709,8 +6995,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox107ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox107ActionPerformed
         changed = true;
-        if (jCheckBox107.isSelected()) jTextField107.setText("1");
-        else jTextField107.setText("0");    
+        if (jCheckBox107.isSelected()) {
+            jTextField107.setText("1");
+        } else {
+            jTextField107.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox107ActionPerformed
 
     private void jTextField107ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField107ActionPerformed
@@ -6719,8 +7008,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox108ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox108ActionPerformed
         changed = true;
-        if (jCheckBox108.isSelected()) jTextField108.setText("1");
-        else jTextField108.setText("0");    
+        if (jCheckBox108.isSelected()) {
+            jTextField108.setText("1");
+        } else {
+            jTextField108.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox108ActionPerformed
 
     private void jTextField108ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField108ActionPerformed
@@ -6729,8 +7021,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox109ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox109ActionPerformed
         changed = true;
-        if (jCheckBox109.isSelected()) jTextField109.setText("1");
-        else jTextField109.setText("0");    
+        if (jCheckBox109.isSelected()) {
+            jTextField109.setText("1");
+        } else {
+            jTextField109.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox109ActionPerformed
 
     private void jTextField109ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField109ActionPerformed
@@ -6739,8 +7034,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox110ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox110ActionPerformed
         changed = true;
-        if (jCheckBox110.isSelected()) jTextField110.setText("1");
-        else jTextField110.setText("0");    
+        if (jCheckBox110.isSelected()) {
+            jTextField110.setText("1");
+        } else {
+            jTextField110.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox110ActionPerformed
 
     private void jTextField110ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField110ActionPerformed
@@ -6749,8 +7047,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox111ActionPerformed
         changed = true;
-        if (jCheckBox111.isSelected()) jTextField111.setText("1");
-        else jTextField111.setText("0");    
+        if (jCheckBox111.isSelected()) {
+            jTextField111.setText("1");
+        } else {
+            jTextField111.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox111ActionPerformed
 
     private void jTextField111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField111ActionPerformed
@@ -6759,8 +7060,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox112ActionPerformed
         changed = true;
-        if (jCheckBox112.isSelected()) jTextField112.setText("1");
-        else jTextField112.setText("0");    
+        if (jCheckBox112.isSelected()) {
+            jTextField112.setText("1");
+        } else {
+            jTextField112.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox112ActionPerformed
 
     private void jTextField112ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField112ActionPerformed
@@ -6769,8 +7073,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox113ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox113ActionPerformed
         changed = true;
-        if (jCheckBox113.isSelected()) jTextField113.setText("1");
-        else jTextField113.setText("0");    
+        if (jCheckBox113.isSelected()) {
+            jTextField113.setText("1");
+        } else {
+            jTextField113.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox113ActionPerformed
 
     private void jTextField113ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField113ActionPerformed
@@ -6779,8 +7086,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox114ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox114ActionPerformed
         changed = true;
-        if (jCheckBox114.isSelected()) jTextField114.setText("1");
-        else jTextField114.setText("0");    
+        if (jCheckBox114.isSelected()) {
+            jTextField114.setText("1");
+        } else {
+            jTextField114.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox114ActionPerformed
 
     private void jTextField114ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField114ActionPerformed
@@ -6789,8 +7099,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox115ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox115ActionPerformed
         changed = true;
-        if (jCheckBox115.isSelected()) jTextField115.setText("1");
-        else jTextField115.setText("0");    
+        if (jCheckBox115.isSelected()) {
+            jTextField115.setText("1");
+        } else {
+            jTextField115.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox115ActionPerformed
 
     private void jTextField115ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField115ActionPerformed
@@ -6799,8 +7112,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox116ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox116ActionPerformed
         changed = true;
-        if (jCheckBox116.isSelected()) jTextField116.setText("1");
-        else jTextField116.setText("0");    
+        if (jCheckBox116.isSelected()) {
+            jTextField116.setText("1");
+        } else {
+            jTextField116.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox116ActionPerformed
 
     private void jTextField116ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField116ActionPerformed
@@ -6809,8 +7125,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox117ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox117ActionPerformed
         changed = true;
-        if (jCheckBox117.isSelected()) jTextField117.setText("1");
-        else jTextField117.setText("0");    
+        if (jCheckBox117.isSelected()) {
+            jTextField117.setText("1");
+        } else {
+            jTextField117.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox117ActionPerformed
 
     private void jTextField117ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField117ActionPerformed
@@ -6819,8 +7138,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox118ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox118ActionPerformed
         changed = true;
-        if (jCheckBox118.isSelected()) jTextField118.setText("1");
-        else jTextField118.setText("0");    
+        if (jCheckBox118.isSelected()) {
+            jTextField118.setText("1");
+        } else {
+            jTextField118.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox118ActionPerformed
 
     private void jTextField118ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField118ActionPerformed
@@ -6829,8 +7151,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox119ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox119ActionPerformed
         changed = true;
-        if (jCheckBox119.isSelected()) jTextField119.setText("1");
-        else jTextField119.setText("0");    
+        if (jCheckBox119.isSelected()) {
+            jTextField119.setText("1");
+        } else {
+            jTextField119.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox119ActionPerformed
 
     private void jTextField119ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField119ActionPerformed
@@ -6839,8 +7164,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox120ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox120ActionPerformed
         changed = true;
-        if (jCheckBox120.isSelected()) jTextField120.setText("1");
-        else jTextField120.setText("0");    
+        if (jCheckBox120.isSelected()) {
+            jTextField120.setText("1");
+        } else {
+            jTextField120.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox120ActionPerformed
 
     private void jTextField120ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField120ActionPerformed
@@ -6849,8 +7177,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox121ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox121ActionPerformed
         changed = true;
-        if (jCheckBox121.isSelected()) jTextField121.setText("1");
-        else jTextField121.setText("0");    
+        if (jCheckBox121.isSelected()) {
+            jTextField121.setText("1");
+        } else {
+            jTextField121.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox121ActionPerformed
 
     private void jTextField121ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField121ActionPerformed
@@ -6859,8 +7190,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox122ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox122ActionPerformed
         changed = true;
-        if (jCheckBox122.isSelected()) jTextField122.setText("1");
-        else jTextField122.setText("0");    
+        if (jCheckBox122.isSelected()) {
+            jTextField122.setText("1");
+        } else {
+            jTextField122.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox122ActionPerformed
 
     private void jTextField122ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField122ActionPerformed
@@ -6869,8 +7203,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox123ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox123ActionPerformed
         changed = true;
-        if (jCheckBox123.isSelected()) jTextField123.setText("1");
-        else jTextField123.setText("0");    
+        if (jCheckBox123.isSelected()) {
+            jTextField123.setText("1");
+        } else {
+            jTextField123.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox123ActionPerformed
 
     private void jTextField123ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField123ActionPerformed
@@ -6879,8 +7216,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox124ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox124ActionPerformed
         changed = true;
-        if (jCheckBox124.isSelected()) jTextField124.setText("1");
-        else jTextField124.setText("0");    
+        if (jCheckBox124.isSelected()) {
+            jTextField124.setText("1");
+        } else {
+            jTextField124.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox124ActionPerformed
 
     private void jTextField124ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField124ActionPerformed
@@ -6889,8 +7229,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox125ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox125ActionPerformed
         changed = true;
-        if (jCheckBox125.isSelected()) jTextField125.setText("1");
-        else jTextField125.setText("0");    
+        if (jCheckBox125.isSelected()) {
+            jTextField125.setText("1");
+        } else {
+            jTextField125.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox125ActionPerformed
 
     private void jTextField125ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField125ActionPerformed
@@ -6899,8 +7242,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox126ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox126ActionPerformed
         changed = true;
-        if (jCheckBox126.isSelected()) jTextField126.setText("1");
-        else jTextField126.setText("0");    
+        if (jCheckBox126.isSelected()) {
+            jTextField126.setText("1");
+        } else {
+            jTextField126.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox126ActionPerformed
 
     private void jTextField126ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField126ActionPerformed
@@ -6909,8 +7255,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox127ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox127ActionPerformed
         changed = true;
-        if (jCheckBox127.isSelected()) jTextField127.setText("1");
-        else jTextField127.setText("0");    
+        if (jCheckBox127.isSelected()) {
+            jTextField127.setText("1");
+        } else {
+            jTextField127.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox127ActionPerformed
 
     private void jTextField127ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField127ActionPerformed
@@ -6919,8 +7268,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox128ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox128ActionPerformed
         changed = true;
-        if (jCheckBox128.isSelected()) jTextField128.setText("1");
-        else jTextField128.setText("0");    
+        if (jCheckBox128.isSelected()) {
+            jTextField128.setText("1");
+        } else {
+            jTextField128.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox128ActionPerformed
 
     private void jTextField128ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField128ActionPerformed
@@ -6929,8 +7281,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox129ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox129ActionPerformed
         changed = true;
-        if (jCheckBox129.isSelected()) jTextField129.setText("1");
-        else jTextField129.setText("0");    
+        if (jCheckBox129.isSelected()) {
+            jTextField129.setText("1");
+        } else {
+            jTextField129.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox129ActionPerformed
 
     private void jTextField129ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField129ActionPerformed
@@ -6939,8 +7294,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox130ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox130ActionPerformed
         changed = true;
-        if (jCheckBox130.isSelected()) jTextField130.setText("1");
-        else jTextField130.setText("0");    
+        if (jCheckBox130.isSelected()) {
+            jTextField130.setText("1");
+        } else {
+            jTextField130.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox130ActionPerformed
 
     private void jTextField130ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField130ActionPerformed
@@ -6949,8 +7307,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox131ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox131ActionPerformed
         changed = true;
-        if (jCheckBox131.isSelected()) jTextField131.setText("1");
-        else jTextField131.setText("0");    
+        if (jCheckBox131.isSelected()) {
+            jTextField131.setText("1");
+        } else {
+            jTextField131.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox131ActionPerformed
 
     private void jTextField131ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField131ActionPerformed
@@ -6959,8 +7320,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox132ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox132ActionPerformed
         changed = true;
-        if (jCheckBox132.isSelected()) jTextField132.setText("1");
-        else jTextField132.setText("0");    
+        if (jCheckBox132.isSelected()) {
+            jTextField132.setText("1");
+        } else {
+            jTextField132.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox132ActionPerformed
 
     private void jTextField132ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField132ActionPerformed
@@ -6969,8 +7333,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox133ActionPerformed
         changed = true;
-        if (jCheckBox133.isSelected()) jTextField133.setText("1");
-        else jTextField133.setText("0");    
+        if (jCheckBox133.isSelected()) {
+            jTextField133.setText("1");
+        } else {
+            jTextField133.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox133ActionPerformed
 
     private void jTextField133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField133ActionPerformed
@@ -6979,8 +7346,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox134ActionPerformed
         changed = true;
-        if (jCheckBox134.isSelected()) jTextField134.setText("1");
-        else jTextField134.setText("0");    
+        if (jCheckBox134.isSelected()) {
+            jTextField134.setText("1");
+        } else {
+            jTextField134.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox134ActionPerformed
 
     private void jTextField134ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField134ActionPerformed
@@ -6989,8 +7359,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox135ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox135ActionPerformed
         changed = true;
-        if (jCheckBox135.isSelected()) jTextField135.setText("1");
-        else jTextField135.setText("0");    
+        if (jCheckBox135.isSelected()) {
+            jTextField135.setText("1");
+        } else {
+            jTextField135.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox135ActionPerformed
 
     private void jTextField135ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField135ActionPerformed
@@ -6999,8 +7372,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox136ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox136ActionPerformed
         changed = true;
-        if (jCheckBox136.isSelected()) jTextField136.setText("1");
-        else jTextField136.setText("0");    
+        if (jCheckBox136.isSelected()) {
+            jTextField136.setText("1");
+        } else {
+            jTextField136.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox136ActionPerformed
 
     private void jTextField136ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField136ActionPerformed
@@ -7009,8 +7385,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox137ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox137ActionPerformed
         changed = true;
-        if (jCheckBox137.isSelected()) jTextField137.setText("1");
-        else jTextField137.setText("0");    
+        if (jCheckBox137.isSelected()) {
+            jTextField137.setText("1");
+        } else {
+            jTextField137.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox137ActionPerformed
 
     private void jTextField137ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField137ActionPerformed
@@ -7019,8 +7398,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox138ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox138ActionPerformed
         changed = true;
-        if (jCheckBox138.isSelected()) jTextField138.setText("1");
-        else jTextField138.setText("0");    
+        if (jCheckBox138.isSelected()) {
+            jTextField138.setText("1");
+        } else {
+            jTextField138.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox138ActionPerformed
 
     private void jTextField138ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField138ActionPerformed
@@ -7029,8 +7411,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox139ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox139ActionPerformed
         changed = true;
-        if (jCheckBox139.isSelected()) jTextField139.setText("1");
-        else jTextField139.setText("0");    
+        if (jCheckBox139.isSelected()) {
+            jTextField139.setText("1");
+        } else {
+            jTextField139.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox139ActionPerformed
 
     private void jTextField139ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField139ActionPerformed
@@ -7039,8 +7424,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox140ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox140ActionPerformed
         changed = true;
-        if (jCheckBox140.isSelected()) jTextField140.setText("1");
-        else jTextField140.setText("0");    
+        if (jCheckBox140.isSelected()) {
+            jTextField140.setText("1");
+        } else {
+            jTextField140.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox140ActionPerformed
 
     private void jTextField140ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField140ActionPerformed
@@ -7049,8 +7437,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox141ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox141ActionPerformed
         changed = true;
-        if (jCheckBox141.isSelected()) jTextField141.setText("1");
-        else jTextField141.setText("0");    
+        if (jCheckBox141.isSelected()) {
+            jTextField141.setText("1");
+        } else {
+            jTextField141.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox141ActionPerformed
 
     private void jTextField141ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField141ActionPerformed
@@ -7059,8 +7450,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox142ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox142ActionPerformed
         changed = true;
-        if (jCheckBox142.isSelected()) jTextField142.setText("1");
-        else jTextField142.setText("0");    
+        if (jCheckBox142.isSelected()) {
+            jTextField142.setText("1");
+        } else {
+            jTextField142.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox142ActionPerformed
 
     private void jTextField142ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField142ActionPerformed
@@ -7069,8 +7463,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox143ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox143ActionPerformed
         changed = true;
-        if (jCheckBox143.isSelected()) jTextField143.setText("1");
-        else jTextField143.setText("0");    
+        if (jCheckBox143.isSelected()) {
+            jTextField143.setText("1");
+        } else {
+            jTextField143.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox143ActionPerformed
 
     private void jTextField143ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField143ActionPerformed
@@ -7079,8 +7476,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox144ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox144ActionPerformed
         changed = true;
-        if (jCheckBox144.isSelected()) jTextField144.setText("1");
-        else jTextField144.setText("0");    
+        if (jCheckBox144.isSelected()) {
+            jTextField144.setText("1");
+        } else {
+            jTextField144.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox144ActionPerformed
 
     private void jTextField144ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField144ActionPerformed
@@ -7089,8 +7489,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox145ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox145ActionPerformed
         changed = true;
-        if (jCheckBox145.isSelected()) jTextField145.setText("1");
-        else jTextField145.setText("0");    
+        if (jCheckBox145.isSelected()) {
+            jTextField145.setText("1");
+        } else {
+            jTextField145.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox145ActionPerformed
 
     private void jTextField145ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField145ActionPerformed
@@ -7099,8 +7502,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox146ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox146ActionPerformed
         changed = true;
-        if (jCheckBox146.isSelected()) jTextField146.setText("1");
-        else jTextField146.setText("0");    
+        if (jCheckBox146.isSelected()) {
+            jTextField146.setText("1");
+        } else {
+            jTextField146.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox146ActionPerformed
 
     private void jTextField146ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField146ActionPerformed
@@ -7109,8 +7515,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox147ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox147ActionPerformed
         changed = true;
-        if (jCheckBox147.isSelected()) jTextField147.setText("1");
-        else jTextField147.setText("0");    
+        if (jCheckBox147.isSelected()) {
+            jTextField147.setText("1");
+        } else {
+            jTextField147.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox147ActionPerformed
 
     private void jTextField147ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField147ActionPerformed
@@ -7119,8 +7528,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox148ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox148ActionPerformed
         changed = true;
-        if (jCheckBox148.isSelected()) jTextField148.setText("1");
-        else jTextField148.setText("0");    
+        if (jCheckBox148.isSelected()) {
+            jTextField148.setText("1");
+        } else {
+            jTextField148.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox148ActionPerformed
 
     private void jTextField148ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField148ActionPerformed
@@ -7129,8 +7541,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox149ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox149ActionPerformed
         changed = true;
-        if (jCheckBox149.isSelected()) jTextField149.setText("1");
-        else jTextField149.setText("0");    
+        if (jCheckBox149.isSelected()) {
+            jTextField149.setText("1");
+        } else {
+            jTextField149.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox149ActionPerformed
 
     private void jTextField149ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField149ActionPerformed
@@ -7139,8 +7554,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox150ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox150ActionPerformed
         changed = true;
-        if (jCheckBox150.isSelected()) jTextField150.setText("1");
-        else jTextField150.setText("0");    
+        if (jCheckBox150.isSelected()) {
+            jTextField150.setText("1");
+        } else {
+            jTextField150.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox150ActionPerformed
 
     private void jTextField150ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField150ActionPerformed
@@ -7149,8 +7567,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox151ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox151ActionPerformed
         changed = true;
-        if (jCheckBox151.isSelected()) jTextField151.setText("1");
-        else jTextField151.setText("0");    
+        if (jCheckBox151.isSelected()) {
+            jTextField151.setText("1");
+        } else {
+            jTextField151.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox151ActionPerformed
 
     private void jTextField151ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField151ActionPerformed
@@ -7159,8 +7580,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox152ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox152ActionPerformed
         changed = true;
-        if (jCheckBox152.isSelected()) jTextField152.setText("1");
-        else jTextField152.setText("0");    
+        if (jCheckBox152.isSelected()) {
+            jTextField152.setText("1");
+        } else {
+            jTextField152.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox152ActionPerformed
 
     private void jTextField152ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField152ActionPerformed
@@ -7169,8 +7593,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox153ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox153ActionPerformed
         changed = true;
-        if (jCheckBox153.isSelected()) jTextField153.setText("1");
-        else jTextField153.setText("0");    
+        if (jCheckBox153.isSelected()) {
+            jTextField153.setText("1");
+        } else {
+            jTextField153.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox153ActionPerformed
 
     private void jTextField153ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField153ActionPerformed
@@ -7179,8 +7606,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox154ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox154ActionPerformed
         changed = true;
-        if (jCheckBox154.isSelected()) jTextField154.setText("1");
-        else jTextField154.setText("0");    
+        if (jCheckBox154.isSelected()) {
+            jTextField154.setText("1");
+        } else {
+            jTextField154.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox154ActionPerformed
 
     private void jTextField154ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField154ActionPerformed
@@ -7189,8 +7619,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox155ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox155ActionPerformed
         changed = true;
-        if (jCheckBox155.isSelected()) jTextField155.setText("1");
-        else jTextField155.setText("0");    
+        if (jCheckBox155.isSelected()) {
+            jTextField155.setText("1");
+        } else {
+            jTextField155.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox155ActionPerformed
 
     private void jTextField155ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField155ActionPerformed
@@ -7199,8 +7632,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox156ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox156ActionPerformed
         changed = true;
-        if (jCheckBox156.isSelected()) jTextField156.setText("1");
-        else jTextField156.setText("0");    
+        if (jCheckBox156.isSelected()) {
+            jTextField156.setText("1");
+        } else {
+            jTextField156.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox156ActionPerformed
 
     private void jTextField156ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField156ActionPerformed
@@ -7209,8 +7645,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox157ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox157ActionPerformed
         changed = true;
-        if (jCheckBox157.isSelected()) jTextField157.setText("1");
-        else jTextField157.setText("0");    
+        if (jCheckBox157.isSelected()) {
+            jTextField157.setText("1");
+        } else {
+            jTextField157.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox157ActionPerformed
 
     private void jTextField157ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField157ActionPerformed
@@ -7219,8 +7658,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox158ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox158ActionPerformed
         changed = true;
-        if (jCheckBox158.isSelected()) jTextField158.setText("1");
-        else jTextField158.setText("0");    
+        if (jCheckBox158.isSelected()) {
+            jTextField158.setText("1");
+        } else {
+            jTextField158.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox158ActionPerformed
 
     private void jTextField158ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField158ActionPerformed
@@ -7229,8 +7671,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox159ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox159ActionPerformed
         changed = true;
-        if (jCheckBox159.isSelected()) jTextField159.setText("1");
-        else jTextField159.setText("0");    
+        if (jCheckBox159.isSelected()) {
+            jTextField159.setText("1");
+        } else {
+            jTextField159.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox159ActionPerformed
 
     private void jTextField159ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField159ActionPerformed
@@ -7239,8 +7684,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox160ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox160ActionPerformed
         changed = true;
-        if (jCheckBox160.isSelected()) jTextField160.setText("1");
-        else jTextField160.setText("0");    
+        if (jCheckBox160.isSelected()) {
+            jTextField160.setText("1");
+        } else {
+            jTextField160.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox160ActionPerformed
 
     private void jTextField160ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField160ActionPerformed
@@ -7249,8 +7697,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox161ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox161ActionPerformed
         changed = true;
-        if (jCheckBox161.isSelected()) jTextField161.setText("1");
-        else jTextField161.setText("0");    
+        if (jCheckBox161.isSelected()) {
+            jTextField161.setText("1");
+        } else {
+            jTextField161.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox161ActionPerformed
 
     private void jTextField161ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField161ActionPerformed
@@ -7259,8 +7710,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox162ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox162ActionPerformed
         changed = true;
-        if (jCheckBox162.isSelected()) jTextField162.setText("1");
-        else jTextField162.setText("0");    
+        if (jCheckBox162.isSelected()) {
+            jTextField162.setText("1");
+        } else {
+            jTextField162.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox162ActionPerformed
 
     private void jTextField162ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField162ActionPerformed
@@ -7269,8 +7723,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox163ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox163ActionPerformed
         changed = true;
-        if (jCheckBox163.isSelected()) jTextField163.setText("1");
-        else jTextField163.setText("0");    
+        if (jCheckBox163.isSelected()) {
+            jTextField163.setText("1");
+        } else {
+            jTextField163.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox163ActionPerformed
 
     private void jTextField163ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField163ActionPerformed
@@ -7279,8 +7736,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox164ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox164ActionPerformed
         changed = true;
-        if (jCheckBox164.isSelected()) jTextField164.setText("1");
-        else jTextField164.setText("0");    
+        if (jCheckBox164.isSelected()) {
+            jTextField164.setText("1");
+        } else {
+            jTextField164.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox164ActionPerformed
 
     private void jTextField164ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField164ActionPerformed
@@ -7289,8 +7749,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox165ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox165ActionPerformed
         changed = true;
-        if (jCheckBox165.isSelected()) jTextField165.setText("1");
-        else jTextField165.setText("0");    
+        if (jCheckBox165.isSelected()) {
+            jTextField165.setText("1");
+        } else {
+            jTextField165.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox165ActionPerformed
 
     private void jTextField165ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField165ActionPerformed
@@ -7299,8 +7762,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox166ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox166ActionPerformed
         changed = true;
-        if (jCheckBox166.isSelected()) jTextField166.setText("1");
-        else jTextField166.setText("0");    
+        if (jCheckBox166.isSelected()) {
+            jTextField166.setText("1");
+        } else {
+            jTextField166.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox166ActionPerformed
 
     private void jTextField166ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField166ActionPerformed
@@ -7309,8 +7775,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox167ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox167ActionPerformed
         changed = true;
-        if (jCheckBox167.isSelected()) jTextField167.setText("1");
-        else jTextField167.setText("0");    
+        if (jCheckBox167.isSelected()) {
+            jTextField167.setText("1");
+        } else {
+            jTextField167.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox167ActionPerformed
 
     private void jTextField167ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField167ActionPerformed
@@ -7319,8 +7788,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox168ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox168ActionPerformed
         changed = true;
-        if (jCheckBox168.isSelected()) jTextField168.setText("1");
-        else jTextField168.setText("0");    
+        if (jCheckBox168.isSelected()) {
+            jTextField168.setText("1");
+        } else {
+            jTextField168.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox168ActionPerformed
 
     private void jTextField168ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField168ActionPerformed
@@ -7329,8 +7801,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox169ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox169ActionPerformed
         changed = true;
-        if (jCheckBox169.isSelected()) jTextField169.setText("1");
-        else jTextField169.setText("0");    
+        if (jCheckBox169.isSelected()) {
+            jTextField169.setText("1");
+        } else {
+            jTextField169.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox169ActionPerformed
 
     private void jTextField169ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField169ActionPerformed
@@ -7339,8 +7814,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox170ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox170ActionPerformed
         changed = true;
-        if (jCheckBox170.isSelected()) jTextField170.setText("1");
-        else jTextField170.setText("0");    
+        if (jCheckBox170.isSelected()) {
+            jTextField170.setText("1");
+        } else {
+            jTextField170.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox170ActionPerformed
 
     private void jTextField170ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField170ActionPerformed
@@ -7349,8 +7827,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox171ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox171ActionPerformed
         changed = true;
-        if (jCheckBox171.isSelected()) jTextField171.setText("1");
-        else jTextField171.setText("0");    
+        if (jCheckBox171.isSelected()) {
+            jTextField171.setText("1");
+        } else {
+            jTextField171.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox171ActionPerformed
 
     private void jTextField171ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField171ActionPerformed
@@ -7359,8 +7840,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox172ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox172ActionPerformed
         changed = true;
-        if (jCheckBox172.isSelected()) jTextField172.setText("1");
-        else jTextField172.setText("0");    
+        if (jCheckBox172.isSelected()) {
+            jTextField172.setText("1");
+        } else {
+            jTextField172.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox172ActionPerformed
 
     private void jTextField172ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField172ActionPerformed
@@ -7369,8 +7853,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox173ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox173ActionPerformed
         changed = true;
-        if (jCheckBox173.isSelected()) jTextField173.setText("1");
-        else jTextField173.setText("0");    
+        if (jCheckBox173.isSelected()) {
+            jTextField173.setText("1");
+        } else {
+            jTextField173.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox173ActionPerformed
 
     private void jTextField173ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField173ActionPerformed
@@ -7379,8 +7866,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox174ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox174ActionPerformed
         changed = true;
-        if (jCheckBox174.isSelected()) jTextField174.setText("1");
-        else jTextField174.setText("0");    
+        if (jCheckBox174.isSelected()) {
+            jTextField174.setText("1");
+        } else {
+            jTextField174.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox174ActionPerformed
 
     private void jTextField174ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField174ActionPerformed
@@ -7389,8 +7879,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox175ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox175ActionPerformed
         changed = true;
-        if (jCheckBox175.isSelected()) jTextField175.setText("1");
-        else jTextField175.setText("0");    
+        if (jCheckBox175.isSelected()) {
+            jTextField175.setText("1");
+        } else {
+            jTextField175.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox175ActionPerformed
 
     private void jTextField175ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField175ActionPerformed
@@ -7399,8 +7892,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox176ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox176ActionPerformed
         changed = true;
-        if (jCheckBox176.isSelected()) jTextField176.setText("1");
-        else jTextField176.setText("0");    
+        if (jCheckBox176.isSelected()) {
+            jTextField176.setText("1");
+        } else {
+            jTextField176.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox176ActionPerformed
 
     private void jTextField176ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField176ActionPerformed
@@ -7409,8 +7905,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox177ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox177ActionPerformed
         changed = true;
-        if (jCheckBox177.isSelected()) jTextField177.setText("1");
-        else jTextField177.setText("0");    
+        if (jCheckBox177.isSelected()) {
+            jTextField177.setText("1");
+        } else {
+            jTextField177.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox177ActionPerformed
 
     private void jTextField177ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField177ActionPerformed
@@ -7419,8 +7918,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox178ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox178ActionPerformed
         changed = true;
-        if (jCheckBox178.isSelected()) jTextField178.setText("1");
-        else jTextField178.setText("0");    
+        if (jCheckBox178.isSelected()) {
+            jTextField178.setText("1");
+        } else {
+            jTextField178.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox178ActionPerformed
 
     private void jTextField178ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField178ActionPerformed
@@ -7429,8 +7931,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox179ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox179ActionPerformed
         changed = true;
-        if (jCheckBox179.isSelected()) jTextField179.setText("1");
-        else jTextField179.setText("0");    
+        if (jCheckBox179.isSelected()) {
+            jTextField179.setText("1");
+        } else {
+            jTextField179.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox179ActionPerformed
 
     private void jTextField179ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField179ActionPerformed
@@ -7439,8 +7944,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox180ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox180ActionPerformed
         changed = true;
-        if (jCheckBox180.isSelected()) jTextField180.setText("1");
-        else jTextField180.setText("0");    
+        if (jCheckBox180.isSelected()) {
+            jTextField180.setText("1");
+        } else {
+            jTextField180.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox180ActionPerformed
 
     private void jTextField180ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField180ActionPerformed
@@ -7449,8 +7957,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox181ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox181ActionPerformed
         changed = true;
-        if (jCheckBox181.isSelected()) jTextField181.setText("1");
-        else jTextField181.setText("0");    
+        if (jCheckBox181.isSelected()) {
+            jTextField181.setText("1");
+        } else {
+            jTextField181.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox181ActionPerformed
 
     private void jTextField181ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField181ActionPerformed
@@ -7459,8 +7970,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox182ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox182ActionPerformed
         changed = true;
-        if (jCheckBox182.isSelected()) jTextField182.setText("1");
-        else jTextField182.setText("0");    
+        if (jCheckBox182.isSelected()) {
+            jTextField182.setText("1");
+        } else {
+            jTextField182.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox182ActionPerformed
 
     private void jTextField182ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField182ActionPerformed
@@ -7469,8 +7983,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox183ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox183ActionPerformed
         changed = true;
-        if (jCheckBox183.isSelected()) jTextField183.setText("1");
-        else jTextField183.setText("0");    
+        if (jCheckBox183.isSelected()) {
+            jTextField183.setText("1");
+        } else {
+            jTextField183.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox183ActionPerformed
 
     private void jTextField183ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField183ActionPerformed
@@ -7479,8 +7996,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox184ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox184ActionPerformed
         changed = true;
-        if (jCheckBox184.isSelected()) jTextField184.setText("1");
-        else jTextField184.setText("0");    
+        if (jCheckBox184.isSelected()) {
+            jTextField184.setText("1");
+        } else {
+            jTextField184.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox184ActionPerformed
 
     private void jTextField184ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField184ActionPerformed
@@ -7493,8 +8013,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox186ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox186ActionPerformed
         changed = true;
-        if (jCheckBox186.isSelected()) jTextField186.setText("1");
-        else jTextField186.setText("0");    
+        if (jCheckBox186.isSelected()) {
+            jTextField186.setText("1");
+        } else {
+            jTextField186.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox186ActionPerformed
 
     private void jTextField187ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField187ActionPerformed
@@ -7503,8 +8026,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox187ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox187ActionPerformed
         changed = true;
-        if (jCheckBox187.isSelected()) jTextField187.setText("1");
-        else jTextField187.setText("0");    
+        if (jCheckBox187.isSelected()) {
+            jTextField187.setText("1");
+        } else {
+            jTextField187.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox187ActionPerformed
 
     private void jTextField188ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField188ActionPerformed
@@ -7513,8 +8039,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox188ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox188ActionPerformed
         changed = true;
-        if (jCheckBox188.isSelected()) jTextField188.setText("1");
-        else jTextField188.setText("0");    
+        if (jCheckBox188.isSelected()) {
+            jTextField188.setText("1");
+        } else {
+            jTextField188.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox188ActionPerformed
 
     private void jTextField189ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField189ActionPerformed
@@ -7523,8 +8052,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox189ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox189ActionPerformed
         changed = true;
-        if (jCheckBox189.isSelected()) jTextField189.setText("1");
-        else jTextField189.setText("0");    
+        if (jCheckBox189.isSelected()) {
+            jTextField189.setText("1");
+        } else {
+            jTextField189.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox189ActionPerformed
 
     private void jTextField190ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField190ActionPerformed
@@ -7533,8 +8065,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox190ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox190ActionPerformed
         changed = true;
-        if (jCheckBox190.isSelected()) jTextField190.setText("1");
-        else jTextField190.setText("0");    
+        if (jCheckBox190.isSelected()) {
+            jTextField190.setText("1");
+        } else {
+            jTextField190.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox190ActionPerformed
 
     private void jTextField191ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField191ActionPerformed
@@ -7543,8 +8078,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox191ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox191ActionPerformed
         changed = true;
-        if (jCheckBox191.isSelected()) jTextField191.setText("1");
-        else jTextField191.setText("0");    
+        if (jCheckBox191.isSelected()) {
+            jTextField191.setText("1");
+        } else {
+            jTextField191.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox191ActionPerformed
 
     private void jTextField192ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField192ActionPerformed
@@ -7553,8 +8091,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox192ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox192ActionPerformed
         changed = true;
-        if (jCheckBox192.isSelected()) jTextField192.setText("1");
-        else jTextField192.setText("0");    
+        if (jCheckBox192.isSelected()) {
+            jTextField192.setText("1");
+        } else {
+            jTextField192.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox192ActionPerformed
 
     private void jTextField193ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField193ActionPerformed
@@ -7563,8 +8104,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox193ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox193ActionPerformed
         changed = true;
-        if (jCheckBox193.isSelected()) jTextField193.setText("1");
-        else jTextField193.setText("0");    
+        if (jCheckBox193.isSelected()) {
+            jTextField193.setText("1");
+        } else {
+            jTextField193.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox193ActionPerformed
 
     private void jTextField194ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField194ActionPerformed
@@ -7573,8 +8117,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox194ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox194ActionPerformed
         changed = true;
-        if (jCheckBox194.isSelected()) jTextField194.setText("1");
-        else jTextField194.setText("0");    
+        if (jCheckBox194.isSelected()) {
+            jTextField194.setText("1");
+        } else {
+            jTextField194.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox194ActionPerformed
 
     private void jTextField195ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField195ActionPerformed
@@ -7583,8 +8130,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox195ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox195ActionPerformed
         changed = true;
-        if (jCheckBox195.isSelected()) jTextField195.setText("1");
-        else jTextField195.setText("0");    
+        if (jCheckBox195.isSelected()) {
+            jTextField195.setText("1");
+        } else {
+            jTextField195.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox195ActionPerformed
 
     private void jTextField196ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField196ActionPerformed
@@ -7593,8 +8143,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox196ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox196ActionPerformed
         changed = true;
-        if (jCheckBox196.isSelected()) jTextField196.setText("1");
-        else jTextField196.setText("0");    
+        if (jCheckBox196.isSelected()) {
+            jTextField196.setText("1");
+        } else {
+            jTextField196.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox196ActionPerformed
 
     private void jTextField197ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField197ActionPerformed
@@ -7603,8 +8156,11 @@ public class FrontPanel extends JFrame {
 
     private void jCheckBox197ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox197ActionPerformed
         changed = true;
-        if (jCheckBox197.isSelected()) jTextField197.setText("1");
-        else jTextField197.setText("0");    
+        if (jCheckBox197.isSelected()) {
+            jTextField197.setText("1");
+        } else {
+            jTextField197.setText("0");
+        }
     }//GEN-LAST:event_jCheckBox197ActionPerformed
 
     private void jTextField185ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField185ActionPerformed
