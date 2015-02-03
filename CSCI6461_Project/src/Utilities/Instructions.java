@@ -65,7 +65,7 @@ public class Instructions {
         
         int isolatedValues[];
 
-        String insBinary = DataTypeConvertor.intToString(instruction);
+        String insBinary = DataTypeConvertor.intToString(instruction, 16);
         int Opcode = DataTypeConvertor.stringToInt(insBinary.substring(0, 6));
         int R = DataTypeConvertor.stringToInt(insBinary.substring(6, 8));
         int IX = DataTypeConvertor.stringToInt(insBinary.substring(8, 10));
@@ -127,7 +127,7 @@ public class Instructions {
 
                 break;
 
-            case 65: //instruction for LDX
+            case 33: //instruction for LDX
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
@@ -138,7 +138,7 @@ public class Instructions {
 
                 break;
 
-            case 66: //instruction for STX
+            case 34: //instruction for STX
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
