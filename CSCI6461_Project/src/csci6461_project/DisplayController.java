@@ -16,7 +16,7 @@ public class DisplayController {
     FrontPanel display;
             
     public DisplayController(Executor system) {
-        display = new FrontPanel(system);
+//        display = new FrontPanel(system);
     }
     
     public String getConsoleInput()
