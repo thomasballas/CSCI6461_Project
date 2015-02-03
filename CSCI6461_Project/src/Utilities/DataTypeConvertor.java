@@ -17,18 +17,19 @@ public class DataTypeConvertor {
         return result;
     }
 
-    //convert integers into sixteen bit binary strings
-    public static String intToString(int i){
+    //convert integers into variable bit binary strings
+    public static String intToString(int i, int bitsize){
         //convert integer to binary string
         String value = Integer.toBinaryString(i);
-        // pad with 0s to make sixteen bits
-        return String.format("%16s", value).replace(' ', '0');
+        // pad with 0s to make user-supplied size bits
+        String formatter = "%" + bitsize + "s";
+        return String.format(formatter, value).replace(' ', '0');
     }
     
     
     public static void main (String[] args)
     {
-        String bin = intToString(15);
+        String bin = intToString(15, 16);
         System.out.println(bin);
         System.out.println(stringToInt(bin));
 
