@@ -16,6 +16,8 @@ public class Instructions {
 
     Memory mem;
     Registers reg;
+    static int sixteenBitMax = Integer.parseInt("FFFF", 16);
+
 
     /**
      * pass in the existing memory and register instance from main method
@@ -204,9 +206,16 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    reg.setGPR(R, reg.getGPR(R) + mem.getMem(EA));
-                } else {
-                    System.out.println("error");
+                    if (reg.getGPR(R) + mem.getMem(EA) > sixteenBitMax) {
+                        reg.setCC(reg.getCC() | 8);
+                        System.out.println("overflow");
+                    }
+                    else {
+                        reg.setGPR(R, reg.getGPR(R) + mem.getMem(EA));
+                    }
+                }
+                else {
+                    System.out.println("overflow");
                 }
 
                 break;
@@ -221,10 +230,15 @@ public class Instructions {
                     reg.setMAR(EA);
                     //MDR<-M(MAR)
                     reg.setMBR(reg.getMAR());
-
-                    reg.setGPR(R, reg.getGPR(R) - mem.getMem(reg.getMBR()));
-
-                } else {
+                    if (reg.getGPR(R) - mem.getMem(EA) < 0) {
+                        reg.setCC(reg.getCC() | 8);
+                        System.out.println("overflow");
+                    } 
+                    else {
+                        reg.setGPR(R, reg.getGPR(R) - mem.getMem(reg.getMBR()));
+                    }
+                } 
+                else {
                     System.out.println("error");
                 }
 
@@ -234,7 +248,12 @@ public class Instructions {
 
 //                EA = computeEA(I, IX, Address);
 //                if (EA != -1 && EA <= 2048) {
+                if (reg.getGPR(R) + Address > sixteenBitMax) {
+                    reg.setCC(reg.getCC() | 8);
+                    System.out.println("overflow");
+                } else { 
                     reg.setGPR(R, reg.getGPR(R) + Address);
+                }
 //                } else {
 //                    System.out.println("error");
 //                }
@@ -245,7 +264,12 @@ public class Instructions {
 
 //                EA = computeEA(I, IX, Address);
 //                if (EA != -1 && EA <= 2048) {
+                if (reg.getGPR(R) - mem.getMem(EA) < 0) {
+                    reg.setCC(reg.getCC() | 8);
+                    System.out.println("overflow");
+                } else{
                     reg.setGPR(R, reg.getGPR(R) - Address);
+                }
 //                } else {
 //                    System.out.println("error");
 //                }
