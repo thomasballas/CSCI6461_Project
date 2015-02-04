@@ -11,15 +11,25 @@ package Storage;
  */
 public class Registers {
 
-    static int GPR[];
-    static int XR[];
-    static int PC;
-    static int CC;
-    static int IR;
-    static int MAR;
-    static int MBR;
-    static int MSR;
-    static int MFR;
+    int GPR[];
+    int XR[];
+    int PC;
+    int CC;
+    int IR;
+    int MAR;
+    int MBR;
+    int MSR;
+    int MFR;
+    
+    public boolean GPR_changed[];
+    public boolean XR_changed[];
+    public boolean PC_changed;
+    public boolean CC_changed;
+    public boolean IR_changed;
+    public boolean MAR_changed;
+    public boolean MBR_changed;
+    public boolean MSR_changed;
+    public boolean MFR_changed;
 
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
     static int twelveBitMax = Integer.parseInt("FFF", 16);
@@ -27,16 +37,20 @@ public class Registers {
 
     public Registers() {
         GPR = new int[4];
-        XR = new int[3];
+        XR = new int[3];      
+        GPR_changed = new boolean[4];
+        XR_changed = new boolean[3];
         zeroize();
     }
 
     public void zeroize() {
         for (int i = 0; i < GPR.length; i++) {
             GPR[i] = 0;
+            GPR_changed[i] = false;
         }
         for (int i = 0; i < XR.length; i++) {
             XR[i] = 0;
+            XR_changed[i] = false;
         }
         PC = 0;
         CC = 0;
@@ -45,6 +59,31 @@ public class Registers {
         MBR = 0;
         MSR = 0;
         MFR = 0;
+        
+        PC_changed = false;
+        CC_changed = false;
+        IR_changed = false;
+        MAR_changed = false;
+        MBR_changed = false;
+        MSR_changed = false;
+        MFR_changed = false;
+    }
+    
+    public void resetChangedFlags() {
+        for (int i = 0; i < GPR.length; i++) {
+            GPR_changed[i] = false;
+        }
+        for (int i = 0; i < XR.length; i++) {
+            XR_changed[i] = false;
+        }
+
+        PC_changed = false;
+        CC_changed = false;
+        IR_changed = false;
+        MAR_changed = false;
+        MBR_changed = false;
+        MSR_changed = false;
+        MFR_changed = false;
     }
 
     public int getGPR(int regNum) {
@@ -64,6 +103,7 @@ public class Registers {
         int max = sixteenBitMax;
         if ((regNum < GPR.length) && (value <= max)) {
             GPR[regNum] = value;
+            GPR_changed[regNum] = true;
         }
         if (regNum >= GPR.length) {
             status += 1;
@@ -75,11 +115,12 @@ public class Registers {
     }
 
     public int getXR(int regNum) {
-        if (regNum < XR.length) {
-            return XR[regNum];
+        regNum = regNum-1;
+        if (regNum < 0 || regNum > XR.length) {
+            return twelveBitMax + 1;
         } // return value exceeding 12-bit word to denote bad addressing
         else {
-            return twelveBitMax + 1;
+            return XR[regNum];
         }
     }
 
@@ -89,8 +130,11 @@ public class Registers {
         // status of 2 is overflow
         int status = 0;
         int max = twelveBitMax;
+        regNum = regNum - 1;
         if ((regNum < XR.length) && (value <= max)) {
             XR[regNum] = value;
+            XR_changed[regNum] = true;
+
         }
         if (regNum >= XR.length) {
             status += 1;
@@ -113,6 +157,7 @@ public class Registers {
         int max = twelveBitMax;
         if (value <= max) {
             PC = value;
+            PC_changed = true;
         } else {
             status = 2;
         }
@@ -131,6 +176,7 @@ public class Registers {
         int max = fourBitMax;
         if (value <= max) {
             CC = value;
+            CC_changed = true;
         } else {
             status = 2;
         }
@@ -138,6 +184,7 @@ public class Registers {
     }
 
     public int getIR() {
+        System.out.println("Value of IR is " + IR);
         return IR;
     }
 
@@ -145,10 +192,12 @@ public class Registers {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
         // status of 2 is overflow
-        int status = 1;
+        int status = 0;
         int max = sixteenBitMax;
         if (value <= max) {
             IR = value;
+            IR_changed = true;
+            System.out.println("New value of IR is " + value);
         } else {
             status = 2;
         }
@@ -167,6 +216,7 @@ public class Registers {
         int max = sixteenBitMax;
         if (value <= max) {
             MAR = value;
+            MAR_changed = true;
         } else {
             status = 2;
         }
@@ -185,6 +235,7 @@ public class Registers {
         int max = sixteenBitMax;
         if (value <= max) {
             MBR = value;
+            MBR_changed = true;
         } else {
             status = 2;
         }
@@ -203,6 +254,7 @@ public class Registers {
         int max = sixteenBitMax;
         if (value <= max) {
             MSR = value;
+            MSR_changed = true;
         } else {
             status = 2;
         }
@@ -221,6 +273,7 @@ public class Registers {
         int max = fourBitMax;
         if (value <= max) {
             MFR = value;
+            MFR_changed = true;
         } else {
             status = 2;
         }

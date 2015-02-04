@@ -85,14 +85,7 @@ public class Instructions {
 
     public void executeInstruction(int instruction) {
 
-		//MAR<-PC
-//		reg.setMAR(reg.getPC());
-//		
-//		//MDR<-M(MAR)
-//		reg.setMBR(mem.getMem(reg.getMAR()));
-//		
-//		//IR<-MDR
-//		reg.setIR(reg.getMBR());
+
         //extract each part
         int isolatedValues[] = isolateLoadStoreBits(instruction);
         int Opcode = isolatedValues[0];
@@ -100,12 +93,6 @@ public class Instructions {
         int IX = isolatedValues[2];
         int I = isolatedValues[3];
         int Address = isolatedValues[4];
-//        System.out.println(Opcode);
-//        System.out.println(R);
-//        System.out.println(IX);
-//        System.out.println(I);
-//        System.out.println(Address);
-//        
         int EA = 0;
 
         /**
@@ -245,23 +232,23 @@ public class Instructions {
 
             case 6: //instruction for AIR
 
-                EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048) {
+//                EA = computeEA(I, IX, Address);
+//                if (EA != -1 && EA <= 2048) {
                     reg.setGPR(R, reg.getGPR(R) + Address);
-                } else {
-                    System.out.println("error");
-                }
+//                } else {
+//                    System.out.println("error");
+//                }
 
                 break;
 
             case 7: //instruction for SIR
 
-                EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048) {
+//                EA = computeEA(I, IX, Address);
+//                if (EA != -1 && EA <= 2048) {
                     reg.setGPR(R, reg.getGPR(R) - Address);
-                } else {
-                    System.out.println("error");
-                }
+//                } else {
+//                    System.out.println("error");
+//                }
 
                 break;
 
