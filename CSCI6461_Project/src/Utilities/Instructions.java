@@ -85,6 +85,10 @@ public class Instructions {
         return isolatedValues;
     }
 
+    // call helper functions to parse instruction into opcode, addresses, etc.
+    // execute instruction according to switch-case statement
+    // set variables and memory accordingly
+    // return once processing has completed
     public void executeInstruction(int instruction) {
 
 
@@ -208,6 +212,8 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048) {
                     if (reg.getGPR(R) + mem.getMem(EA) > sixteenBitMax) {
                         reg.setCC(reg.getCC() | 8);
+                        reg.setGPR(R, reg.getGPR(R) + mem.getMem(EA));
+                        reg.setCarry(1);
                         System.out.println("overflow");
                     }
                     else {
@@ -251,6 +257,8 @@ public class Instructions {
                 if (reg.getGPR(R) + Address > sixteenBitMax) {
                     reg.setCC(reg.getCC() | 8);
                     System.out.println("overflow");
+                    reg.setCarry(1);
+                    reg.setGPR(R, reg.getGPR(R) + Address);
                 } else { 
                     reg.setGPR(R, reg.getGPR(R) + Address);
                 }

@@ -23,7 +23,6 @@ public class CSCI6461_Project {
      */
     public static void main(String[] args) throws InterruptedException {
         Memory memory = new Memory(memLength);
-        Part1MemorySetter.setMemory(memory);
         Registers registers = new Registers();
         FrontPanel GUI = new FrontPanel();
         Executor system = new Executor(registers, memory, GUI);

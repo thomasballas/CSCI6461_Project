@@ -23,6 +23,7 @@ public class FrontPanel extends JFrame {
     public Boolean changed;
     public Boolean run;
     public Boolean singleStep;
+    public Boolean IPL;
     static JTextField GPR0[];
     static JTextField GPR1[];
     static JTextField GPR2[];
@@ -63,13 +64,17 @@ public class FrontPanel extends JFrame {
     public boolean MBR_changed;
     public boolean MSR_changed;
     public boolean MFR_changed;
+    public boolean Carry_changed;
     
     public FrontPanel() {
-
+        
+        //Instantiate variables
+        //Set flags
         initComponents();
         setVisible(true);
         run = false;
         singleStep = false;
+        IPL = false;
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
         resetChangedFlags();
@@ -535,14 +540,17 @@ public class FrontPanel extends JFrame {
         };
     }
 
+    // setter for printer
     public void updatePrinter(String printout) {
         Printer.setText(printout);
     }
 
+    // getter for console input text box
     public String getConsoleInput() {
         return ConsoleInput.getText();
     }
     
+    // reset flags to false
     public void resetChangedFlags() {
         for (int i = 0; i < GPR_changed.length; i++) {
             GPR_changed[i] = false;
@@ -558,11 +566,13 @@ public class FrontPanel extends JFrame {
         MBR_changed = false;
         MSR_changed = false;
         MFR_changed = false;
-        
+        Carry_changed = false;
         changed = false;
 
     }
 
+    // getter for GPR register (returns integer value as computed by 
+    // bit positions
     public int getGPRegister(int rNum) {
         String stringVal = "";
         int value = 0;
@@ -584,6 +594,8 @@ public class FrontPanel extends JFrame {
         return value;
     }
 
+    // setter method for GPR. replaces text boxes with binary values as computed 
+    // using intToString. GPR is selected according to value in rNum. 
     public void updateGPRegister(int rNum, int value) {
 
         String valueString = DataTypeConvertor.intToString(value, 16);
@@ -612,6 +624,7 @@ public class FrontPanel extends JFrame {
         }
     }
 
+    // getter method. converts binary text values into integer before returning
     public int getXRegister(int xNum) {
         String stringVal = "";
         int value = 0;
@@ -630,6 +643,8 @@ public class FrontPanel extends JFrame {
         return value;
     }
 
+    // setter method. replaces text fields of a register with the integer value 
+    // converted to a text string
     public void updateXRegister(int xNum, int value) {
 
         String valueString = DataTypeConvertor.intToString(value, 16);
@@ -763,6 +778,25 @@ public class FrontPanel extends JFrame {
         for (int i = 0; i < 4; i++) {
             if (!MFR[i].getText().equals(valueString.substring(i, i + 1))) {
                 MFRSwitch[i].doClick();
+            }
+        }
+    }
+    
+        public int getCarry() {
+        String stringVal = "";
+        int value = 0;
+        for (int i = 0; i < 1; i++) {
+            stringVal += CarryT1.getText();
+        }
+        value = DataTypeConvertor.stringToInt(stringVal);
+        return value;
+    }
+
+    public void updateCarry(int value) {
+        String valueString = DataTypeConvertor.intToString(value, 1);
+        for (int i = 0; i < 1; i++) {
+            if (!CarryT1.getText().equals(valueString.substring(i, i + 1))) {
+                CarryC1.doClick();
             }
         }
     }
@@ -1210,6 +1244,9 @@ public class FrontPanel extends JFrame {
         haltButton = new javax.swing.JButton();
         iplButton = new javax.swing.JButton();
         singlestepButton = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        CarryC1 = new javax.swing.JCheckBox();
+        CarryT1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -4027,6 +4064,22 @@ public class FrontPanel extends JFrame {
             }
         });
 
+        jLabel17.setText("Carry");
+
+        CarryC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CarryC1ActionPerformed(evt);
+            }
+        });
+
+        CarryT1.setColumns(1);
+        CarryT1.setText("0");
+        CarryT1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CarryT1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4969,7 +5022,15 @@ public class FrontPanel extends JFrame {
                                                                             .addGap(7, 7, 7)
                                                                             .addComponent(jTextField183, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                             .addGap(7, 7, 7)
-                                                                            .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))))
+                                                                            .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                            .addGap(26, 26, 26)
+                                                                            .addComponent(jLabel17)))
+                                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                            .addGap(1, 1, 1)
+                                                                            .addComponent(CarryC1))
+                                                                        .addComponent(CarryT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jLabel6))))
@@ -5568,7 +5629,9 @@ public class FrontPanel extends JFrame {
                                             .addComponent(jTextField181, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField182, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextField183, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jTextField184, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel17)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jCheckBox181)
@@ -5593,7 +5656,11 @@ public class FrontPanel extends JFrame {
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jCheckBox107)
                                                 .addComponent(jCheckBox108)
-                                                .addComponent(jCheckBox109, javax.swing.GroupLayout.Alignment.TRAILING))))))))
+                                                .addComponent(jCheckBox109, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(CarryT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(CarryC1))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -8407,12 +8474,27 @@ public class FrontPanel extends JFrame {
 
     private void iplButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iplButtonActionPerformed
         // TODO add your handling code here:
+        IPL = true;
     }//GEN-LAST:event_iplButtonActionPerformed
 
     private void singlestepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_singlestepButtonActionPerformed
         // TODO add your handling code here:
         singleStep = true;
     }//GEN-LAST:event_singlestepButtonActionPerformed
+
+    private void CarryC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarryC1ActionPerformed
+        Carry_changed = true;
+        changed = true;
+        if (CarryC1.isSelected()) {
+            CarryT1.setText("1");
+        } else {
+            CarryT1.setText("0");
+        }
+    }//GEN-LAST:event_CarryC1ActionPerformed
+
+    private void CarryT1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CarryT1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CarryT1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -8450,6 +8532,8 @@ public class FrontPanel extends JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox CarryC1;
+    private javax.swing.JTextField CarryT1;
     private javax.swing.JCheckBox R1C1;
     private javax.swing.JCheckBox R1C10;
     private javax.swing.JCheckBox R1C11;
@@ -8704,6 +8788,7 @@ public class FrontPanel extends JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -21,10 +21,12 @@ public class Memory {
         zeroize();
     }
 
+    // length getter
     public int getMemoryLength() {
         return memory.capacity();
     }
             
+    // assign zero to all values of memory
     public void zeroize() {
         for (int i = 0; i < 2048; i++) {
             memory.add(i, 0);
@@ -32,6 +34,7 @@ public class Memory {
         // set values at reserved memory spaces [0..5] if required
     }
 
+    // getter method for memory; checks for valid addressing
     public int getMem(int location) {
         if (location < getMemoryLength()) {
             return memory.get(location);
@@ -41,6 +44,7 @@ public class Memory {
         }
     }
 
+    // memory setter; checks for valid addressing and values
     public int setMem(int location, int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing

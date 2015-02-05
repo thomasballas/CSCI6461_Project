@@ -47,6 +47,7 @@ public class Executor {
         if (reg.MSR_changed) GUI.updateMSRRegister(reg.getMSR());
         if (reg.MFR_changed) GUI.updateMFRRegister(reg.getMFR());
         if (reg.PC_changed) GUI.updatePCRegister(reg.getPC());
+        if (reg.Carry_changed) GUI.updateCarry(reg.getCarry());
         GUI.resetChangedFlags();
         reg.resetChangedFlags();
     }
@@ -79,22 +80,34 @@ public class Executor {
      */
     public void start() throws InterruptedException {
         //set PC to first unallocated space
-        reg.setPC(7);
 //        System.out.println(reg.getPC());
         System.out.println("Started");
         Instructions inst = new Instructions(mem, reg);
         guiUpdateBattery();
-        while (reg.getPC() < mem.getMemoryLength()) {
-            while ((GUI.run == false) && (GUI.singleStep == false)) {
+        while (true) {
+            while (((GUI.run == false) && (GUI.singleStep == false)) ||  
+                    (reg.getPC() >= mem.getMemoryLength()) || 
+                    (reg.getPC() < 6)){
                 sleep(50);
+                if (GUI.IPL) {
+                    Part1MemorySetter.setMemory(mem);
+                    reg.setPC(7);
+                    GUI.IPL = false;
+                    GUI.run = false;
+                    GUI.singleStep = false;
+                    guiUpdateBattery();
+                }
             }
             guiPollBattery();
+            reg.setCarry(0);
+            reg.setCC(0);
             reg.setMAR(reg.getPC());
             reg.setMBR(mem.getMem(reg.getMAR()));
             reg.setIR(reg.getMBR());
             inst.executeInstruction(reg.getIR());
 
             GUI.singleStep = false;
+            //GUI.IPL = false;
             reg.setPC(reg.getPC() + 1);
 //            System.out.println("Program counter is now " + reg.getPC());
             guiUpdateBattery();

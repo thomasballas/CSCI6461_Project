@@ -11,6 +11,7 @@ package Storage;
  */
 public class Registers {
 
+    // integers and integer arrays to contain register value
     int GPR[];
     int XR[];
     int PC;
@@ -20,7 +21,9 @@ public class Registers {
     int MBR;
     int MSR;
     int MFR;
+    int Carry;
     
+    // changed flags to indicate the need for a GUI update
     public boolean GPR_changed[];
     public boolean XR_changed[];
     public boolean PC_changed;
@@ -30,11 +33,14 @@ public class Registers {
     public boolean MBR_changed;
     public boolean MSR_changed;
     public boolean MFR_changed;
+    public boolean Carry_changed;
 
+    // max values
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
     static int twelveBitMax = Integer.parseInt("FFF", 16);
     static int fourBitMax = Integer.parseInt("F", 16);
 
+    // instantiate registers
     public Registers() {
         GPR = new int[4];
         XR = new int[3];      
@@ -43,6 +49,7 @@ public class Registers {
         zeroize();
     }
 
+    // set all registers and flags to 0
     public void zeroize() {
         for (int i = 0; i < GPR.length; i++) {
             GPR[i] = 0;
@@ -67,8 +74,10 @@ public class Registers {
         MBR_changed = false;
         MSR_changed = false;
         MFR_changed = false;
+        Carry_changed = false;
     }
     
+    // method to reset the changed flags
     public void resetChangedFlags() {
         for (int i = 0; i < GPR.length; i++) {
             GPR_changed[i] = false;
@@ -86,6 +95,7 @@ public class Registers {
         MFR_changed = false;
     }
 
+    // GPR getter method. returns the value of the designated GPR
     public int getGPR(int regNum) {
         if (regNum < GPR.length) {
             return GPR[regNum];
@@ -95,6 +105,8 @@ public class Registers {
         }
     }
 
+    // GPR setter method. Sets the designated GPR with the supplied value 
+    // as long as the numbers are valid (register number and value)
     public int setGPR(int regNum, int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -108,12 +120,16 @@ public class Registers {
         if (regNum >= GPR.length) {
             status += 1;
         }
-        if (value > max) {
+        if (value > max) {    
+            value = value & sixteenBitMax;
+            GPR[regNum] = value;
+            GPR_changed[regNum] = true;
             status += 2;
         }
         return status;
     }
 
+    // XR getter, see GPR documentation
     public int getXR(int regNum) {
         regNum = regNum-1;
         if (regNum < 0 || regNum > XR.length) {
@@ -124,6 +140,7 @@ public class Registers {
         }
     }
 
+    //XR setter, see GPR documentation 
     public int setXR(int regNum, int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -140,15 +157,20 @@ public class Registers {
             status += 1;
         }
         if (value > max) {
+            value = value & sixteenBitMax;
+            XR[regNum] = value;
+            XR_changed[regNum] = true;
             status += 2;
         }
         return status;
     }
 
+    // PC getter, returns value of PC
     public int getPC() {
         return PC;
     }
 
+    // PC setter, see GPR documentation
     public int setPC(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -164,10 +186,12 @@ public class Registers {
         return status;
     }
 
+    // CC getter, returns value of CC
     public int getCC() {
         return CC;
     }
 
+    // CC setter, see GPR documentation
     public int setCC(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -183,11 +207,13 @@ public class Registers {
         return status;
     }
 
+    // IR getter, returns value of IR
     public int getIR() {
-        System.out.println("Value of IR is " + IR);
+//        System.out.println("Value of IR is " + IR);
         return IR;
     }
 
+    // IR setter, see GPR documentation
     public int setIR(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -197,17 +223,19 @@ public class Registers {
         if (value <= max) {
             IR = value;
             IR_changed = true;
-            System.out.println("New value of IR is " + value);
+//            System.out.println("New value of IR is " + value);
         } else {
             status = 2;
         }
         return status;
     }
 
+    // MAR getter, returns value of MAR
     public int getMAR() {
         return MAR;
     }
 
+    // MAR setter, see GPR documentation
     public int setMAR(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -223,10 +251,12 @@ public class Registers {
         return status;
     }
 
+    // MBR getter, returns value of MBR
     public int getMBR() {
         return MBR;
     }
 
+    // MBR setter, see GPR documentation
     public int setMBR(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -242,10 +272,12 @@ public class Registers {
         return status;
     }
 
+    // MSR getter, returns value of MSR
     public int getMSR() {
         return MSR;
     }
 
+    // MSR setter, see GPR documentation
     public int setMSR(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -261,10 +293,12 @@ public class Registers {
         return status;
     }
 
+    // MFR getter, returns value of MFR
     public int getMFR() {
         return MFR;
     }
 
+    // MFR setter, see GPR documentation
     public int setMFR(int value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
@@ -277,6 +311,22 @@ public class Registers {
         } else {
             status = 2;
         }
+        return status;
+    }
+    
+        // Carry getter, returns value of Carry
+    public int getCarry() {
+        return Carry;
+    }
+
+    // Carry setter, see Carry documentation
+    public int setCarry(int value) {
+        // status is good (0) or bad (other; can be combined)
+        // status of 1 is bad register addressing
+        // status of 2 is overflow
+        int status = 0;
+        Carry = value;
+        Carry_changed = true;
         return status;
     }
 }

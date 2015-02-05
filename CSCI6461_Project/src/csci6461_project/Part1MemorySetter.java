@@ -32,7 +32,10 @@ public class Part1MemorySetter {
         int AIRinst = DataTypeConvertor.stringToInt("0001100000000001");
         // Create int representation of "SIR 0, 1"
         int SIRinst = DataTypeConvertor.stringToInt("0001110000000001");
-        
+        // Create int representation of "SIR 3, 1"
+        int SIR2inst = DataTypeConvertor.stringToInt("0001111100000001");
+        // Create int representation of "AIR 3, 2"
+        int AIR2inst = DataTypeConvertor.stringToInt("0001101100000010");        
         mem.setMem(7, LDRinst);
         mem.setMem(31, 65535);
         mem.setMem(8,LDXinst);
@@ -46,6 +49,9 @@ public class Part1MemorySetter {
         mem.setMem(13,SMRinst);
         mem.setMem(14,AIRinst);
         mem.setMem(15,SIRinst);
+        mem.setMem(16, LDRinst);
+        mem.setMem(17,SIR2inst);
+        mem.setMem(18,AIR2inst); //test overflow reg 3 = 65534 + 2
         
         
         
