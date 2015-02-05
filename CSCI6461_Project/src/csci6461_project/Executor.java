@@ -33,7 +33,6 @@ public class Executor {
      * Only makes changes if flags have been set via register setter methods.
      */
     private void guiUpdateBattery() {
-        if (reg.CC_changed) GUI.updateCCRegister(reg.getCC());
         if (reg.GPR_changed[0]) GUI.updateGPRegister(0, reg.getGPR(0));
         if (reg.GPR_changed[1]) GUI.updateGPRegister(1, reg.getGPR(1));
         if (reg.GPR_changed[2]) GUI.updateGPRegister(2, reg.getGPR(2));
@@ -47,6 +46,7 @@ public class Executor {
         if (reg.MSR_changed) GUI.updateMSRRegister(reg.getMSR());
         if (reg.MFR_changed) GUI.updateMFRRegister(reg.getMFR());
         if (reg.PC_changed) GUI.updatePCRegister(reg.getPC());
+        if (reg.CC_changed) GUI.updateCCRegister(reg.getCC());
         if (reg.Carry_changed) GUI.updateCarry(reg.getCarry());
         GUI.resetChangedFlags();
         reg.resetChangedFlags();
@@ -54,7 +54,6 @@ public class Executor {
     
     private void guiPollBattery() {
         if (GUI.changed) {
-            if (GUI.CC_changed) reg.setCC(GUI.getCCRegister());
             if (GUI.GPR_changed[0]) reg.setGPR(0, GUI.getGPRegister(0));
             if (GUI.GPR_changed[1]) reg.setGPR(1, GUI.getGPRegister(1));
             if (GUI.GPR_changed[2]) reg.setGPR(2, GUI.getGPRegister(2));
@@ -67,6 +66,7 @@ public class Executor {
             if (GUI.MBR_changed) reg.setMBR(GUI.getMBRRegister());
             if (GUI.MSR_changed) reg.setMSR(GUI.getMSRRegister());
             if (GUI.MFR_changed) reg.setMFR(GUI.getMFRRegister());
+            if (GUI.CC_changed) reg.setCC(GUI.getCCRegister());
             if (GUI.PC_changed) reg.setPC(GUI.getPCRegister());
         }
         GUI.resetChangedFlags();
