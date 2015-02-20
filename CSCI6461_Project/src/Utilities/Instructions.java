@@ -130,6 +130,7 @@ public class Instructions {
     // execute instruction according to switch-case statement
     // set variables and memory accordingly
     // return once processing has completed
+    
     public void executeInstruction(int instruction) {
 
 
