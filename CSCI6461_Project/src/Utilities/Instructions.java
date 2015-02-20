@@ -75,6 +75,7 @@ public class Instructions {
      * @param instruction
      * @return
      */
+     
     public static int[] isolateLoadStoreBits(int instruction) {
 
         int isolatedValues[];
