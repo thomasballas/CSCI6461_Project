@@ -499,7 +499,7 @@ public class Instructions {
                 
                 if(reg.getGPR(R)>=0)
                 	reg.setPC(EA);
-                
+                break;
             	
             //arithmetic instruction block
             case 16: //instruction for MLT
