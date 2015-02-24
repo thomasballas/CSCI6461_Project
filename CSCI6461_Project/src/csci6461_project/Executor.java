@@ -96,6 +96,7 @@ public class Executor {
                     GUI.run = false;
                     GUI.singleStep = false;
                     guiUpdateBattery();
+                    mem.printCache();
                 }
             }
             guiPollBattery();

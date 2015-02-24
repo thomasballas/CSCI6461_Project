@@ -18,7 +18,7 @@ public class Instructions {
     Memory mem;
     Registers reg;
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
-    static int thirtytwoBitMax = Integer.parseInt("FFFFFFFF",16);
+    static int thirtytwoBitMax = Integer.parseUnsignedInt("FFFFFFFF",16);
 
 
     /**
