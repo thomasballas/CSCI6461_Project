@@ -102,6 +102,16 @@ public class Memory {
         }
     }
 
+    public void writeMem(int instructions[]) {
+        int memLoc = 10;
+//        System.out.println(memory.capacity());
+        for (int i = 0; i<instructions.length; i++) {
+            if (memLoc > memory.capacity()) return;
+            memory.set(memLoc, instructions[i]);
+            memLoc++;
+        }
+    }
+    
     // memory setter; checks for valid addressing and values
     public int setMem(int location, int value) {
         // status is good (0) or bad (other; can be combined)

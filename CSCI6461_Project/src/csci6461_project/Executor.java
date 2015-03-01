@@ -10,7 +10,13 @@ import Storage.Memory;
 import Storage.Registers;
 import Utilities.DataTypeConvertor;
 import Utilities.Instructions;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 import static java.lang.Thread.sleep;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -73,6 +79,30 @@ public class Executor {
         reg.resetChangedFlags();
     }
 
+    private void parseProgram(File programFile) {
+        try {
+            Scanner sc = new Scanner(programFile);
+            Vector<Integer> vc = new Vector<>();
+            while (sc.hasNext()) {
+                String next = sc.next();
+                int inst = DataTypeConvertor.stringToInt(next);
+                vc.add(inst);
+                System.out.println("Parsed file line containing " + next);
+                System.out.println("Converted line into " + inst);
+                
+            }
+            Integer[] hold = vc.toArray(new Integer[0]);
+//            System.out.println(hold.length);
+            int[] hold2 = new int[hold.length];
+            for (int i = 0; i<hold.length; i++) hold2[i] = hold[i];
+//            System.out.println(hold2.length);
+            mem.writeMem(hold2);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Executor.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("FILE READ ERROR: CANNOT PARSE PROGRAM");
+        }
+        
+    }
     /***
      * start() runs continuously, executing instructions from memory
      * it will wait until a user selects run or single step
@@ -90,7 +120,8 @@ public class Executor {
                     (reg.getPC() < 6)){
                 sleep(50);
                 if (GUI.IPL) {
-                    Part1MemorySetter.setMemory(mem);
+                    if (GUI.setFile) parseProgram(GUI.programFile);
+                    else Part1MemorySetter.setMemory(mem);
                     reg.setPC(7);
                     GUI.IPL = false;
                     GUI.run = false;

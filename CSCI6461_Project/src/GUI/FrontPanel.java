@@ -10,6 +10,9 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.io.File;
 
 /**
  *
@@ -24,6 +27,8 @@ public class FrontPanel extends JFrame {
     public Boolean run;
     public Boolean singleStep;
     public Boolean IPL;
+    public Boolean setFile;
+    public File programFile;
     static JTextField GPR0[];
     static JTextField GPR1[];
     static JTextField GPR2[];
@@ -75,6 +80,7 @@ public class FrontPanel extends JFrame {
         run = false;
         singleStep = false;
         IPL = false;
+        setFile = false;
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
         resetChangedFlags();
@@ -567,6 +573,7 @@ public class FrontPanel extends JFrame {
         MSR_changed = false;
         MFR_changed = false;
         Carry_changed = false;
+        setFile = false;
         changed = false;
 
     }
@@ -1247,6 +1254,7 @@ public class FrontPanel extends JFrame {
         jLabel17 = new javax.swing.JLabel();
         CarryC1 = new javax.swing.JCheckBox();
         CarryT1 = new javax.swing.JTextField();
+        SelectFileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -4080,6 +4088,13 @@ public class FrontPanel extends JFrame {
             }
         });
 
+        SelectFileButton.setText("Add a file to memory");
+        SelectFileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectFileButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -4639,19 +4654,6 @@ public class FrontPanel extends JFrame {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(jCheckBox96))))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(1, 1, 1)
-                                                .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jTextField67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jTextField68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jTextField69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(6, 6, 6)
-                                                .addComponent(jTextField70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jCheckBox65)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5030,7 +5032,23 @@ public class FrontPanel extends JFrame {
                                                                         .addGroup(layout.createSequentialGroup()
                                                                             .addGap(1, 1, 1)
                                                                             .addComponent(CarryC1))
-                                                                        .addComponent(CarryT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
+                                                                        .addComponent(CarryT1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(1, 1, 1)
+                                                .addComponent(jTextField65, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jTextField66, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(6, 6, 6)
+                                                .addComponent(jTextField67, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(6, 6, 6)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(SelectFileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jTextField68, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(jTextField69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(6, 6, 6)
+                                                        .addComponent(jTextField70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jLabel6))))
@@ -5062,7 +5080,9 @@ public class FrontPanel extends JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(runButton)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(runButton)
+                                            .addComponent(SelectFileButton))
                                         .addGap(18, 18, 18)
                                         .addComponent(haltButton)
                                         .addGap(18, 18, 18)
@@ -8496,6 +8516,22 @@ public class FrontPanel extends JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CarryT1ActionPerformed
 
+    private void SelectFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectFileButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+            "TXT Files", "txt");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            setFile = true;
+            programFile = chooser.getSelectedFile();
+//           System.out.println("You chose to open this file: " +
+//                chooser.getSelectedFile().getName());
+        }
+        
+    }//GEN-LAST:event_SelectFileButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -8630,6 +8666,7 @@ public class FrontPanel extends JFrame {
     private javax.swing.JTextField R3T7;
     private javax.swing.JTextField R3T8;
     private javax.swing.JTextField R3T9;
+    private javax.swing.JButton SelectFileButton;
     private javax.swing.JButton haltButton;
     private javax.swing.JButton iplButton;
     private javax.swing.JCheckBox jCheckBox1;
