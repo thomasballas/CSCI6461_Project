@@ -22,6 +22,7 @@ public class Registers {
     int MSR;
     int MFR;
     int Carry;
+    int JMPR;
     
     // changed flags to indicate the need for a GUI update
     public boolean GPR_changed[];
@@ -328,5 +329,14 @@ public class Registers {
         Carry = value;
         Carry_changed = true;
         return status;
+    }
+    
+    // Jump register. Used for keeping the address for jump and return statement 
+    public int getJMPR(){
+    	return JMPR;
+    }
+    
+    public void setJMPR(int address){
+    	JMPR = address;
     }
 }
