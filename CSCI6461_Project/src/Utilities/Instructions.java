@@ -451,7 +451,7 @@ public class Instructions {
                 break;
             
             
-            case 12: //instruction for JSR. (not quite sure about whether we need to save R3 previous PC into somewhere in memory to avoid any erase in R3 cause by the operation in subroutine)
+            case 12: //instruction for JSR. 
                 R = isolatedValues[1];
                 IX = isolatedValues[2];
                 I = isolatedValues[3];
@@ -461,18 +461,31 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048) {
                 	reg.setGPR(3, reg.getPC()+1);
                 	reg.setPC(EA);
+<<<<<<< HEAD
+=======
+                	reg.setGPR(0, reg.getPC());
+>>>>>>> 46336160ab4b56ab086cf76f32a52bea8fed8429
                 	reg.setJMPR(reg.getGPR(3));             	
                 } else {
                     System.out.println("error");
                 }
+<<<<<<< HEAD
                 
                 
                 //if no argument in subroutine, come back to previous PC directly
                 //if(mem.getMem(reg.getPC())==-17777)
                 	//reg.setPC(reg.getGPR(3));
+=======
+>>>>>>> 46336160ab4b56ab086cf76f32a52bea8fed8429
                 
                 break;
             
+
+            //jump back, if the subroutine reach to the end with -17777
+            case -17777:
+             	reg.setPC(reg.getJMPR());
+               	break;    
+                
             case 13: //instruction for RFS
                 R = isolatedValues[1];
             	Address = isolatedValues[4];
