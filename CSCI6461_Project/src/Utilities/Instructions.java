@@ -386,7 +386,7 @@ public class Instructions {
 
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    if (reg.getGPR(R) == 1) {
+                    if (reg.getGPR(R) == 0) {
                         reg.setPC(EA);
                     } else {
                         break;
@@ -461,10 +461,15 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048) {
                 	reg.setGPR(3, reg.getPC()+1);
                 	reg.setPC(EA);
+                	reg.setJMPR(reg.getGPR(3));             	
+                } else {
+                    System.out.println("error");
                 }
+                
+                
                 //if no argument in subroutine, come back to previous PC directly
-                if(mem.getMem(reg.getPC())==-17777)
-                	reg.setPC(reg.getGPR(3));
+                //if(mem.getMem(reg.getPC())==-17777)
+                	//reg.setPC(reg.getGPR(3));
                 
                 break;
             
