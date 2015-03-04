@@ -60,6 +60,9 @@ public class FrontPanel extends JFrame {
     static JTextArea Printer;
     static JTextField ConsoleInput;
     
+    public String userText;
+    public String consoleOutput;
+    public boolean userInput;
     public boolean GPR_changed[];
     public boolean XR_changed[];
     public boolean PC_changed;
@@ -81,11 +84,13 @@ public class FrontPanel extends JFrame {
         singleStep = false;
         IPL = false;
         setFile = false;
+        userInput = false;
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
+        consoleOutput = "";
         resetChangedFlags();
-        Printer = jTextArea1;
-        ConsoleInput = jTextField185;
+        Printer = ConsolePrinterField;
+        ConsoleInput = ConsoleInputField;
         GPR0 = new JTextField[]{
             jTextField1,
             jTextField2,
@@ -547,13 +552,14 @@ public class FrontPanel extends JFrame {
     }
 
     // setter for printer
-    public void updatePrinter(String printout) {
-        Printer.setText(printout);
+    public void updatePrinter(String character) {
+        consoleOutput += character;
+        Printer.setText(consoleOutput);
     }
 
     // getter for console input text box
     public String getConsoleInput() {
-        return ConsoleInput.getText();
+        return userText;
     }
     
     // reset flags to false
@@ -575,9 +581,16 @@ public class FrontPanel extends JFrame {
         Carry_changed = false;
         setFile = false;
         changed = false;
+        userInput = false;
 
     }
 
+    public void clearPrinterAndKeyboard() {
+        userText = "";
+        consoleOutput = "";
+        ConsoleInputField.setText(userText);
+        ConsolePrinterField.setText(consoleOutput);
+    }
     // getter for GPR register (returns integer value as computed by 
     // bit positions
     public int getGPRegister(int rNum) {
@@ -1219,7 +1232,7 @@ public class FrontPanel extends JFrame {
         jTextField184 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ConsolePrinterField = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextField186 = new javax.swing.JTextField();
@@ -1246,7 +1259,7 @@ public class FrontPanel extends JFrame {
         jCheckBox196 = new javax.swing.JCheckBox();
         jTextField197 = new javax.swing.JTextField();
         jCheckBox197 = new javax.swing.JCheckBox();
-        jTextField185 = new javax.swing.JTextField();
+        ConsoleInputField = new javax.swing.JTextField();
         runButton = new javax.swing.JButton();
         haltButton = new javax.swing.JButton();
         iplButton = new javax.swing.JButton();
@@ -3862,9 +3875,9 @@ public class FrontPanel extends JFrame {
 
         jLabel14.setText("CC");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ConsolePrinterField.setColumns(20);
+        ConsolePrinterField.setRows(5);
+        jScrollPane1.setViewportView(ConsolePrinterField);
 
         jLabel15.setText("CONSOLE PRINTER");
 
@@ -4038,9 +4051,9 @@ public class FrontPanel extends JFrame {
             }
         });
 
-        jTextField185.addActionListener(new java.awt.event.ActionListener() {
+        ConsoleInputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField185ActionPerformed(evt);
+                ConsoleInputFieldActionPerformed(evt);
             }
         });
 
@@ -4446,7 +4459,7 @@ public class FrontPanel extends JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGap(54, 54, 54)
-                                    .addComponent(jTextField185, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(ConsoleInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(12, 12, 12)
                                     .addComponent(jLabel1)
@@ -5094,7 +5107,7 @@ public class FrontPanel extends JFrame {
                                         .addGap(26, 26, 26)
                                         .addComponent(jLabel16)
                                         .addGap(4, 4, 4)
-                                        .addComponent(jTextField185, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConsoleInputField, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(21, 21, 21)
@@ -8478,9 +8491,12 @@ public class FrontPanel extends JFrame {
         }
     }//GEN-LAST:event_jCheckBox197ActionPerformed
 
-    private void jTextField185ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField185ActionPerformed
+    private void ConsoleInputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsoleInputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField185ActionPerformed
+        userText = ConsoleInputField.getText();
+        userInput = true;
+        
+    }//GEN-LAST:event_ConsoleInputFieldActionPerformed
 
     private void runButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runButtonActionPerformed
         // TODO add your handling code here:
@@ -8570,6 +8586,8 @@ public class FrontPanel extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox CarryC1;
     private javax.swing.JTextField CarryT1;
+    private javax.swing.JTextField ConsoleInputField;
+    private javax.swing.JTextArea ConsolePrinterField;
     private javax.swing.JCheckBox R1C1;
     private javax.swing.JCheckBox R1C10;
     private javax.swing.JCheckBox R1C11;
@@ -8835,7 +8853,6 @@ public class FrontPanel extends JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField100;
@@ -8929,7 +8946,6 @@ public class FrontPanel extends JFrame {
     private javax.swing.JTextField jTextField182;
     private javax.swing.JTextField jTextField183;
     private javax.swing.JTextField jTextField184;
-    private javax.swing.JTextField jTextField185;
     private javax.swing.JTextField jTextField186;
     private javax.swing.JTextField jTextField187;
     private javax.swing.JTextField jTextField188;

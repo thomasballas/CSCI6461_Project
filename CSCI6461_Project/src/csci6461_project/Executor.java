@@ -112,7 +112,7 @@ public class Executor {
         //set PC to first unallocated space
 //        System.out.println(reg.getPC());
         System.out.println("Started");
-        Instructions inst = new Instructions(mem, reg);
+        Instructions inst = new Instructions(mem, reg, GUI);
         guiUpdateBattery();
         while (true) {
             while (((GUI.run == false) && (GUI.singleStep == false)) ||  
@@ -120,13 +120,16 @@ public class Executor {
                     (reg.getPC() < 6)){
                 sleep(50);
                 if (GUI.IPL) {
+                    GUI.clearPrinterAndKeyboard();
+                    mem.zeroize();
+                    reg.zeroize();
+                    reg.setPC(7);
                     if (GUI.setFile) parseProgram(GUI.programFile);
                     else Part1MemorySetter.setMemory(mem);
-                    reg.setPC(7);
+                    guiUpdateBattery();
                     GUI.IPL = false;
                     GUI.run = false;
                     GUI.singleStep = false;
-                    guiUpdateBattery();
                     mem.printCache();
                 }
             }

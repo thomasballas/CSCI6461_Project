@@ -10,11 +10,14 @@ package Utilities;
  */
 import Storage.Memory;
 import Storage.Registers;
+import GUI.FrontPanel;
+import static java.lang.Thread.sleep;
 
 
 public class Instructions {
     Memory mem;
     Registers reg;
+    FrontPanel GUI;
     static int sixteenBitMax = Integer.parseInt("FFFF", 16);
     static int thirtytwoBitMax = Integer.parseUnsignedInt("FFFFFFFF",16);
     /**
@@ -24,9 +27,11 @@ public class Instructions {
      * @param mem
      * @param reg
      */
-    public Instructions(Memory mem, Registers reg) {
+    public Instructions(Memory mem, Registers reg, FrontPanel GUI) {
         this.mem = mem;
         this.reg = reg;
+        this.GUI = GUI;
+        
     }
     /**
      * computer the Effective Address according to I,IX,Address factors
@@ -105,7 +110,7 @@ public class Instructions {
     // execute instruction according to switch-case statement
     // set variables and memory accordingly
     // return once processing has completed
-    public void executeInstruction(int instruction) {
+    public void executeInstruction(int instruction) throws InterruptedException {
         //extract each part
         int isolatedValues[] = isolateLoadStoreBits(instruction);
         int isolatedShift[] = isolateShiftBits(instruction);
@@ -333,7 +338,11 @@ public class Instructions {
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048) {
-                    if (reg.getCC() == 1) {
+                    int ccbit;
+                    if (R == 0) ccbit = 0;
+                    else ccbit = 1 << (R-1);
+                    if (reg.getCC() == ccbit) {
+                        reg.setCC(0);
                         reg.setPC(EA);
                     } else {
                         break;
@@ -633,11 +642,35 @@ public class Instructions {
             case 49: //instruction for IN
                 ioR = isolatedShift[1];
                 ioDevID = isolatedIO[2];
+                if (ioDevID == 0) {
+                    while(!GUI.userInput){
+                        sleep(50);
+                    }
+                    Integer num;
+                    try {
+                        num = Integer.parseInt(GUI.getConsoleInput());
+                    } catch (NumberFormatException e) {
+                        if (GUI.getConsoleInput().length() == 1) {
+                            num = (int) GUI.getConsoleInput().charAt(0);
+                        }
+                        else num = 0;
+                    }
+                    if ((num < 0) || (num > 65535)) num = 0;
+                    reg.setGPR(ioR, num);
+                }
                 break;
                 //IO instruction block
             case 50: //instruction for OUT
                 ioR = isolatedShift[1];
                 ioDevID = isolatedIO[2];
+                if (ioDevID == 1) {
+//                    if ((reg.getGPR(ioR) > 31) && (reg.getGPR(ioR) < 127)) {
+//                        String hold = "" + (char) reg.getGPR(ioR);
+//                        GUI.updatePrinter(hold);
+//                    }
+//                    else
+                    GUI.updatePrinter(Integer.toString(reg.getGPR(ioR)));
+                }
                 break;
                 //IO instruction block
             case 51: //instruction for CHK
