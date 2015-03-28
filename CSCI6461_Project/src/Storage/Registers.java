@@ -14,6 +14,7 @@ public class Registers {
     // integers and integer arrays to contain register value
     int GPR[];
     int XR[];
+    int FR[];
     int PC;
     int CC;
     int IR;
@@ -27,6 +28,7 @@ public class Registers {
     // changed flags to indicate the need for a GUI update
     public boolean GPR_changed[];
     public boolean XR_changed[];
+    public boolean FR_changed[];
     public boolean PC_changed;
     public boolean CC_changed;
     public boolean IR_changed;
@@ -45,6 +47,7 @@ public class Registers {
     public Registers() {
         GPR = new int[4];
         XR = new int[3];      
+        FR = new int[2];      
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
         zeroize();
@@ -59,6 +62,10 @@ public class Registers {
         for (int i = 0; i < XR.length; i++) {
             XR[i] = 0;
             XR_changed[i] = false;
+        }
+        for (int i = 0; i < FR.length; i++) {
+            FR[i] = 0;
+            FR_changed[i] = false;
         }
         PC = 0;
         CC = 0;
@@ -85,6 +92,9 @@ public class Registers {
         }
         for (int i = 0; i < XR.length; i++) {
             XR_changed[i] = false;
+        }
+        for (int i = 0; i < FR.length; i++) {
+            FR_changed[i] = false;
         }
 
         PC_changed = false;
@@ -125,6 +135,40 @@ public class Registers {
             value = value & sixteenBitMax;
             GPR[regNum] = value;
             GPR_changed[regNum] = true;
+            status += 2;
+        }
+        return status;
+    }
+    
+        // FR getter method. returns the value of the designated FR
+    public int getFR(int regNum) {
+        if (regNum < FR.length) {
+            return FR[regNum];
+        } // return value exceeding 16-bit word to denote bad addressing
+        else {
+            return sixteenBitMax + 1;
+        }
+    }
+
+    // FR setter method. Sets the designated FR with the supplied value 
+    // as long as the numbers are valid (register number and value)
+    public int setFR(int regNum, int value) {
+        // status is good (0) or bad (other; can be combined)
+        // status of 1 is bad register addressing
+        // status of 2 is overflow
+        int status = 0;
+        int max = sixteenBitMax;
+        if ((regNum < FR.length) && (value <= max)) {
+            FR[regNum] = value;
+            FR_changed[regNum] = true;
+        }
+        if (regNum >= FR.length) {
+            status += 1;
+        }
+        if (value > max) {    
+            value = value & sixteenBitMax;
+            FR[regNum] = value;
+            FR_changed[regNum] = true;
             status += 2;
         }
         return status;

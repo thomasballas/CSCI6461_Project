@@ -394,9 +394,9 @@ public class Instructions {
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
+                System.out.println("Computed an EA of " + EA);
                 reg.setGPR(R, reg.getGPR(R)-1);
-                if(reg.getGPR(R)>0)
-                    reg.setPC(EA);
+                reg.setPC(EA);
                 break;
             case 15: //instruction for JGE
                 R = isolatedValues[1];
@@ -523,7 +523,7 @@ public class Instructions {
                         shiftResult[i+Count]=buffer.charAt(i);
                     }
                     for(int i=0;i<Count;i++){
-                        shiftResult[i]=0;
+                        shiftResult[i]='0';
                     }
                     buffer="";
                     for(char i:shiftResult){
@@ -657,6 +657,7 @@ public class Instructions {
                     }
                     if ((num < 0) || (num > 65535)) num = 0;
                     reg.setGPR(ioR, num);
+                    
                 }
                 break;
                 //IO instruction block
@@ -669,7 +670,7 @@ public class Instructions {
 //                        GUI.updatePrinter(hold);
 //                    }
 //                    else
-                    GUI.updatePrinter(Integer.toString(reg.getGPR(ioR)));
+                    GUI.updatePrinter(Integer.toString(reg.getGPR(ioR)) + " ");
                 }
                 break;
                 //IO instruction block

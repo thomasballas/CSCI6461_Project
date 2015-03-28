@@ -135,7 +135,7 @@ public class Executor {
             }
             guiPollBattery();
             reg.setCarry(0);
-            reg.setCC(0);
+            //reg.setCC(0);
             reg.setMAR(reg.getPC());
             reg.setMBR(mem.getMem(reg.getMAR()));
             reg.setIR(reg.getMBR());
