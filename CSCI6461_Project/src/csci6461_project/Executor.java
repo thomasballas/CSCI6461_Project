@@ -103,6 +103,31 @@ public class Executor {
         }
         
     }
+    private void parseUserData(File dataFile) {
+        try {
+            Scanner sc = new Scanner(dataFile);
+            Vector<String> vc = new Vector<>();
+            while (sc.hasNext()) {
+                String next = sc.next();
+                String hold;
+                for (int i=0; i<next.length(); i++) {
+                    hold = next.substring(i, i+1);
+                    vc.add(hold);
+                }
+                vc.add("\n");   
+            }
+            String[] hold = vc.toArray(new String[0]);
+//            System.out.println(hold.length);
+            int[] hold2 = new int[hold.length];
+            for (int i = 0; i<hold.length; i++) hold2[i] = (int) hold[i].charAt(0);
+//            System.out.println(hold2.length);
+            mem.writeData(hold2);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Executor.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("FILE READ ERROR: CANNOT PARSE PROGRAM");
+        }
+        
+    }
     /***
      * start() runs continuously, executing instructions from memory
      * it will wait until a user selects run or single step
@@ -126,6 +151,7 @@ public class Executor {
                     reg.setPC(31);
                     if (GUI.setFile) parseProgram(GUI.programFile);
                     else Part1MemorySetter.setMemory(mem);
+                    if (GUI.setDataFile) parseUserData(GUI.dataFile);
                     guiUpdateBattery();
                     GUI.IPL = false;
                     GUI.run = false;

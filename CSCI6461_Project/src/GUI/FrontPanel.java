@@ -29,6 +29,8 @@ public class FrontPanel extends JFrame {
     public Boolean IPL;
     public Boolean setFile;
     public File programFile;
+    public Boolean setDataFile;
+    public File dataFile;
     static JTextField GPR0[];
     static JTextField GPR1[];
     static JTextField GPR2[];
@@ -84,6 +86,7 @@ public class FrontPanel extends JFrame {
         singleStep = false;
         IPL = false;
         setFile = false;
+        setDataFile = false;
         userInput = false;
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
@@ -587,6 +590,7 @@ public class FrontPanel extends JFrame {
         MFR_changed = false;
         Carry_changed = false;
         setFile = false;
+        setDataFile = false;
         changed = false;
         if (userText.length() < 1) userInput = false;
     }
@@ -1274,6 +1278,7 @@ public class FrontPanel extends JFrame {
         CarryC1 = new javax.swing.JCheckBox();
         CarryT1 = new javax.swing.JTextField();
         SelectFileButton = new javax.swing.JButton();
+        SelectDataFileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -4107,10 +4112,17 @@ public class FrontPanel extends JFrame {
             }
         });
 
-        SelectFileButton.setText("Add a file to memory");
+        SelectFileButton.setText("Add instruction file to memory");
         SelectFileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SelectFileButtonActionPerformed(evt);
+            }
+        });
+
+        SelectDataFileButton.setText("Add user data file to memory");
+        SelectDataFileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SelectDataFileButtonActionPerformed(evt);
             }
         });
 
@@ -5067,7 +5079,8 @@ public class FrontPanel extends JFrame {
                                                         .addGap(6, 6, 6)
                                                         .addComponent(jTextField69, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(6, 6, 6)
-                                                        .addComponent(jTextField70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                        .addComponent(jTextField70, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(SelectDataFileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addComponent(jLabel6))))
@@ -5103,7 +5116,9 @@ public class FrontPanel extends JFrame {
                                             .addComponent(runButton)
                                             .addComponent(SelectFileButton))
                                         .addGap(18, 18, 18)
-                                        .addComponent(haltButton)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(haltButton)
+                                            .addComponent(SelectDataFileButton))
                                         .addGap(18, 18, 18)
                                         .addComponent(iplButton)
                                         .addGap(18, 18, 18)
@@ -8554,6 +8569,19 @@ public class FrontPanel extends JFrame {
         
     }//GEN-LAST:event_SelectFileButtonActionPerformed
 
+    private void SelectDataFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SelectDataFileButtonActionPerformed
+        // TODO add your handling code here:
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+            "TXT Files", "txt");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+            setDataFile = true;
+            dataFile = chooser.getSelectedFile();
+        }
+    }//GEN-LAST:event_SelectDataFileButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -8690,6 +8718,7 @@ public class FrontPanel extends JFrame {
     private javax.swing.JTextField R3T7;
     private javax.swing.JTextField R3T8;
     private javax.swing.JTextField R3T9;
+    private javax.swing.JButton SelectDataFileButton;
     private javax.swing.JButton SelectFileButton;
     private javax.swing.JButton haltButton;
     private javax.swing.JButton iplButton;

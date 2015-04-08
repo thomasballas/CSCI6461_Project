@@ -103,11 +103,22 @@ public class Memory {
     }
 
     public void writeMem(int instructions[]) {
-        int memLoc = 10;
+        int memLoc = 31;
 //        System.out.println(memory.capacity());
         for (int i = 0; i<instructions.length; i++) {
             if (memLoc > memory.capacity()) return;
             memory.set(memLoc, instructions[i]);
+            memLoc++;
+        }
+    }
+    
+    public void writeData(int data[]) {
+        int memLoc = (2047 - data.length);
+//        System.out.println(memory.capacity());
+        for (int i = 0; i<data.length; i++) {
+            if (memLoc > memory.capacity()) return;
+            memory.set(memLoc, data[i]);
+            System.out.println("Loaded data ("+data[i]+") at memory location ("+memLoc+")");
             memLoc++;
         }
     }
