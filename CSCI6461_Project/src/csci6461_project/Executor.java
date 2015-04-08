@@ -113,15 +113,20 @@ public class Executor {
                 for (int i=0; i<next.length(); i++) {
                     hold = next.substring(i, i+1);
                     vc.add(hold);
+                    if (i == (next.length()-1)) {
+                        if (hold.equals(".")) vc.add("\n"); 
+                        else vc.add(" ");
+                    }
                 }
-                vc.add("\n");   
+                  
             }
             String[] hold = vc.toArray(new String[0]);
 //            System.out.println(hold.length);
             int[] hold2 = new int[hold.length];
             for (int i = 0; i<hold.length; i++) hold2[i] = (int) hold[i].charAt(0);
 //            System.out.println(hold2.length);
-            mem.writeData(hold2);
+            int loc = mem.writeData(hold2);
+            reg.setGPR(3, loc);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Executor.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("FILE READ ERROR: CANNOT PARSE PROGRAM");

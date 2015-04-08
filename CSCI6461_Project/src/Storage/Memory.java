@@ -112,15 +112,17 @@ public class Memory {
         }
     }
     
-    public void writeData(int data[]) {
+    public int writeData(int data[]) {
         int memLoc = (2047 - data.length);
 //        System.out.println(memory.capacity());
+        int hold = memLoc;
         for (int i = 0; i<data.length; i++) {
-            if (memLoc > memory.capacity()) return;
+            if (memLoc > memory.capacity()) return hold;
             memory.set(memLoc, data[i]);
             System.out.println("Loaded data ("+data[i]+") at memory location ("+memLoc+")");
             memLoc++;
         }
+        return hold;
     }
     
     // memory setter; checks for valid addressing and values
