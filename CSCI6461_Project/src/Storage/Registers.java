@@ -50,6 +50,7 @@ public class Registers {
         FR = new int[2];      
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
+        FR_changed = new boolean[2];
         zeroize();
     }
 

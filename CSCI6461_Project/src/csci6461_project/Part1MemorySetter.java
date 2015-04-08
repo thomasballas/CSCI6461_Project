@@ -35,12 +35,18 @@ public class Part1MemorySetter {
         // Create int representation of "SIR 3, 1"
         int SIR2inst = DataTypeConvertor.stringToInt("0001111100000001");
         // Create int representation of "AIR 3, 2"
-        int AIR2inst = DataTypeConvertor.stringToInt("0001101100000010");        
-        mem.setMem(7, LDRinst);
+        int AIR2inst = DataTypeConvertor.stringToInt("0001101100000010");
+        // Create int representation of "CHK 1, 0"
+        int CHKinst = DataTypeConvertor.stringToInt("1100110100000000");
+        // Create int representation of "IN 0, 0"
+        int INinst = DataTypeConvertor.stringToInt("1100010000000000");
+        // Create int representation of "CHK 1, 0"
+        int CHK2inst = DataTypeConvertor.stringToInt("1100110100000000");
+        mem.setMem(7, CHKinst);
         mem.setMem(31, 65535);
-        mem.setMem(8,LDXinst);
+        mem.setMem(8,INinst);
         mem.setMem(20, 100);
-        mem.setMem(9,LDR2inst);
+        mem.setMem(9,CHK2inst);
         mem.setMem(30, 31);
         mem.setMem(10,AMRinst);
         mem.setMem(124, 6000);

@@ -123,7 +123,7 @@ public class Executor {
                     GUI.clearPrinterAndKeyboard();
                     mem.zeroize();
                     reg.zeroize();
-                    reg.setPC(7);
+                    reg.setPC(31);
                     if (GUI.setFile) parseProgram(GUI.programFile);
                     else Part1MemorySetter.setMemory(mem);
                     guiUpdateBattery();

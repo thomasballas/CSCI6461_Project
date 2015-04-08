@@ -88,6 +88,7 @@ public class FrontPanel extends JFrame {
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
         consoleOutput = "";
+        userText = "";
         resetChangedFlags();
         Printer = ConsolePrinterField;
         ConsoleInput = ConsoleInputField;
@@ -562,6 +563,12 @@ public class FrontPanel extends JFrame {
         return userText;
     }
     
+    // setter for console input text box
+    public void setConsoleInput(String input) {
+        ConsoleInput.setText(input);
+        userText = input;
+    }
+    
     // reset flags to false
     public void resetChangedFlags() {
         for (int i = 0; i < GPR_changed.length; i++) {
@@ -581,8 +588,7 @@ public class FrontPanel extends JFrame {
         Carry_changed = false;
         setFile = false;
         changed = false;
-        userInput = false;
-
+        if (userText.length() < 1) userInput = false;
     }
 
     public void clearPrinterAndKeyboard() {
