@@ -341,14 +341,13 @@ public class Instructions {
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
+                System.out.println("In JCC");
                 if (EA != -1 && EA <= 2048) {
                     int ccbit;
-                    if (R == 0) {
-                        ccbit = 0;
-                    } else {
-                        ccbit = 1 << (R - 1);
-                    }
+                    ccbit = 1 << (3 - R);
+                    System.out.println("CCbit is " +ccbit+ " and getCC is " +reg.getCC());
                     if (reg.getCC() == ccbit) {
+                        System.out.println("condition satisfied");
                         reg.setCC(0);
                         reg.setPC(EA);
                     } else {
@@ -456,10 +455,14 @@ public class Instructions {
                 reg.setGPR(Rx + 1, temp2);
                 break;
             case 18: //instruction for TRR
+                System.out.println("In TRR");
                 Rx = isolatedValues[1];
                 Ry = isolatedValues[2];
+                System.out.println("Registers are " +Rx+" and " + Ry);
+                System.out.println("Values are " +reg.getGPR(Rx)+" and " + reg.getGPR(Ry));
                 //set the 4th bit of CC to 1
-                if (Rx == Ry) {
+                if (reg.getGPR(Rx) == reg.getGPR(Ry)) {
+                    System.out.println("values equal");
                     reg.setCC(reg.getCC() | 1);
                 } //set 4th bit of CC to 0, by using "and" operation with 1110
                 else {

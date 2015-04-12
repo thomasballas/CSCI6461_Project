@@ -113,7 +113,7 @@ public class Memory {
     }
     
     public int writeData(int data[]) {
-        int memLoc = (2047 - data.length);
+        int memLoc = (memory.capacity() - data.length);
 //        System.out.println(memory.capacity());
         int hold = memLoc;
         for (int i = 0; i<data.length; i++) {

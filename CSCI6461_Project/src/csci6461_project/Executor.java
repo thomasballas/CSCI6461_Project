@@ -170,11 +170,11 @@ public class Executor {
             reg.setMAR(reg.getPC());
             reg.setMBR(mem.getMem(reg.getMAR()));
             reg.setIR(reg.getMBR());
+            reg.setPC(reg.getPC() + 1);
             inst.executeInstruction(reg.getIR());
 
             GUI.singleStep = false;
             //GUI.IPL = false;
-            reg.setPC(reg.getPC() + 1);
 //            System.out.println("Program counter is now " + reg.getPC());
             guiUpdateBattery();
         }
