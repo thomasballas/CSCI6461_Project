@@ -694,6 +694,144 @@ public class Instructions {
                     else reg.setGPR(ioR, 0);
                 }
                 break;
+                
+            case 27: //instruction for FADD
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                    reg.setMAR(EA);
+                    reg.setMBR(mem.getMem(reg.getMAR()));
+                    reg.setFR(R,reg.getMBR()+reg.getFR(R));
+                    if (reg.getMBR()+reg.getFR(R) > sixteenBitMax) {
+                        reg.setCC(reg.getCC() | 8);
+                        reg.setCarry(1);
+                        System.out.println("overflow");
+                    }
+                } else {
+                    System.out.println("error");
+                } 	
+            	break;
+            	
+            case 28: //instruction for FSUB
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                    reg.setMAR(EA);
+                    reg.setMBR(mem.getMem(reg.getMAR()));
+                    reg.setFR(R,reg.getFR(R)-reg.getMBR());
+                    if(reg.getFR(R)-reg.getMBR()<(-Math.pow(2, 16))){
+                    	reg.setCC(reg.getCC()|4);
+                    	System.out.println("underflow");
+                    }
+                } else {
+                    System.out.println("error");
+                } 	
+            	break;
+            	
+            	
+            case 29: //instruction for VADD
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                	reg.setMAR(EA);
+                	reg.setMBR(reg.getMAR());
+                	//V1[i] = V1[i] + V2[i], from i = 1 to c(fr).
+                	for(int i=0; i<reg.getFR(R);i++){
+                		mem.getMem(reg.getMBR()+i)+=mem.getMem(reg.getMBR()+1+i);
+                	}
+                		         
+                }
+                else{
+                    System.out.println("error");
+                }
+                break;
+            
+            case 30://instruction for VSUB
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                	reg.setMAR(EA);
+                	reg.setMBR(reg.getMAR());
+                	//V1[i] = V1[i] - V2[i], from i = 1 to c(fr).
+                	for(int i=0; i<reg.getFR(R);i++){
+                		mem.getMem(reg.getMBR()+i)-=mem.getMem(reg.getMBR()+1+i);
+                	}
+                		         
+                }
+                else{
+                    System.out.println("error");
+                }
+                break;
+            	
+            case 31://instruction for CNVRT
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (reg.getGPR(R)==0 || reg.getGPR(R)==1)){
+                	reg.setMAR(EA);
+                	reg.setMBR(reg.getMAR());
+                	if(reg.getGPR(R)==0){
+                		reg.setGPR(R) = mem.setMem(reg.getMBR());
+                	}
+                	else if(reg.getGPR(R)==1){
+                		reg.setFR(0) = mem.setMem(reg.getMBR());
+                	}
+                }
+                else{
+                    System.out.println("error");
+                }
+                break;    
+            
+            case 40://instruction for LDFR
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                	reg.setMAR(EA);
+                	reg.setMBR(reg.getMAR());
+                	reg.setFR(0) = mem.getMem(reg.getMBR());
+                	reg.setFR(1) = mem.getMem(reg.getMBR()+1);               		         
+                }
+                else{
+                    System.out.println("error");
+                }
+                break;    
+            
+             
+            case 41://instruction for STFR
+            	R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                	reg.setMAR(EA);
+                	reg.setMBR(reg.getMAR());
+                	mem.setMem(reg.getMBR()) = reg.getFR(0);
+                	mem.setMem(reg.getMBR()+1) = reg.getFR(1);               		         
+                }
+                else{
+                    System.out.println("error");
+                }
+                break;
+            
+            
             default:
                 break;
         }
