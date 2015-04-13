@@ -695,10 +695,7 @@ public class Instructions {
                 }
                 break;
                 
-<<<<<<< HEAD
-=======
-                         
->>>>>>> 9bf9fcd7733155ad96cbbbbb0c0a8e1685a33b32
+
             case 27: //instruction for FADD
             	R = isolatedValues[1];
                 IX = isolatedValues[2];
@@ -792,11 +789,7 @@ public class Instructions {
                 		reg.setGPR(R) = mem.setMem(reg.getMBR());
                 	}
                 	else if(reg.getGPR(R)==1){
-<<<<<<< HEAD
                 		reg.setFR(0) = mem.setMem(reg.getMBR());
-=======
-                		reg.setFR(0, mem.setMem(reg.getMBR()));
->>>>>>> 9bf9fcd7733155ad96cbbbbb0c0a8e1685a33b32
                 	}
                 }
                 else{
@@ -813,13 +806,8 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
                 	reg.setMAR(EA);
                 	reg.setMBR(reg.getMAR());
-<<<<<<< HEAD
-                	reg.setFR(0) = mem.getMem(reg.getMBR());
-                	reg.setFR(1) = mem.getMem(reg.getMBR()+1);               		         
-=======
                 	reg.setFR(0, mem.getMem(reg.getMBR()));
                 	reg.setFR(1, mem.getMem(reg.getMBR()+1));               		         
->>>>>>> 9bf9fcd7733155ad96cbbbbb0c0a8e1685a33b32
                 }
                 else{
                     System.out.println("error");
@@ -843,13 +831,6 @@ public class Instructions {
                     System.out.println("error");
                 }
                 break;
-<<<<<<< HEAD
-            
-            
-=======
-                   
-        
->>>>>>> 9bf9fcd7733155ad96cbbbbb0c0a8e1685a33b32
             default:
                 break;
         }
