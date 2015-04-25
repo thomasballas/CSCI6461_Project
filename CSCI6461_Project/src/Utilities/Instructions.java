@@ -744,10 +744,10 @@ public class Instructions {
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
                 	reg.setMAR(EA);
-                	reg.setMBR(reg.getMAR());
+                	reg.setMBR(mem.getMem(reg.getMAR()));
                 	//V1[i] = V1[i] + V2[i], from i = 1 to c(fr).
                 	for(int i=0; i<reg.getFR(R);i++){
-                		mem.getMem(reg.getMBR()+i)+=mem.getMem(reg.getMBR()+1+i);
+                		mem.setMem(reg.getMBR()+i, mem.getMem(reg.getMBR()+i)+mem.getMem(reg.getMBR()+1+i));
                 	}
                 		         
                 }
@@ -767,7 +767,7 @@ public class Instructions {
                 	reg.setMBR(reg.getMAR());
                 	//V1[i] = V1[i] - V2[i], from i = 1 to c(fr).
                 	for(int i=0; i<reg.getFR(R);i++){
-                		mem.getMem(reg.getMBR()+i)-=mem.getMem(reg.getMBR()+1+i);
+                		mem.setMem(reg.getMBR()+i, mem.getMem(reg.getMBR()+i)-mem.getMem(reg.getMBR()+1+i));
                 	}
                 		         
                 }
@@ -784,12 +784,12 @@ public class Instructions {
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048 && (reg.getGPR(R)==0 || reg.getGPR(R)==1)){
                 	reg.setMAR(EA);
-                	reg.setMBR(reg.getMAR());
+                	reg.setMBR(mem.getMem(reg.getMAR()));
                 	if(reg.getGPR(R)==0){
-                		reg.setGPR(R) = mem.setMem(reg.getMBR());
+                		reg.setGPR(R, reg.getMBR());
                 	}
                 	else if(reg.getGPR(R)==1){
-                		reg.setFR(0) = mem.setMem(reg.getMBR());
+                		reg.setFR(0, reg.getMBR());
                 	}
                 }
                 else{
@@ -805,7 +805,7 @@ public class Instructions {
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
                 	reg.setMAR(EA);
-                	reg.setMBR(reg.getMAR());
+                	reg.setMBR(mem.getMem(reg.getMAR()));
                 	reg.setFR(0, mem.getMem(reg.getMBR()));
                 	reg.setFR(1, mem.getMem(reg.getMBR()+1));               		         
                 }
@@ -823,14 +823,14 @@ public class Instructions {
                 EA = computeEA(I, IX, Address);
                 if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
                 	reg.setMAR(EA);
-                	reg.setMBR(reg.getMAR());
-                	mem.setMem(reg.getMBR()) = reg.getFR(0);
-                	mem.setMem(reg.getMBR()+1) = reg.getFR(1);               		         
+                  	mem.setMem(reg.getMAR(), reg.getFR(0));
+                  	mem.setMem(reg.getMAR()+1, reg.getFR(1));
                 }
                 else{
                     System.out.println("error");
                 }
                 break;
+                
             default:
                 break;
         }
