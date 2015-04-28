@@ -12,6 +12,7 @@ package Utilities;
 import Storage.Memory;
 import Storage.Registers;
 import GUI.FrontPanel;
+import java.math.*;
 import static java.lang.Thread.sleep;
 
 public class Instructions {
@@ -34,6 +35,150 @@ public class Instructions {
         this.reg = reg;
         this.GUI = GUI;
 
+    }
+
+    /**
+     * Converts integers (representation) to floating point values
+     */
+    public float intToFloat(int number) {
+        String bitstring = DataTypeConvertor.intToString(number, 16);
+        String signBit = bitstring.substring(0, 1);
+        String exponent = bitstring.substring(1, 8);
+        String mantissa = bitstring.substring(8, 16);
+        double expon = 0;
+        if (DataTypeConvertor.stringToInt(signBit) == 0) {
+            expon = DataTypeConvertor.stringToInt(exponent);
+        } else {
+            expon = -(DataTypeConvertor.stringToInt(exponent));
+        }
+        float result = (float) ((float) DataTypeConvertor.stringToInt(mantissa) * Math.pow(10, expon));
+        return result;
+    }
+
+//    public int floatToInt(float value) {
+//
+//    }
+    public double generateDoubleFromFloatingPointRep(String theFloat) {
+        if (theFloat.length() < 16) {
+            return 0;
+        }
+        double returnVal = 0;
+        String signBit = theFloat.substring(0, 1);
+        String exponentBits = theFloat.substring(1, 8);
+        String mantissaBits = theFloat.substring(8, 16);
+        if (DataTypeConvertor.stringToInt(mantissaBits) == 0) return 0;
+        int sign = DataTypeConvertor.stringToInt(signBit);
+
+        int exponent = 64 - DataTypeConvertor.stringToInt(exponentBits);
+        mantissaBits = "1" + mantissaBits;
+        int intega = 0;
+        double frac = 0;
+
+        if (exponent >= 0) {
+            if (exponent > 8) {
+                returnVal = DataTypeConvertor.stringToInt(mantissaBits) << (exponent - 8);
+            } else {
+                intega = DataTypeConvertor.stringToInt(mantissaBits.substring(0, exponent + 1));
+                String fracBits = mantissaBits.substring(exponent + 1, mantissaBits.length());
+                double mult = 0.5;
+                for (int i = 0; i < fracBits.length(); i++) {
+                    if (fracBits.charAt(i) == '1') {
+                        frac += mult;
+                    }
+                    mult *= 0.5;
+                }
+                returnVal = intega + frac;
+            }
+        } else {
+            exponent = -exponent;
+            for (int i = 0; i < exponent - 1; i++) {
+                mantissaBits = "0" + mantissaBits;
+            }
+            double mult = 0.5;
+            for (int i = 0; i < mantissaBits.length(); i++) {
+                if (mantissaBits.charAt(i) == '1') {
+                    frac += mult;
+                }
+                mult *= 0.5;
+            }
+            returnVal = frac;
+        }
+
+        if (sign != 0) {
+            returnVal = -returnVal;
+        }
+        return returnVal;
+    }
+
+    public String generateFloatingPointRepFromDouble(double theDouble) {
+
+        int sign = 0;
+        if (theDouble < 0) {
+            sign = 1;
+            theDouble = -theDouble;
+        }
+
+        int exponSign = 1;
+        int integ = (int) (theDouble / 1);
+        int intega = integ;
+        String intbits = "";
+        if (integ == 0) {
+            intbits = "0";
+            if (theDouble == 0) exponSign = 0;
+        } else {
+            exponSign = 0;
+            while (intega != 0) {
+                if ((intega & 1) == 1) {
+                    intbits = "1" + intbits;
+                } else {
+                    intbits = "0" + intbits;
+                }
+                intega = intega >> 1;
+            }
+        }
+
+        double frac = theDouble % 1;
+        double fraca = frac;
+        String fracBits = "";
+        while ((frac != 0) && (fracBits.length() < 9)) {
+            frac *= 2;
+            if (frac >= 1) {
+                fracBits += "1";
+                frac -= 1;
+            } else {
+                fracBits += "0";
+            }
+        }
+
+        System.out.println("The value of the integer is " + integ);
+        System.out.println("The bitstring of the integer is " + intbits);
+        System.out.println("The value of the fraction is " + fraca);
+        System.out.println("The bitstring of the fraction is " + fracBits);
+        System.out.println("The bitstring of the double is " + intbits + "." + fracBits);
+
+        int exponent = 0;
+        String mantissaPointBits = "";
+        if (exponSign == 0) {
+            exponent = intbits.length() - 1;
+            mantissaPointBits = intbits.substring(0, 1) + intbits.substring(1, intbits.length()) + fracBits;
+        } else {
+            while ((fracBits.charAt(exponent) != '1')&&(exponent < fracBits.length())) {
+                exponent += 1;
+            }
+            mantissaPointBits = fracBits.substring(exponent, exponent + 1) + fracBits.substring(exponent + 1, fracBits.length());
+            exponent += 1;
+            exponent = -exponent;
+        }
+        while (mantissaPointBits.length() < 9) {
+            mantissaPointBits += "0";
+        }
+        exponent = 64 - exponent;
+        String exponentBits = DataTypeConvertor.intToString(exponent, 7);
+        String signBit = DataTypeConvertor.intToString(sign, 1);
+        System.out.println("The bitstring of the float is " + mantissaPointBits);
+        System.out.println("The exponent of the float is " + exponent);
+        String floatingPointRep = signBit + exponentBits + mantissaPointBits.substring(1, 9);
+        return floatingPointRep;
     }
 
     /**
@@ -117,7 +262,6 @@ public class Instructions {
     // execute instruction according to switch-case statement
     // set variables and memory accordingly
     // return once processing has completed
-
     public void executeInstruction(int instruction) throws InterruptedException {
         //extract each part
         int isolatedValues[] = isolateLoadStoreBits(instruction);
@@ -345,7 +489,7 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048) {
                     int ccbit;
                     ccbit = 1 << (3 - R);
-                    System.out.println("CCbit is " +ccbit+ " and getCC is " +reg.getCC());
+                    System.out.println("CCbit is " + ccbit + " and getCC is " + reg.getCC());
                     if (reg.getCC() == ccbit) {
                         System.out.println("condition satisfied");
                         reg.setCC(0);
@@ -458,8 +602,8 @@ public class Instructions {
                 System.out.println("In TRR");
                 Rx = isolatedValues[1];
                 Ry = isolatedValues[2];
-                System.out.println("Registers are " +Rx+" and " + Ry);
-                System.out.println("Values are " +reg.getGPR(Rx)+" and " + reg.getGPR(Ry));
+                System.out.println("Registers are " + Rx + " and " + Ry);
+                System.out.println("Values are " + reg.getGPR(Rx) + " and " + reg.getGPR(Ry));
                 //set the 4th bit of CC to 1
                 if (reg.getGPR(Rx) == reg.getGPR(Ry)) {
                     System.out.println("values equal");
@@ -690,147 +834,141 @@ public class Instructions {
                 ioR = isolatedShift[1];
                 ioDevID = isolatedIO[2];
                 if (ioDevID == 0) {
-                    if (GUI.getConsoleInput().length() > 0) reg.setGPR(ioR, 1);
-                    else reg.setGPR(ioR, 0);
+                    if (GUI.getConsoleInput().length() > 0) {
+                        reg.setGPR(ioR, 1);
+                    } else {
+                        reg.setGPR(ioR, 0);
+                    }
                 }
                 break;
-                
 
             case 27: //instruction for FADD
-            	R = isolatedValues[1];
+                R = isolatedValues[1];
                 IX = isolatedValues[2];
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
                     reg.setMAR(EA);
                     reg.setMBR(mem.getMem(reg.getMAR()));
-                    reg.setFR(R,reg.getMBR()+reg.getFR(R));
-                    if (reg.getMBR()+reg.getFR(R) > sixteenBitMax) {
+                    reg.setFR(R, reg.getMBR() + reg.getFR(R));
+                    if (reg.getMBR() + reg.getFR(R) > sixteenBitMax) {
                         reg.setCC(reg.getCC() | 8);
                         reg.setCarry(1);
                         System.out.println("overflow");
                     }
                 } else {
                     System.out.println("error");
-                } 	
-            	break;
-            	
+                }
+                break;
+
             case 28: //instruction for FSUB
-            	R = isolatedValues[1];
+                R = isolatedValues[1];
                 IX = isolatedValues[2];
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
+                if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
                     reg.setMAR(EA);
                     reg.setMBR(mem.getMem(reg.getMAR()));
-                    reg.setFR(R,reg.getFR(R)-reg.getMBR());
-                    if(reg.getFR(R)-reg.getMBR()<(-Math.pow(2, 16))){
-                    	reg.setCC(reg.getCC()|4);
-                    	System.out.println("underflow");
+                    reg.setFR(R, reg.getFR(R) - reg.getMBR());
+                    if (reg.getFR(R) - reg.getMBR() < (-Math.pow(2, 16))) {
+                        reg.setCC(reg.getCC() | 4);
+                        System.out.println("underflow");
                     }
                 } else {
                     System.out.println("error");
-                } 	
-            	break;
-            	
-            	
+                }
+                break;
+
             case 29: //instruction for VADD
-            	R = isolatedValues[1];
+                R = isolatedValues[1];
                 IX = isolatedValues[2];
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
-                	reg.setMAR(EA);
-                	reg.setMBR(mem.getMem(reg.getMAR()));
-                	//V1[i] = V1[i] + V2[i], from i = 1 to c(fr).
-                	for(int i=0; i<reg.getFR(R);i++){
-                		mem.setMem(reg.getMBR()+i, mem.getMem(reg.getMBR()+i)+mem.getMem(reg.getMBR()+1+i));
-                	}
-                		         
-                }
-                else{
+                if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
+                    reg.setMAR(EA);
+                    reg.setMBR(mem.getMem(reg.getMAR()));
+                    //V1[i] = V1[i] + V2[i], from i = 1 to c(fr).
+                    for (int i = 0; i < reg.getFR(R); i++) {
+                        mem.setMem(reg.getMBR() + i, mem.getMem(reg.getMBR() + i) + mem.getMem(reg.getMBR() + 1 + i));
+                    }
+
+                } else {
                     System.out.println("error");
                 }
                 break;
-            
+
             case 30://instruction for VSUB
-            	R = isolatedValues[1];
+                R = isolatedValues[1];
                 IX = isolatedValues[2];
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
-                	reg.setMAR(EA);
-                	reg.setMBR(reg.getMAR());
-                	//V1[i] = V1[i] - V2[i], from i = 1 to c(fr).
-                	for(int i=0; i<reg.getFR(R);i++){
-                		mem.setMem(reg.getMBR()+i, mem.getMem(reg.getMBR()+i)-mem.getMem(reg.getMBR()+1+i));
-                	}
-                		         
-                }
-                else{
+                if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
+                    reg.setMAR(EA);
+                    reg.setMBR(reg.getMAR());
+                    //V1[i] = V1[i] - V2[i], from i = 1 to c(fr).
+                    for (int i = 0; i < reg.getFR(R); i++) {
+                        mem.setMem(reg.getMBR() + i, mem.getMem(reg.getMBR() + i) - mem.getMem(reg.getMBR() + 1 + i));
+                    }
+
+                } else {
                     System.out.println("error");
                 }
                 break;
-            	
+
             case 31://instruction for CNVRT
-            	R = isolatedValues[1];
+                R = isolatedValues[1];
                 IX = isolatedValues[2];
                 I = isolatedValues[3];
                 Address = isolatedValues[4];
                 EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (reg.getGPR(R)==0 || reg.getGPR(R)==1)){
-                	reg.setMAR(EA);
-                	reg.setMBR(mem.getMem(reg.getMAR()));
-                	if(reg.getGPR(R)==0){
-                		reg.setGPR(R, reg.getMBR());
-                	}
-                	else if(reg.getGPR(R)==1){
-                		reg.setFR(0, reg.getMBR());
-                	}
-                }
-                else{
-                    System.out.println("error");
-                }
-                break;    
-            
-            case 40://instruction for LDFR
-            	R = isolatedValues[1];
-                IX = isolatedValues[2];
-                I = isolatedValues[3];
-                Address = isolatedValues[4];
-                EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
-                	reg.setMAR(EA);
-                	reg.setMBR(mem.getMem(reg.getMAR()));
-                	reg.setFR(0, mem.getMem(reg.getMBR()));
-                	reg.setFR(1, mem.getMem(reg.getMBR()+1));               		         
-                }
-                else{
-                    System.out.println("error");
-                }
-                break;    
-            
-             
-            case 41://instruction for STFR
-            	R = isolatedValues[1];
-                IX = isolatedValues[2];
-                I = isolatedValues[3];
-                Address = isolatedValues[4];
-                EA = computeEA(I, IX, Address);
-                if (EA != -1 && EA <= 2048 && (R==0 || R==1)) {
-                	reg.setMAR(EA);
-                  	mem.setMem(reg.getMAR(), reg.getFR(0));
-                  	mem.setMem(reg.getMAR()+1, reg.getFR(1));
-                }
-                else{
+                if (EA != -1 && EA <= 2048 && (reg.getGPR(R) == 0 || reg.getGPR(R) == 1)) {
+                    reg.setMAR(EA);
+                    reg.setMBR(mem.getMem(reg.getMAR()));
+                    if (reg.getGPR(R) == 0) {
+                        reg.setGPR(R, reg.getMBR());
+                    } else if (reg.getGPR(R) == 1) {
+                        reg.setFR(0, reg.getMBR());
+                    }
+                } else {
                     System.out.println("error");
                 }
                 break;
-                
+
+            case 40://instruction for LDFR
+                R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
+                    reg.setMAR(EA);
+                    reg.setMBR(mem.getMem(reg.getMAR()));
+                    reg.setFR(0, mem.getMem(reg.getMBR()));
+                    reg.setFR(1, mem.getMem(reg.getMBR() + 1));
+                } else {
+                    System.out.println("error");
+                }
+                break;
+
+            case 41://instruction for STFR
+                R = isolatedValues[1];
+                IX = isolatedValues[2];
+                I = isolatedValues[3];
+                Address = isolatedValues[4];
+                EA = computeEA(I, IX, Address);
+                if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
+                    reg.setMAR(EA);
+                    mem.setMem(reg.getMAR(), reg.getFR(0));
+                    mem.setMem(reg.getMAR() + 1, reg.getFR(1));
+                } else {
+                    System.out.println("error");
+                }
+                break;
+
             default:
                 break;
         }
