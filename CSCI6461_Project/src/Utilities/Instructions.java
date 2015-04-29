@@ -759,9 +759,13 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
                     reg.setMAR(EA);
                     reg.setMBR(mem.getMem(reg.getMAR()));
+                    int v1 = mem.getMem(reg.getMAR());
+                    int v2 = mem.getMem(reg.getMAR()+1);
                     //V1[i] = V1[i] + V2[i], from i = 1 to c(fr).
-                    for (int i = 0; i < reg.getFR(R); i++) {
-                        mem.setMem(reg.getMBR() + i, mem.getMem(reg.getMBR() + i) + mem.getMem(reg.getMBR() + 1 + i));
+                    for (int i = 0; i < (int) (reg.getFR(R)/1); i++) {
+                        int v1v = mem.getMem(v1 + i);
+                        int v2v = mem.getMem(v2 + i);
+                        mem.setMem((v1 + i), (v1v + v2v));
                     }
 
                 } else {
@@ -778,9 +782,13 @@ public class Instructions {
                 if (EA != -1 && EA <= 2048 && (R == 0 || R == 1)) {
                     reg.setMAR(EA);
                     reg.setMBR(reg.getMAR());
+                    int v1 = mem.getMem(reg.getMAR());
+                    int v2 = mem.getMem(reg.getMAR()+1);
                     //V1[i] = V1[i] - V2[i], from i = 1 to c(fr).
-                    for (int i = 0; i < reg.getFR(R); i++) {
-                        mem.setMem(reg.getMBR() + i, mem.getMem(reg.getMBR() + i) - mem.getMem(reg.getMBR() + 1 + i));
+                    for (int i = 0; i < (int) (reg.getFR(R)/1); i++) {
+                        int v1v = mem.getMem(v1 + i);
+                        int v2v = mem.getMem(v2 + i);
+                        mem.setMem((v1 + i), (v1v - v2v));
                     }
 
                 } else {
@@ -798,9 +806,11 @@ public class Instructions {
                     reg.setMAR(EA);
                     reg.setMBR(mem.getMem(reg.getMAR()));
                     if (reg.getGPR(R) == 0) {
-                        reg.setGPR(R, reg.getMBR());
+                        int hold = (int) DataTypeConvertor.intToFloat(reg.getMBR())/1;
+//                        System.out.println("Retrieved int " + hold);
+                        reg.setGPR(R, hold);
                     } else if (reg.getGPR(R) == 1) {
-                        reg.setFR(0, reg.getMBR());
+                        reg.setFR(0, (double) reg.getMBR());
                     }
                 } else {
                     System.out.println("error");
