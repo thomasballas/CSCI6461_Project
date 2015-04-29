@@ -14,7 +14,7 @@ public class Registers {
     // integers and integer arrays to contain register value
     int GPR[];
     int XR[];
-    int FR[];
+    double FR[];
     int PC;
     int CC;
     int IR;
@@ -47,7 +47,7 @@ public class Registers {
     public Registers() {
         GPR = new int[4];
         XR = new int[3];      
-        FR = new int[2];      
+        FR = new double[2];      
         GPR_changed = new boolean[4];
         XR_changed = new boolean[3];
         FR_changed = new boolean[2];
@@ -142,35 +142,28 @@ public class Registers {
     }
     
         // FR getter method. returns the value of the designated FR
-    public int getFR(int regNum) {
+    public double getFR(int regNum) {
         if (regNum < FR.length) {
             return FR[regNum];
         } // return value exceeding 16-bit word to denote bad addressing
         else {
-            return sixteenBitMax + 1;
+            return 0;
         }
     }
 
     // FR setter method. Sets the designated FR with the supplied value 
     // as long as the numbers are valid (register number and value)
-    public int setFR(int regNum, int value) {
+    public int setFR(int regNum, double value) {
         // status is good (0) or bad (other; can be combined)
         // status of 1 is bad register addressing
         // status of 2 is overflow
         int status = 0;
-        int max = sixteenBitMax;
-        if ((regNum < FR.length) && (value <= max)) {
+        if ((regNum < FR.length)) {
             FR[regNum] = value;
             FR_changed[regNum] = true;
         }
         if (regNum >= FR.length) {
             status += 1;
-        }
-        if (value > max) {    
-            value = value & sixteenBitMax;
-            FR[regNum] = value;
-            FR_changed[regNum] = true;
-            status += 2;
         }
         return status;
     }

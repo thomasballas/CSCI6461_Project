@@ -46,8 +46,8 @@ public class Executor {
         if (reg.XR_changed[0]) GUI.updateXRegister(1, reg.getXR(1));
         if (reg.XR_changed[1]) GUI.updateXRegister(2, reg.getXR(2));
         if (reg.XR_changed[2]) GUI.updateXRegister(3, reg.getXR(3));
-        if (reg.FR_changed[0]) GUI.updateFRegister(0, reg.getFR(0));
-        if (reg.FR_changed[1]) GUI.updateFRegister(1, reg.getFR(1));
+        if (reg.FR_changed[0]) GUI.updateFRegister(0, DataTypeConvertor.FloatToIntRep(reg.getFR(0)));
+        if (reg.FR_changed[1]) GUI.updateFRegister(1, DataTypeConvertor.FloatToIntRep(reg.getFR(1)));
         if (reg.IR_changed) GUI.updateIRRegister(reg.getIR());
         if (reg.MAR_changed) GUI.updateMARRegister(reg.getMAR());
         if (reg.MBR_changed) GUI.updateMBRRegister(reg.getMBR());
@@ -69,8 +69,8 @@ public class Executor {
             if (GUI.XR_changed[0]) reg.setXR(1, GUI.getXRegister(1));
             if (GUI.XR_changed[1]) reg.setXR(2, GUI.getXRegister(2));
             if (GUI.XR_changed[2]) reg.setXR(3, GUI.getXRegister(3));
-            if (GUI.FR_changed[0]) reg.setFR(0, GUI.getFRegister(0));
-            if (GUI.FR_changed[1]) reg.setFR(1, GUI.getFRegister(1));
+            if (GUI.FR_changed[0]) reg.setFR(0, DataTypeConvertor.intToFloat(GUI.getFRegister(0)));
+            if (GUI.FR_changed[1]) reg.setFR(1, DataTypeConvertor.intToFloat(GUI.getFRegister(1)));
             if (GUI.IR_changed) reg.setIR(GUI.getIRRegister());
             if (GUI.MAR_changed) reg.setMAR(GUI.getMARRegister());
             if (GUI.MBR_changed) reg.setMBR(GUI.getMBRRegister());
@@ -148,10 +148,23 @@ public class Executor {
         System.out.println("Started");
         Instructions inst = new Instructions(mem, reg, GUI);
         guiUpdateBattery();
-        String bits = inst.generateFloatingPointRepFromDouble(0);
-        double flipped = inst.generateDoubleFromFloatingPointRep(bits);
+        String bits = DataTypeConvertor.generateFloatingPointRepFromDouble(0);
+        double flipped = DataTypeConvertor.generateDoubleFromFloatingPointRep(bits);
         System.out.println(bits);
         System.out.println(flipped);
+         bits = DataTypeConvertor.generateFloatingPointRepFromDouble(1345879.375);
+         flipped = DataTypeConvertor.generateDoubleFromFloatingPointRep(bits);
+         flipped = DataTypeConvertor.intToFloat(DataTypeConvertor.FloatToIntRep(flipped));
+        System.out.println(bits);
+        System.out.println(flipped);
+//         bits = DataTypeConvertor.generateFloatingPointRepFromDouble(-1345879.375);
+//         flipped = DataTypeConvertor.generateDoubleFromFloatingPointRep(bits);
+//        System.out.println(bits);
+//        System.out.println(flipped);
+//         bits = DataTypeConvertor.generateFloatingPointRepFromDouble(0.00000456852456);
+//         flipped = DataTypeConvertor.generateDoubleFromFloatingPointRep(bits);
+//        System.out.println(bits);
+//        System.out.println(flipped);
         while (true) {
             while (((GUI.run == false) && (GUI.singleStep == false)) ||  
                     (reg.getPC() >= mem.getMemoryLength()) || 
@@ -163,7 +176,10 @@ public class Executor {
                     reg.zeroize();
                     reg.setPC(31);
                     if (GUI.setFile) parseProgram(GUI.programFile);
-                    else Part1MemorySetter.setMemory(mem);
+                    else {
+                        Part4MemorySetter.setReg(reg);
+                        Part4MemorySetter.setMemory(mem);
+                    }
                     if (GUI.setDataFile) parseUserData(GUI.dataFile);
                     guiUpdateBattery();
                     GUI.IPL = false;
